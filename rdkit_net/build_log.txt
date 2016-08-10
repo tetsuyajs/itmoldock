@@ -1,0 +1,2443 @@
+Sending build context to Docker daemon 3.584 kB
+
+Step 1 : FROM centos:7
+ ---> 970633036444
+Step 2 : MAINTAINER yamamoto@itmol.com
+ ---> Running in 5edef79b6ad2
+ ---> ebd2f6b1f0d0
+Removing intermediate container 5edef79b6ad2
+Step 3 : RUN set -x     && yum install -y python-devel python-pillow gcc-c++ boost-devel make cmake unzip git     && curl -kL https://bootstrap.pypa.io/get-pip.py | python     && pip install numpy
+ ---> Running in a0812f30e720
+[91m+ yum install -y python-devel python-pillow gcc-c++ boost-devel make cmake unzip git
+[0mLoaded plugins: fastestmirror, ovl
+Determining fastest mirrors
+ * base: ftp.yz.yamagata-u.ac.jp
+ * extras: ftp.yz.yamagata-u.ac.jp
+ * updates: ftp.yz.yamagata-u.ac.jp
+Resolving Dependencies
+--> Running transaction check
+---> Package boost-devel.x86_64 0:1.53.0-25.el7 will be installed
+--> Processing Dependency: boost(x86-64) = 1.53.0-25.el7 for package: boost-devel-1.53.0-25.el7.x86_64
+--> Processing Dependency: libboost_wserialization.so.1.53.0()(64bit) for package: boost-devel-1.53.0-25.el7.x86_64
+--> Processing Dependency: libboost_wserialization-mt.so.1.53.0()(64bit) for package: boost-devel-1.53.0-25.el7.x86_64
+--> Processing Dependency: libboost_wave.so.1.53.0()(64bit) for package: boost-devel-1.53.0-25.el7.x86_64
+--> Processing Dependency: libboost_wave-mt.so.1.53.0()(64bit) for package: boost-devel-1.53.0-25.el7.x86_64
+--> Processing Dependency: libboost_unit_test_framework.so.1.53.0()(64bit) for package: boost-devel-1.53.0-25.el7.x86_64
+--> Processing Dependency: libboost_unit_test_framework-mt.so.1.53.0()(64bit) for package: boost-devel-1.53.0-25.el7.x86_64
+--> Processing Dependency: libboost_timer.so.1.53.0()(64bit) for package: boost-devel-1.53.0-25.el7.x86_64
+--> Processing Dependency: libboost_timer-mt.so.1.53.0()(64bit) for package: boost-devel-1.53.0-25.el7.x86_64
+--> Processing Dependency: libboost_system.so.1.53.0()(64bit) for package: boost-devel-1.53.0-25.el7.x86_64
+--> Processing Dependency: libboost_system-mt.so.1.53.0()(64bit) for package: boost-devel-1.53.0-25.el7.x86_64
+--> Processing Dependency: libboost_signals.so.1.53.0()(64bit) for package: boost-devel-1.53.0-25.el7.x86_64
+--> Processing Dependency: libboost_signals-mt.so.1.53.0()(64bit) for package: boost-devel-1.53.0-25.el7.x86_64
+--> Processing Dependency: libboost_serialization.so.1.53.0()(64bit) for package: boost-devel-1.53.0-25.el7.x86_64
+--> Processing Dependency: libboost_serialization-mt.so.1.53.0()(64bit) for package: boost-devel-1.53.0-25.el7.x86_64
+--> Processing Dependency: libboost_regex.so.1.53.0()(64bit) for package: boost-devel-1.53.0-25.el7.x86_64
+--> Processing Dependency: libboost_regex-mt.so.1.53.0()(64bit) for package: boost-devel-1.53.0-25.el7.x86_64
+--> Processing Dependency: libboost_random.so.1.53.0()(64bit) for package: boost-devel-1.53.0-25.el7.x86_64
+--> Processing Dependency: libboost_random-mt.so.1.53.0()(64bit) for package: boost-devel-1.53.0-25.el7.x86_64
+--> Processing Dependency: libboost_python.so.1.53.0()(64bit) for package: boost-devel-1.53.0-25.el7.x86_64
+--> Processing Dependency: libboost_python-mt.so.1.53.0()(64bit) for package: boost-devel-1.53.0-25.el7.x86_64
+--> Processing Dependency: libboost_program_options.so.1.53.0()(64bit) for package: boost-devel-1.53.0-25.el7.x86_64
+--> Processing Dependency: libboost_program_options-mt.so.1.53.0()(64bit) for package: boost-devel-1.53.0-25.el7.x86_64
+--> Processing Dependency: libboost_prg_exec_monitor.so.1.53.0()(64bit) for package: boost-devel-1.53.0-25.el7.x86_64
+--> Processing Dependency: libboost_prg_exec_monitor-mt.so.1.53.0()(64bit) for package: boost-devel-1.53.0-25.el7.x86_64
+--> Processing Dependency: libboost_math_tr1l.so.1.53.0()(64bit) for package: boost-devel-1.53.0-25.el7.x86_64
+--> Processing Dependency: libboost_math_tr1l-mt.so.1.53.0()(64bit) for package: boost-devel-1.53.0-25.el7.x86_64
+--> Processing Dependency: libboost_math_tr1f.so.1.53.0()(64bit) for package: boost-devel-1.53.0-25.el7.x86_64
+--> Processing Dependency: libboost_math_tr1f-mt.so.1.53.0()(64bit) for package: boost-devel-1.53.0-25.el7.x86_64
+--> Processing Dependency: libboost_math_tr1.so.1.53.0()(64bit) for package: boost-devel-1.53.0-25.el7.x86_64
+--> Processing Dependency: libboost_math_tr1-mt.so.1.53.0()(64bit) for package: boost-devel-1.53.0-25.el7.x86_64
+--> Processing Dependency: libboost_math_c99l.so.1.53.0()(64bit) for package: boost-devel-1.53.0-25.el7.x86_64
+--> Processing Dependency: libboost_math_c99l-mt.so.1.53.0()(64bit) for package: boost-devel-1.53.0-25.el7.x86_64
+--> Processing Dependency: libboost_math_c99f.so.1.53.0()(64bit) for package: boost-devel-1.53.0-25.el7.x86_64
+--> Processing Dependency: libboost_math_c99f-mt.so.1.53.0()(64bit) for package: boost-devel-1.53.0-25.el7.x86_64
+--> Processing Dependency: libboost_math_c99.so.1.53.0()(64bit) for package: boost-devel-1.53.0-25.el7.x86_64
+--> Processing Dependency: libboost_math_c99-mt.so.1.53.0()(64bit) for package: boost-devel-1.53.0-25.el7.x86_64
+--> Processing Dependency: libboost_locale-mt.so.1.53.0()(64bit) for package: boost-devel-1.53.0-25.el7.x86_64
+--> Processing Dependency: libboost_iostreams.so.1.53.0()(64bit) for package: boost-devel-1.53.0-25.el7.x86_64
+--> Processing Dependency: libboost_iostreams-mt.so.1.53.0()(64bit) for package: boost-devel-1.53.0-25.el7.x86_64
+--> Processing Dependency: libboost_graph.so.1.53.0()(64bit) for package: boost-devel-1.53.0-25.el7.x86_64
+--> Processing Dependency: libboost_graph-mt.so.1.53.0()(64bit) for package: boost-devel-1.53.0-25.el7.x86_64
+--> Processing Dependency: libboost_filesystem.so.1.53.0()(64bit) for package: boost-devel-1.53.0-25.el7.x86_64
+--> Processing Dependency: libboost_filesystem-mt.so.1.53.0()(64bit) for package: boost-devel-1.53.0-25.el7.x86_64
+--> Processing Dependency: libboost_date_time.so.1.53.0()(64bit) for package: boost-devel-1.53.0-25.el7.x86_64
+--> Processing Dependency: libboost_date_time-mt.so.1.53.0()(64bit) for package: boost-devel-1.53.0-25.el7.x86_64
+--> Processing Dependency: libboost_context.so.1.53.0()(64bit) for package: boost-devel-1.53.0-25.el7.x86_64
+--> Processing Dependency: libboost_context-mt.so.1.53.0()(64bit) for package: boost-devel-1.53.0-25.el7.x86_64
+--> Processing Dependency: libboost_chrono.so.1.53.0()(64bit) for package: boost-devel-1.53.0-25.el7.x86_64
+--> Processing Dependency: libboost_chrono-mt.so.1.53.0()(64bit) for package: boost-devel-1.53.0-25.el7.x86_64
+--> Processing Dependency: libboost_atomic-mt.so.1.53.0()(64bit) for package: boost-devel-1.53.0-25.el7.x86_64
+---> Package cmake.x86_64 0:2.8.11-5.el7 will be installed
+--> Processing Dependency: libarchive.so.13()(64bit) for package: cmake-2.8.11-5.el7.x86_64
+---> Package gcc-c++.x86_64 0:4.8.5-4.el7 will be installed
+--> Processing Dependency: libstdc++-devel = 4.8.5-4.el7 for package: gcc-c++-4.8.5-4.el7.x86_64
+--> Processing Dependency: gcc = 4.8.5-4.el7 for package: gcc-c++-4.8.5-4.el7.x86_64
+--> Processing Dependency: libmpfr.so.4()(64bit) for package: gcc-c++-4.8.5-4.el7.x86_64
+--> Processing Dependency: libmpc.so.3()(64bit) for package: gcc-c++-4.8.5-4.el7.x86_64
+---> Package git.x86_64 0:1.8.3.1-6.el7_2.1 will be installed
+--> Processing Dependency: perl-Git = 1.8.3.1-6.el7_2.1 for package: git-1.8.3.1-6.el7_2.1.x86_64
+--> Processing Dependency: perl >= 5.008 for package: git-1.8.3.1-6.el7_2.1.x86_64
+--> Processing Dependency: rsync for package: git-1.8.3.1-6.el7_2.1.x86_64
+--> Processing Dependency: perl(warnings) for package: git-1.8.3.1-6.el7_2.1.x86_64
+--> Processing Dependency: perl(vars) for package: git-1.8.3.1-6.el7_2.1.x86_64
+--> Processing Dependency: perl(strict) for package: git-1.8.3.1-6.el7_2.1.x86_64
+--> Processing Dependency: perl(lib) for package: git-1.8.3.1-6.el7_2.1.x86_64
+--> Processing Dependency: perl(Term::ReadKey) for package: git-1.8.3.1-6.el7_2.1.x86_64
+--> Processing Dependency: perl(Git) for package: git-1.8.3.1-6.el7_2.1.x86_64
+--> Processing Dependency: perl(Getopt::Long) for package: git-1.8.3.1-6.el7_2.1.x86_64
+--> Processing Dependency: perl(File::stat) for package: git-1.8.3.1-6.el7_2.1.x86_64
+--> Processing Dependency: perl(File::Temp) for package: git-1.8.3.1-6.el7_2.1.x86_64
+--> Processing Dependency: perl(File::Spec) for package: git-1.8.3.1-6.el7_2.1.x86_64
+--> Processing Dependency: perl(File::Path) for package: git-1.8.3.1-6.el7_2.1.x86_64
+--> Processing Dependency: perl(File::Find) for package: git-1.8.3.1-6.el7_2.1.x86_64
+--> Processing Dependency: perl(File::Copy) for package: git-1.8.3.1-6.el7_2.1.x86_64
+--> Processing Dependency: perl(File::Basename) for package: git-1.8.3.1-6.el7_2.1.x86_64
+--> Processing Dependency: perl(Exporter) for package: git-1.8.3.1-6.el7_2.1.x86_64
+--> Processing Dependency: perl(Error) for package: git-1.8.3.1-6.el7_2.1.x86_64
+--> Processing Dependency: openssh-clients for package: git-1.8.3.1-6.el7_2.1.x86_64
+--> Processing Dependency: less for package: git-1.8.3.1-6.el7_2.1.x86_64
+--> Processing Dependency: /usr/bin/perl for package: git-1.8.3.1-6.el7_2.1.x86_64
+--> Processing Dependency: libgnome-keyring.so.0()(64bit) for package: git-1.8.3.1-6.el7_2.1.x86_64
+---> Package make.x86_64 1:3.82-21.el7 will be installed
+---> Package python-devel.x86_64 0:2.7.5-34.el7 will be installed
+---> Package python-pillow.x86_64 0:2.0.0-19.gitd1c6db8.el7 will be installed
+--> Processing Dependency: libtiff.so.5(LIBTIFF_4.0)(64bit) for package: python-pillow-2.0.0-19.gitd1c6db8.el7.x86_64
+--> Processing Dependency: libjpeg.so.62(LIBJPEG_6.2)(64bit) for package: python-pillow-2.0.0-19.gitd1c6db8.el7.x86_64
+--> Processing Dependency: libwebp.so.4()(64bit) for package: python-pillow-2.0.0-19.gitd1c6db8.el7.x86_64
+--> Processing Dependency: libtiff.so.5()(64bit) for package: python-pillow-2.0.0-19.gitd1c6db8.el7.x86_64
+--> Processing Dependency: libjpeg.so.62()(64bit) for package: python-pillow-2.0.0-19.gitd1c6db8.el7.x86_64
+--> Processing Dependency: libfreetype.so.6()(64bit) for package: python-pillow-2.0.0-19.gitd1c6db8.el7.x86_64
+---> Package unzip.x86_64 0:6.0-15.el7 will be installed
+--> Running transaction check
+---> Package boost.x86_64 0:1.53.0-25.el7 will be installed
+--> Processing Dependency: boost-thread(x86-64) = 1.53.0-25.el7 for package: boost-1.53.0-25.el7.x86_64
+---> Package boost-atomic.x86_64 0:1.53.0-25.el7 will be installed
+---> Package boost-chrono.x86_64 0:1.53.0-25.el7 will be installed
+---> Package boost-context.x86_64 0:1.53.0-25.el7 will be installed
+---> Package boost-date-time.x86_64 0:1.53.0-25.el7 will be installed
+---> Package boost-filesystem.x86_64 0:1.53.0-25.el7 will be installed
+---> Package boost-graph.x86_64 0:1.53.0-25.el7 will be installed
+--> Processing Dependency: libicuuc.so.50()(64bit) for package: boost-graph-1.53.0-25.el7.x86_64
+--> Processing Dependency: libicui18n.so.50()(64bit) for package: boost-graph-1.53.0-25.el7.x86_64
+--> Processing Dependency: libicudata.so.50()(64bit) for package: boost-graph-1.53.0-25.el7.x86_64
+---> Package boost-iostreams.x86_64 0:1.53.0-25.el7 will be installed
+---> Package boost-locale.x86_64 0:1.53.0-25.el7 will be installed
+---> Package boost-math.x86_64 0:1.53.0-25.el7 will be installed
+---> Package boost-program-options.x86_64 0:1.53.0-25.el7 will be installed
+---> Package boost-python.x86_64 0:1.53.0-25.el7 will be installed
+---> Package boost-random.x86_64 0:1.53.0-25.el7 will be installed
+---> Package boost-regex.x86_64 0:1.53.0-25.el7 will be installed
+---> Package boost-serialization.x86_64 0:1.53.0-25.el7 will be installed
+---> Package boost-signals.x86_64 0:1.53.0-25.el7 will be installed
+---> Package boost-system.x86_64 0:1.53.0-25.el7 will be installed
+---> Package boost-test.x86_64 0:1.53.0-25.el7 will be installed
+---> Package boost-timer.x86_64 0:1.53.0-25.el7 will be installed
+---> Package boost-wave.x86_64 0:1.53.0-25.el7 will be installed
+---> Package freetype.x86_64 0:2.4.11-11.el7 will be installed
+---> Package gcc.x86_64 0:4.8.5-4.el7 will be installed
+--> Processing Dependency: libgomp = 4.8.5-4.el7 for package: gcc-4.8.5-4.el7.x86_64
+--> Processing Dependency: cpp = 4.8.5-4.el7 for package: gcc-4.8.5-4.el7.x86_64
+--> Processing Dependency: glibc-devel >= 2.2.90-12 for package: gcc-4.8.5-4.el7.x86_64
+--> Processing Dependency: libgomp.so.1()(64bit) for package: gcc-4.8.5-4.el7.x86_64
+---> Package less.x86_64 0:458-9.el7 will be installed
+--> Processing Dependency: groff-base for package: less-458-9.el7.x86_64
+---> Package libarchive.x86_64 0:3.1.2-7.el7 will be installed
+--> Processing Dependency: liblzo2.so.2()(64bit) for package: libarchive-3.1.2-7.el7.x86_64
+---> Package libgnome-keyring.x86_64 0:3.8.0-3.el7 will be installed
+---> Package libjpeg-turbo.x86_64 0:1.2.90-5.el7 will be installed
+---> Package libmpc.x86_64 0:1.0.1-3.el7 will be installed
+---> Package libstdc++-devel.x86_64 0:4.8.5-4.el7 will be installed
+---> Package libtiff.x86_64 0:4.0.3-25.el7_2 will be installed
+--> Processing Dependency: libjbig.so.2.0()(64bit) for package: libtiff-4.0.3-25.el7_2.x86_64
+---> Package libwebp.x86_64 0:0.3.0-3.el7 will be installed
+---> Package mpfr.x86_64 0:3.1.1-4.el7 will be installed
+---> Package openssh-clients.x86_64 0:6.6.1p1-25.el7_2 will be installed
+--> Processing Dependency: openssh = 6.6.1p1-25.el7_2 for package: openssh-clients-6.6.1p1-25.el7_2.x86_64
+--> Processing Dependency: fipscheck-lib(x86-64) >= 1.3.0 for package: openssh-clients-6.6.1p1-25.el7_2.x86_64
+--> Processing Dependency: libfipscheck.so.1()(64bit) for package: openssh-clients-6.6.1p1-25.el7_2.x86_64
+--> Processing Dependency: libedit.so.0()(64bit) for package: openssh-clients-6.6.1p1-25.el7_2.x86_64
+---> Package perl.x86_64 4:5.16.3-286.el7 will be installed
+--> Processing Dependency: perl-libs = 4:5.16.3-286.el7 for package: 4:perl-5.16.3-286.el7.x86_64
+--> Processing Dependency: perl(Socket) >= 1.3 for package: 4:perl-5.16.3-286.el7.x86_64
+--> Processing Dependency: perl(Scalar::Util) >= 1.10 for package: 4:perl-5.16.3-286.el7.x86_64
+--> Processing Dependency: perl-macros for package: 4:perl-5.16.3-286.el7.x86_64
+--> Processing Dependency: perl-libs for package: 4:perl-5.16.3-286.el7.x86_64
+--> Processing Dependency: perl(threads::shared) for package: 4:perl-5.16.3-286.el7.x86_64
+--> Processing Dependency: perl(threads) for package: 4:perl-5.16.3-286.el7.x86_64
+--> Processing Dependency: perl(constant) for package: 4:perl-5.16.3-286.el7.x86_64
+--> Processing Dependency: perl(Time::Local) for package: 4:perl-5.16.3-286.el7.x86_64
+--> Processing Dependency: perl(Time::HiRes) for package: 4:perl-5.16.3-286.el7.x86_64
+--> Processing Dependency: perl(Storable) for package: 4:perl-5.16.3-286.el7.x86_64
+--> Processing Dependency: perl(Socket) for package: 4:perl-5.16.3-286.el7.x86_64
+--> Processing Dependency: perl(Scalar::Util) for package: 4:perl-5.16.3-286.el7.x86_64
+--> Processing Dependency: perl(Pod::Simple::XHTML) for package: 4:perl-5.16.3-286.el7.x86_64
+--> Processing Dependency: perl(Pod::Simple::Search) for package: 4:perl-5.16.3-286.el7.x86_64
+--> Processing Dependency: perl(Filter::Util::Call) for package: 4:perl-5.16.3-286.el7.x86_64
+--> Processing Dependency: perl(Carp) for package: 4:perl-5.16.3-286.el7.x86_64
+--> Processing Dependency: libperl.so()(64bit) for package: 4:perl-5.16.3-286.el7.x86_64
+---> Package perl-Error.noarch 1:0.17020-2.el7 will be installed
+---> Package perl-Exporter.noarch 0:5.68-3.el7 will be installed
+---> Package perl-File-Path.noarch 0:2.09-2.el7 will be installed
+---> Package perl-File-Temp.noarch 0:0.23.01-3.el7 will be installed
+---> Package perl-Getopt-Long.noarch 0:2.40-2.el7 will be installed
+--> Processing Dependency: perl(Pod::Usage) >= 1.14 for package: perl-Getopt-Long-2.40-2.el7.noarch
+--> Processing Dependency: perl(Text::ParseWords) for package: perl-Getopt-Long-2.40-2.el7.noarch
+---> Package perl-Git.noarch 0:1.8.3.1-6.el7_2.1 will be installed
+---> Package perl-PathTools.x86_64 0:3.40-5.el7 will be installed
+---> Package perl-TermReadKey.x86_64 0:2.30-20.el7 will be installed
+---> Package rsync.x86_64 0:3.0.9-17.el7 will be installed
+--> Running transaction check
+---> Package boost-thread.x86_64 0:1.53.0-25.el7 will be installed
+---> Package cpp.x86_64 0:4.8.5-4.el7 will be installed
+---> Package fipscheck-lib.x86_64 0:1.4.1-5.el7 will be installed
+--> Processing Dependency: /usr/bin/fipscheck for package: fipscheck-lib-1.4.1-5.el7.x86_64
+---> Package glibc-devel.x86_64 0:2.17-106.el7_2.8 will be installed
+--> Processing Dependency: glibc-headers = 2.17-106.el7_2.8 for package: glibc-devel-2.17-106.el7_2.8.x86_64
+--> Processing Dependency: glibc = 2.17-106.el7_2.8 for package: glibc-devel-2.17-106.el7_2.8.x86_64
+--> Processing Dependency: glibc-headers for package: glibc-devel-2.17-106.el7_2.8.x86_64
+---> Package groff-base.x86_64 0:1.22.2-8.el7 will be installed
+---> Package jbigkit-libs.x86_64 0:2.0-11.el7 will be installed
+---> Package libedit.x86_64 0:3.0-12.20121213cvs.el7 will be installed
+---> Package libgomp.x86_64 0:4.8.5-4.el7 will be installed
+---> Package libicu.x86_64 0:50.1.2-15.el7 will be installed
+---> Package lzo.x86_64 0:2.06-8.el7 will be installed
+---> Package openssh.x86_64 0:6.6.1p1-25.el7_2 will be installed
+---> Package perl-Carp.noarch 0:1.26-244.el7 will be installed
+---> Package perl-Filter.x86_64 0:1.49-3.el7 will be installed
+---> Package perl-Pod-Simple.noarch 1:3.28-4.el7 will be installed
+--> Processing Dependency: perl(Pod::Escapes) >= 1.04 for package: 1:perl-Pod-Simple-3.28-4.el7.noarch
+--> Processing Dependency: perl(Encode) for package: 1:perl-Pod-Simple-3.28-4.el7.noarch
+---> Package perl-Pod-Usage.noarch 0:1.63-3.el7 will be installed
+--> Processing Dependency: perl(Pod::Text) >= 3.15 for package: perl-Pod-Usage-1.63-3.el7.noarch
+--> Processing Dependency: perl-Pod-Perldoc for package: perl-Pod-Usage-1.63-3.el7.noarch
+---> Package perl-Scalar-List-Utils.x86_64 0:1.27-248.el7 will be installed
+---> Package perl-Socket.x86_64 0:2.010-3.el7 will be installed
+---> Package perl-Storable.x86_64 0:2.45-3.el7 will be installed
+---> Package perl-Text-ParseWords.noarch 0:3.29-4.el7 will be installed
+---> Package perl-Time-HiRes.x86_64 4:1.9725-3.el7 will be installed
+---> Package perl-Time-Local.noarch 0:1.2300-2.el7 will be installed
+---> Package perl-constant.noarch 0:1.27-2.el7 will be installed
+---> Package perl-libs.x86_64 4:5.16.3-286.el7 will be installed
+---> Package perl-macros.x86_64 4:5.16.3-286.el7 will be installed
+---> Package perl-threads.x86_64 0:1.87-4.el7 will be installed
+---> Package perl-threads-shared.x86_64 0:1.43-6.el7 will be installed
+--> Running transaction check
+---> Package fipscheck.x86_64 0:1.4.1-5.el7 will be installed
+---> Package glibc.x86_64 0:2.17-106.el7_2.6 will be updated
+--> Processing Dependency: glibc = 2.17-106.el7_2.6 for package: glibc-common-2.17-106.el7_2.6.x86_64
+---> Package glibc.x86_64 0:2.17-106.el7_2.8 will be an update
+---> Package glibc-headers.x86_64 0:2.17-106.el7_2.8 will be installed
+--> Processing Dependency: kernel-headers >= 2.2.1 for package: glibc-headers-2.17-106.el7_2.8.x86_64
+--> Processing Dependency: kernel-headers for package: glibc-headers-2.17-106.el7_2.8.x86_64
+---> Package perl-Encode.x86_64 0:2.51-7.el7 will be installed
+---> Package perl-Pod-Escapes.noarch 1:1.04-286.el7 will be installed
+---> Package perl-Pod-Perldoc.noarch 0:3.20-4.el7 will be installed
+--> Processing Dependency: perl(parent) for package: perl-Pod-Perldoc-3.20-4.el7.noarch
+--> Processing Dependency: perl(HTTP::Tiny) for package: perl-Pod-Perldoc-3.20-4.el7.noarch
+---> Package perl-podlators.noarch 0:2.5.1-3.el7 will be installed
+--> Running transaction check
+---> Package glibc-common.x86_64 0:2.17-106.el7_2.6 will be updated
+---> Package glibc-common.x86_64 0:2.17-106.el7_2.8 will be an update
+---> Package kernel-headers.x86_64 0:3.10.0-327.28.2.el7 will be installed
+---> Package perl-HTTP-Tiny.noarch 0:0.033-3.el7 will be installed
+---> Package perl-parent.noarch 1:0.225-244.el7 will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+================================================================================
+ Package                  Arch     Version                      Repository
+                                                                           Size
+================================================================================
+Installing:
+ boost-devel              x86_64   1.53.0-25.el7                base      7.0 M
+ cmake                    x86_64   2.8.11-5.el7                 base      6.7 M
+ gcc-c++                  x86_64   4.8.5-4.el7                  base      7.2 M
+ git                      x86_64   1.8.3.1-6.el7_2.1            updates   4.4 M
+ make                     x86_64   1:3.82-21.el7                base      420 k
+ python-devel             x86_64   2.7.5-34.el7                 base      391 k
+ python-pillow            x86_64   2.0.0-19.gitd1c6db8.el7      base      438 k
+ unzip                    x86_64   6.0-15.el7                   base      166 k
+Installing for dependencies:
+ boost                    x86_64   1.53.0-25.el7                base       33 k
+ boost-atomic             x86_64   1.53.0-25.el7                base       34 k
+ boost-chrono             x86_64   1.53.0-25.el7                base       43 k
+ boost-context            x86_64   1.53.0-25.el7                base       36 k
+ boost-date-time          x86_64   1.53.0-25.el7                base       51 k
+ boost-filesystem         x86_64   1.53.0-25.el7                base       67 k
+ boost-graph              x86_64   1.53.0-25.el7                base      135 k
+ boost-iostreams          x86_64   1.53.0-25.el7                base       60 k
+ boost-locale             x86_64   1.53.0-25.el7                base      250 k
+ boost-math               x86_64   1.53.0-25.el7                base      334 k
+ boost-program-options    x86_64   1.53.0-25.el7                base      155 k
+ boost-python             x86_64   1.53.0-25.el7                base      132 k
+ boost-random             x86_64   1.53.0-25.el7                base       38 k
+ boost-regex              x86_64   1.53.0-25.el7                base      294 k
+ boost-serialization      x86_64   1.53.0-25.el7                base      170 k
+ boost-signals            x86_64   1.53.0-25.el7                base       60 k
+ boost-system             x86_64   1.53.0-25.el7                base       39 k
+ boost-test               x86_64   1.53.0-25.el7                base      226 k
+ boost-thread             x86_64   1.53.0-25.el7                base       57 k
+ boost-timer              x86_64   1.53.0-25.el7                base       42 k
+ boost-wave               x86_64   1.53.0-25.el7                base      211 k
+ cpp                      x86_64   4.8.5-4.el7                  base      5.9 M
+ fipscheck                x86_64   1.4.1-5.el7                  base       21 k
+ fipscheck-lib            x86_64   1.4.1-5.el7                  base       11 k
+ freetype                 x86_64   2.4.11-11.el7                base      391 k
+ gcc                      x86_64   4.8.5-4.el7                  base       16 M
+ glibc-devel              x86_64   2.17-106.el7_2.8             updates   1.0 M
+ glibc-headers            x86_64   2.17-106.el7_2.8             updates   663 k
+ groff-base               x86_64   1.22.2-8.el7                 base      942 k
+ jbigkit-libs             x86_64   2.0-11.el7                   base       46 k
+ kernel-headers           x86_64   3.10.0-327.28.2.el7          updates   3.2 M
+ less                     x86_64   458-9.el7                    base      120 k
+ libarchive               x86_64   3.1.2-7.el7                  base      317 k
+ libedit                  x86_64   3.0-12.20121213cvs.el7       base       92 k
+ libgnome-keyring         x86_64   3.8.0-3.el7                  base      109 k
+ libgomp                  x86_64   4.8.5-4.el7                  base      130 k
+ libicu                   x86_64   50.1.2-15.el7                base      6.9 M
+ libjpeg-turbo            x86_64   1.2.90-5.el7                 base      134 k
+ libmpc                   x86_64   1.0.1-3.el7                  base       51 k
+ libstdc++-devel          x86_64   4.8.5-4.el7                  base      1.5 M
+ libtiff                  x86_64   4.0.3-25.el7_2               updates   169 k
+ libwebp                  x86_64   0.3.0-3.el7                  base      170 k
+ lzo                      x86_64   2.06-8.el7                   base       59 k
+ mpfr                     x86_64   3.1.1-4.el7                  base      203 k
+ openssh                  x86_64   6.6.1p1-25.el7_2             updates   435 k
+ openssh-clients          x86_64   6.6.1p1-25.el7_2             updates   639 k
+ perl                     x86_64   4:5.16.3-286.el7             base      8.0 M
+ perl-Carp                noarch   1.26-244.el7                 base       19 k
+ perl-Encode              x86_64   2.51-7.el7                   base      1.5 M
+ perl-Error               noarch   1:0.17020-2.el7              base       32 k
+ perl-Exporter            noarch   5.68-3.el7                   base       28 k
+ perl-File-Path           noarch   2.09-2.el7                   base       26 k
+ perl-File-Temp           noarch   0.23.01-3.el7                base       56 k
+ perl-Filter              x86_64   1.49-3.el7                   base       76 k
+ perl-Getopt-Long         noarch   2.40-2.el7                   base       56 k
+ perl-Git                 noarch   1.8.3.1-6.el7_2.1            updates    53 k
+ perl-HTTP-Tiny           noarch   0.033-3.el7                  base       38 k
+ perl-PathTools           x86_64   3.40-5.el7                   base       82 k
+ perl-Pod-Escapes         noarch   1:1.04-286.el7               base       50 k
+ perl-Pod-Perldoc         noarch   3.20-4.el7                   base       87 k
+ perl-Pod-Simple          noarch   1:3.28-4.el7                 base      216 k
+ perl-Pod-Usage           noarch   1.63-3.el7                   base       27 k
+ perl-Scalar-List-Utils   x86_64   1.27-248.el7                 base       36 k
+ perl-Socket              x86_64   2.010-3.el7                  base       49 k
+ perl-Storable            x86_64   2.45-3.el7                   base       77 k
+ perl-TermReadKey         x86_64   2.30-20.el7                  base       31 k
+ perl-Text-ParseWords     noarch   3.29-4.el7                   base       14 k
+ perl-Time-HiRes          x86_64   4:1.9725-3.el7               base       45 k
+ perl-Time-Local          noarch   1.2300-2.el7                 base       24 k
+ perl-constant            noarch   1.27-2.el7                   base       19 k
+ perl-libs                x86_64   4:5.16.3-286.el7             base      687 k
+ perl-macros              x86_64   4:5.16.3-286.el7             base       43 k
+ perl-parent              noarch   1:0.225-244.el7              base       12 k
+ perl-podlators           noarch   2.5.1-3.el7                  base      112 k
+ perl-threads             x86_64   1.87-4.el7                   base       49 k
+ perl-threads-shared      x86_64   1.43-6.el7                   base       39 k
+ rsync                    x86_64   3.0.9-17.el7                 base      360 k
+Updating for dependencies:
+ glibc                    x86_64   2.17-106.el7_2.8             updates   3.6 M
+ glibc-common             x86_64   2.17-106.el7_2.8             updates    11 M
+
+Transaction Summary
+================================================================================
+Install  8 Packages (+77 Dependent packages)
+Upgrade             (  2 Dependent packages)
+
+Total download size: 95 M
+Downloading packages:
+Delta RPMs disabled because /usr/bin/applydeltarpm not installed.
+[91mwarning: /var/cache/yum/x86_64/7/base/packages/boost-chrono-1.53.0-25.el7.x86_64.rpm: Header V3 RSA/SHA256 Signature, key ID f4a80eb5: NOKEY
+[0mPublic key for boost-chrono-1.53.0-25.el7.x86_64.rpm is not installed
+Public key for glibc-2.17-106.el7_2.8.x86_64.rpm is not installed
+--------------------------------------------------------------------------------
+Total                                              2.1 MB/s |  95 MB  00:46     
+Retrieving key from file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
+[91mImporting GPG key 0xF4A80EB5:
+ Userid     : "CentOS-7 Key (CentOS 7 Official Signing Key) <security@centos.org>"
+ Fingerprint: 6341 ab27 53d7 8a78 a7c2 7bb1 24c6 a8a7 f4a8 0eb5
+ Package    : centos-release-7-2.1511.el7.centos.2.10.x86_64 (@CentOS)
+ From       : /etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
+[0mRunning transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  Updating   : glibc-common-2.17-106.el7_2.8.x86_64                        1/89 
+  Updating   : glibc-2.17-106.el7_2.8.x86_64                               2/89 
+  Installing : boost-system-1.53.0-25.el7.x86_64                           3/89 
+  Installing : boost-chrono-1.53.0-25.el7.x86_64                           4/89 
+  Installing : mpfr-3.1.1-4.el7.x86_64                                     5/89 
+  Installing : libmpc-1.0.1-3.el7.x86_64                                   6/89 
+  Installing : boost-filesystem-1.53.0-25.el7.x86_64                       7/89 
+  Installing : boost-thread-1.53.0-25.el7.x86_64                           8/89 
+  Installing : fipscheck-1.4.1-5.el7.x86_64                                9/89 
+  Installing : fipscheck-lib-1.4.1-5.el7.x86_64                           10/89 
+  Installing : libicu-50.1.2-15.el7.x86_64                                11/89 
+  Installing : boost-regex-1.53.0-25.el7.x86_64                           12/89 
+  Installing : boost-date-time-1.53.0-25.el7.x86_64                       13/89 
+  Installing : boost-wave-1.53.0-25.el7.x86_64                            14/89 
+  Installing : boost-graph-1.53.0-25.el7.x86_64                           15/89 
+  Installing : boost-locale-1.53.0-25.el7.x86_64                          16/89 
+  Installing : boost-timer-1.53.0-25.el7.x86_64                           17/89 
+  Installing : boost-math-1.53.0-25.el7.x86_64                            18/89 
+  Installing : groff-base-1.22.2-8.el7.x86_64                             19/89 
+  Installing : boost-atomic-1.53.0-25.el7.x86_64                          20/89 
+  Installing : boost-program-options-1.53.0-25.el7.x86_64                 21/89 
+  Installing : boost-random-1.53.0-25.el7.x86_64                          22/89 
+  Installing : boost-context-1.53.0-25.el7.x86_64                         23/89 
+  Installing : libjpeg-turbo-1.2.90-5.el7.x86_64                          24/89 
+  Installing : boost-iostreams-1.53.0-25.el7.x86_64                       25/89 
+  Installing : boost-serialization-1.53.0-25.el7.x86_64                   26/89 
+  Installing : boost-test-1.53.0-25.el7.x86_64                            27/89 
+  Installing : boost-signals-1.53.0-25.el7.x86_64                         28/89 
+  Installing : boost-python-1.53.0-25.el7.x86_64                          29/89 
+  Installing : boost-1.53.0-25.el7.x86_64                                 30/89 
+  Installing : less-458-9.el7.x86_64                                      31/89 
+  Installing : 1:perl-parent-0.225-244.el7.noarch                         32/89 
+  Installing : perl-HTTP-Tiny-0.033-3.el7.noarch                          33/89 
+  Installing : perl-podlators-2.5.1-3.el7.noarch                          34/89 
+  Installing : perl-Pod-Perldoc-3.20-4.el7.noarch                         35/89 
+  Installing : 1:perl-Pod-Escapes-1.04-286.el7.noarch                     36/89 
+  Installing : perl-Text-ParseWords-3.29-4.el7.noarch                     37/89 
+  Installing : perl-Encode-2.51-7.el7.x86_64                              38/89 
+  Installing : perl-Pod-Usage-1.63-3.el7.noarch                           39/89 
+  Installing : 4:perl-libs-5.16.3-286.el7.x86_64                          40/89 
+  Installing : 4:perl-Time-HiRes-1.9725-3.el7.x86_64                      41/89 
+  Installing : perl-threads-1.87-4.el7.x86_64                             42/89 
+  Installing : perl-Storable-2.45-3.el7.x86_64                            43/89 
+  Installing : perl-Carp-1.26-244.el7.noarch                              44/89 
+  Installing : perl-Filter-1.49-3.el7.x86_64                              45/89 
+  Installing : perl-Exporter-5.68-3.el7.noarch                            46/89 
+  Installing : perl-constant-1.27-2.el7.noarch                            47/89 
+  Installing : 4:perl-macros-5.16.3-286.el7.x86_64                        48/89 
+  Installing : perl-Time-Local-1.2300-2.el7.noarch                        49/89 
+  Installing : perl-Socket-2.010-3.el7.x86_64                             50/89 
+  Installing : perl-threads-shared-1.43-6.el7.x86_64                      51/89 
+  Installing : perl-File-Temp-0.23.01-3.el7.noarch                        52/89 
+  Installing : perl-File-Path-2.09-2.el7.noarch                           53/89 
+  Installing : perl-PathTools-3.40-5.el7.x86_64                           54/89 
+  Installing : perl-Scalar-List-Utils-1.27-248.el7.x86_64                 55/89 
+  Installing : 1:perl-Pod-Simple-3.28-4.el7.noarch                        56/89 
+  Installing : perl-Getopt-Long-2.40-2.el7.noarch                         57/89 
+  Installing : 4:perl-5.16.3-286.el7.x86_64                               58/89 
+  Installing : 1:perl-Error-0.17020-2.el7.noarch                          59/89 
+  Installing : perl-TermReadKey-2.30-20.el7.x86_64                        60/89 
+  Installing : openssh-6.6.1p1-25.el7_2.x86_64                            61/89 
+  Installing : cpp-4.8.5-4.el7.x86_64                                     62/89 
+  Installing : libgomp-4.8.5-4.el7.x86_64                                 63/89 
+  Installing : libedit-3.0-12.20121213cvs.el7.x86_64                      64/89 
+  Installing : openssh-clients-6.6.1p1-25.el7_2.x86_64                    65/89 
+  Installing : lzo-2.06-8.el7.x86_64                                      66/89 
+  Installing : libarchive-3.1.2-7.el7.x86_64                              67/89 
+  Installing : libwebp-0.3.0-3.el7.x86_64                                 68/89 
+  Installing : libgnome-keyring-3.8.0-3.el7.x86_64                        69/89 
+  Installing : rsync-3.0.9-17.el7.x86_64                                  70/89 
+  Installing : perl-Git-1.8.3.1-6.el7_2.1.noarch                          71/89 
+  Installing : git-1.8.3.1-6.el7_2.1.x86_64                               72/89 
+  Installing : freetype-2.4.11-11.el7.x86_64                              73/89 
+  Installing : jbigkit-libs-2.0-11.el7.x86_64                             74/89 
+  Installing : libtiff-4.0.3-25.el7_2.x86_64                              75/89 
+  Installing : kernel-headers-3.10.0-327.28.2.el7.x86_64                  76/89 
+  Installing : glibc-headers-2.17-106.el7_2.8.x86_64                      77/89 
+  Installing : glibc-devel-2.17-106.el7_2.8.x86_64                        78/89 
+  Installing : gcc-4.8.5-4.el7.x86_64                                     79/89 
+  Installing : libstdc++-devel-4.8.5-4.el7.x86_64                         80/89 
+  Installing : gcc-c++-4.8.5-4.el7.x86_64                                 81/89 
+  Installing : python-pillow-2.0.0-19.gitd1c6db8.el7.x86_64               82/89 
+  Installing : cmake-2.8.11-5.el7.x86_64                                  83/89 
+  Installing : boost-devel-1.53.0-25.el7.x86_64                           84/89 
+  Installing : 1:make-3.82-21.el7.x86_64                                  85/89 
+  Installing : unzip-6.0-15.el7.x86_64                                    86/89 
+  Installing : python-devel-2.7.5-34.el7.x86_64                           87/89 
+  Cleanup    : glibc-common-2.17-106.el7_2.6.x86_64                       88/89 
+  Cleanup    : glibc-2.17-106.el7_2.6.x86_64                              89/89 
+  Verifying  : perl-HTTP-Tiny-0.033-3.el7.noarch                           1/89 
+  Verifying  : boost-math-1.53.0-25.el7.x86_64                             2/89 
+  Verifying  : 1:perl-Pod-Escapes-1.04-286.el7.noarch                      3/89 
+  Verifying  : perl-TermReadKey-2.30-20.el7.x86_64                         4/89 
+  Verifying  : groff-base-1.22.2-8.el7.x86_64                              5/89 
+  Verifying  : perl-File-Temp-0.23.01-3.el7.noarch                         6/89 
+  Verifying  : python-devel-2.7.5-34.el7.x86_64                            7/89 
+  Verifying  : perl-Git-1.8.3.1-6.el7_2.1.noarch                           8/89 
+  Verifying  : fipscheck-lib-1.4.1-5.el7.x86_64                            9/89 
+  Verifying  : boost-wave-1.53.0-25.el7.x86_64                            10/89 
+  Verifying  : boost-locale-1.53.0-25.el7.x86_64                          11/89 
+  Verifying  : perl-File-Path-2.09-2.el7.noarch                           12/89 
+  Verifying  : libgomp-4.8.5-4.el7.x86_64                                 13/89 
+  Verifying  : libedit-3.0-12.20121213cvs.el7.x86_64                      14/89 
+  Verifying  : 1:make-3.82-21.el7.x86_64                                  15/89 
+  Verifying  : boost-atomic-1.53.0-25.el7.x86_64                          16/89 
+  Verifying  : perl-Text-ParseWords-3.29-4.el7.noarch                     17/89 
+  Verifying  : git-1.8.3.1-6.el7_2.1.x86_64                               18/89 
+  Verifying  : libicu-50.1.2-15.el7.x86_64                                19/89 
+  Verifying  : 4:perl-Time-HiRes-1.9725-3.el7.x86_64                      20/89 
+  Verifying  : lzo-2.06-8.el7.x86_64                                      21/89 
+  Verifying  : gcc-c++-4.8.5-4.el7.x86_64                                 22/89 
+  Verifying  : boost-graph-1.53.0-25.el7.x86_64                           23/89 
+  Verifying  : boost-devel-1.53.0-25.el7.x86_64                           24/89 
+  Verifying  : boost-program-options-1.53.0-25.el7.x86_64                 25/89 
+  Verifying  : boost-random-1.53.0-25.el7.x86_64                          26/89 
+  Verifying  : libmpc-1.0.1-3.el7.x86_64                                  27/89 
+  Verifying  : python-pillow-2.0.0-19.gitd1c6db8.el7.x86_64               28/89 
+  Verifying  : glibc-2.17-106.el7_2.8.x86_64                              29/89 
+  Verifying  : boost-context-1.53.0-25.el7.x86_64                         30/89 
+  Verifying  : perl-Pod-Usage-1.63-3.el7.noarch                           31/89 
+  Verifying  : boost-date-time-1.53.0-25.el7.x86_64                       32/89 
+  Verifying  : perl-Encode-2.51-7.el7.x86_64                              33/89 
+  Verifying  : boost-system-1.53.0-25.el7.x86_64                          34/89 
+  Verifying  : perl-threads-1.87-4.el7.x86_64                             35/89 
+  Verifying  : boost-regex-1.53.0-25.el7.x86_64                           36/89 
+  Verifying  : boost-timer-1.53.0-25.el7.x86_64                           37/89 
+  Verifying  : libwebp-0.3.0-3.el7.x86_64                                 38/89 
+  Verifying  : boost-chrono-1.53.0-25.el7.x86_64                          39/89 
+  Verifying  : gcc-4.8.5-4.el7.x86_64                                     40/89 
+  Verifying  : libjpeg-turbo-1.2.90-5.el7.x86_64                          41/89 
+  Verifying  : perl-threads-shared-1.43-6.el7.x86_64                      42/89 
+  Verifying  : perl-Storable-2.45-3.el7.x86_64                            43/89 
+  Verifying  : glibc-devel-2.17-106.el7_2.8.x86_64                        44/89 
+  Verifying  : 4:perl-libs-5.16.3-286.el7.x86_64                          45/89 
+  Verifying  : 1:perl-parent-0.225-244.el7.noarch                         46/89 
+  Verifying  : glibc-common-2.17-106.el7_2.8.x86_64                       47/89 
+  Verifying  : boost-iostreams-1.53.0-25.el7.x86_64                       48/89 
+  Verifying  : perl-Carp-1.26-244.el7.noarch                              49/89 
+  Verifying  : boost-filesystem-1.53.0-25.el7.x86_64                      50/89 
+  Verifying  : boost-1.53.0-25.el7.x86_64                                 51/89 
+  Verifying  : libgnome-keyring-3.8.0-3.el7.x86_64                        52/89 
+  Verifying  : libstdc++-devel-4.8.5-4.el7.x86_64                         53/89 
+  Verifying  : perl-podlators-2.5.1-3.el7.noarch                          54/89 
+  Verifying  : mpfr-3.1.1-4.el7.x86_64                                    55/89 
+  Verifying  : perl-Filter-1.49-3.el7.x86_64                              56/89 
+  Verifying  : boost-serialization-1.53.0-25.el7.x86_64                   57/89 
+  Verifying  : rsync-3.0.9-17.el7.x86_64                                  58/89 
+  Verifying  : fipscheck-1.4.1-5.el7.x86_64                               59/89 
+  Verifying  : less-458-9.el7.x86_64                                      60/89 
+  Verifying  : freetype-2.4.11-11.el7.x86_64                              61/89 
+  Verifying  : perl-Exporter-5.68-3.el7.noarch                            62/89 
+  Verifying  : perl-constant-1.27-2.el7.noarch                            63/89 
+  Verifying  : perl-PathTools-3.40-5.el7.x86_64                           64/89 
+  Verifying  : 4:perl-macros-5.16.3-286.el7.x86_64                        65/89 
+  Verifying  : cmake-2.8.11-5.el7.x86_64                                  66/89 
+  Verifying  : boost-test-1.53.0-25.el7.x86_64                            67/89 
+  Verifying  : 4:perl-5.16.3-286.el7.x86_64                               68/89 
+  Verifying  : 1:perl-Pod-Simple-3.28-4.el7.noarch                        69/89 
+  Verifying  : glibc-headers-2.17-106.el7_2.8.x86_64                      70/89 
+  Verifying  : perl-Time-Local-1.2300-2.el7.noarch                        71/89 
+  Verifying  : boost-signals-1.53.0-25.el7.x86_64                         72/89 
+  Verifying  : kernel-headers-3.10.0-327.28.2.el7.x86_64                  73/89 
+  Verifying  : perl-Socket-2.010-3.el7.x86_64                             74/89 
+  Verifying  : boost-thread-1.53.0-25.el7.x86_64                          75/89 
+  Verifying  : openssh-6.6.1p1-25.el7_2.x86_64                            76/89 
+  Verifying  : 1:perl-Error-0.17020-2.el7.noarch                          77/89 
+  Verifying  : libtiff-4.0.3-25.el7_2.x86_64                              78/89 
+  Verifying  : perl-Scalar-List-Utils-1.27-248.el7.x86_64                 79/89 
+  Verifying  : unzip-6.0-15.el7.x86_64                                    80/89 
+  Verifying  : jbigkit-libs-2.0-11.el7.x86_64                             81/89 
+  Verifying  : perl-Pod-Perldoc-3.20-4.el7.noarch                         82/89 
+  Verifying  : cpp-4.8.5-4.el7.x86_64                                     83/89 
+  Verifying  : openssh-clients-6.6.1p1-25.el7_2.x86_64                    84/89 
+  Verifying  : libarchive-3.1.2-7.el7.x86_64                              85/89 
+  Verifying  : boost-python-1.53.0-25.el7.x86_64                          86/89 
+  Verifying  : perl-Getopt-Long-2.40-2.el7.noarch                         87/89 
+  Verifying  : glibc-2.17-106.el7_2.6.x86_64                              88/89 
+  Verifying  : glibc-common-2.17-106.el7_2.6.x86_64                       89/89 
+
+Installed:
+  boost-devel.x86_64 0:1.53.0-25.el7                                            
+  cmake.x86_64 0:2.8.11-5.el7                                                   
+  gcc-c++.x86_64 0:4.8.5-4.el7                                                  
+  git.x86_64 0:1.8.3.1-6.el7_2.1                                                
+  make.x86_64 1:3.82-21.el7                                                     
+  python-devel.x86_64 0:2.7.5-34.el7                                            
+  python-pillow.x86_64 0:2.0.0-19.gitd1c6db8.el7                                
+  unzip.x86_64 0:6.0-15.el7                                                     
+
+Dependency Installed:
+  boost.x86_64 0:1.53.0-25.el7                                                  
+  boost-atomic.x86_64 0:1.53.0-25.el7                                           
+  boost-chrono.x86_64 0:1.53.0-25.el7                                           
+  boost-context.x86_64 0:1.53.0-25.el7                                          
+  boost-date-time.x86_64 0:1.53.0-25.el7                                        
+  boost-filesystem.x86_64 0:1.53.0-25.el7                                       
+  boost-graph.x86_64 0:1.53.0-25.el7                                            
+  boost-iostreams.x86_64 0:1.53.0-25.el7                                        
+  boost-locale.x86_64 0:1.53.0-25.el7                                           
+  boost-math.x86_64 0:1.53.0-25.el7                                             
+  boost-program-options.x86_64 0:1.53.0-25.el7                                  
+  boost-python.x86_64 0:1.53.0-25.el7                                           
+  boost-random.x86_64 0:1.53.0-25.el7                                           
+  boost-regex.x86_64 0:1.53.0-25.el7                                            
+  boost-serialization.x86_64 0:1.53.0-25.el7                                    
+  boost-signals.x86_64 0:1.53.0-25.el7                                          
+  boost-system.x86_64 0:1.53.0-25.el7                                           
+  boost-test.x86_64 0:1.53.0-25.el7                                             
+  boost-thread.x86_64 0:1.53.0-25.el7                                           
+  boost-timer.x86_64 0:1.53.0-25.el7                                            
+  boost-wave.x86_64 0:1.53.0-25.el7                                             
+  cpp.x86_64 0:4.8.5-4.el7                                                      
+  fipscheck.x86_64 0:1.4.1-5.el7                                                
+  fipscheck-lib.x86_64 0:1.4.1-5.el7                                            
+  freetype.x86_64 0:2.4.11-11.el7                                               
+  gcc.x86_64 0:4.8.5-4.el7                                                      
+  glibc-devel.x86_64 0:2.17-106.el7_2.8                                         
+  glibc-headers.x86_64 0:2.17-106.el7_2.8                                       
+  groff-base.x86_64 0:1.22.2-8.el7                                              
+  jbigkit-libs.x86_64 0:2.0-11.el7                                              
+  kernel-headers.x86_64 0:3.10.0-327.28.2.el7                                   
+  less.x86_64 0:458-9.el7                                                       
+  libarchive.x86_64 0:3.1.2-7.el7                                               
+  libedit.x86_64 0:3.0-12.20121213cvs.el7                                       
+  libgnome-keyring.x86_64 0:3.8.0-3.el7                                         
+  libgomp.x86_64 0:4.8.5-4.el7                                                  
+  libicu.x86_64 0:50.1.2-15.el7                                                 
+  libjpeg-turbo.x86_64 0:1.2.90-5.el7                                           
+  libmpc.x86_64 0:1.0.1-3.el7                                                   
+  libstdc++-devel.x86_64 0:4.8.5-4.el7                                          
+  libtiff.x86_64 0:4.0.3-25.el7_2                                               
+  libwebp.x86_64 0:0.3.0-3.el7                                                  
+  lzo.x86_64 0:2.06-8.el7                                                       
+  mpfr.x86_64 0:3.1.1-4.el7                                                     
+  openssh.x86_64 0:6.6.1p1-25.el7_2                                             
+  openssh-clients.x86_64 0:6.6.1p1-25.el7_2                                     
+  perl.x86_64 4:5.16.3-286.el7                                                  
+  perl-Carp.noarch 0:1.26-244.el7                                               
+  perl-Encode.x86_64 0:2.51-7.el7                                               
+  perl-Error.noarch 1:0.17020-2.el7                                             
+  perl-Exporter.noarch 0:5.68-3.el7                                             
+  perl-File-Path.noarch 0:2.09-2.el7                                            
+  perl-File-Temp.noarch 0:0.23.01-3.el7                                         
+  perl-Filter.x86_64 0:1.49-3.el7                                               
+  perl-Getopt-Long.noarch 0:2.40-2.el7                                          
+  perl-Git.noarch 0:1.8.3.1-6.el7_2.1                                           
+  perl-HTTP-Tiny.noarch 0:0.033-3.el7                                           
+  perl-PathTools.x86_64 0:3.40-5.el7                                            
+  perl-Pod-Escapes.noarch 1:1.04-286.el7                                        
+  perl-Pod-Perldoc.noarch 0:3.20-4.el7                                          
+  perl-Pod-Simple.noarch 1:3.28-4.el7                                           
+  perl-Pod-Usage.noarch 0:1.63-3.el7                                            
+  perl-Scalar-List-Utils.x86_64 0:1.27-248.el7                                  
+  perl-Socket.x86_64 0:2.010-3.el7                                              
+  perl-Storable.x86_64 0:2.45-3.el7                                             
+  perl-TermReadKey.x86_64 0:2.30-20.el7                                         
+  perl-Text-ParseWords.noarch 0:3.29-4.el7                                      
+  perl-Time-HiRes.x86_64 4:1.9725-3.el7                                         
+  perl-Time-Local.noarch 0:1.2300-2.el7                                         
+  perl-constant.noarch 0:1.27-2.el7                                             
+  perl-libs.x86_64 4:5.16.3-286.el7                                             
+  perl-macros.x86_64 4:5.16.3-286.el7                                           
+  perl-parent.noarch 1:0.225-244.el7                                            
+  perl-podlators.noarch 0:2.5.1-3.el7                                           
+  perl-threads.x86_64 0:1.87-4.el7                                              
+  perl-threads-shared.x86_64 0:1.43-6.el7                                       
+  rsync.x86_64 0:3.0.9-17.el7                                                   
+
+Dependency Updated:
+  glibc.x86_64 0:2.17-106.el7_2.8     glibc-common.x86_64 0:2.17-106.el7_2.8    
+
+Complete!
+[91m+ curl -kL https://bootstrap.pypa.io/get-pip.py
++ python
+[0m[91m [0m[91m % [0m[91mTotal    [0m[91m% Rece[0m[91mive[0m[91md % [0m[91mXf[0m[91mer[0m[91md [0m[91m Ave[0m[91mrage[0m[91m S[0m[91mpe[0m[91med [0m[91m [0m[91m [0m[91mT[0m[91mi[0m[91mm[0m[91me [0m[91m [0m[91m  [0m[91mT[0m[91mim[0m[91me[0m[91m [0m[91m [0m[91m [0m[91m  [0m[91mTi[0m[91mme[0m[91m  [0m[91mCu[0m[91mrr[0m[91men[0m[91mt
+[0m[91m [0m[91m [0m[91m [0m[91m  [0m[91m  [0m[91m  [0m[91m  [0m[91m    [0m[91m    [0m[91m [0m[91m  [0m[91m  [0m[91m  [0m[91m  [0m[91m  [0m[91m [0m[91m [0m[91m [0m[91mDl[0m[91moa[0m[91md [0m[91m U[0m[91mpl[0m[91moa[0m[91md [0m[91m  [0m[91mTo[0m[91mta[0m[91ml [0m[91m  [0m[91mSp[0m[91men[0m[91mt [0m[91m  [0m[91m L[0m[91mef[0m[91mt [0m[91m S[0m[91mpe[0m[91med[0m[91m
+[0m[91m
+  0[0m[91m    [0m[91m [0m[91m0[0m[91m [0m[91m  [0m[91m 0[0m[91m  [0m[91m  [0m[91m 0[0m[91m  [0m[91m  0     0      0      0 --:--:-- --:--:--[0m[91m --:[0m[91m--:[0m[91m-- [0m[91m  [0m[91m  0[0m[91m
+  0     0    0     0    0 [0m[91m    0      0      0 --:-[0m[91m-:-- --[0m[91m:--:-[0m[91m- --:--[0m[91m:--     [0m[91m0[0m[91m
+100 1488k  10[0m[91m0 1488k    0 [0m[91m   [0m[91m 0  [0m[91m1749k[0m[91m  [0m[91m  [0m[91m [0m[91m 0 [0m[91m--:--:[0m[91m-- [0m[91m--:-[0m[91m-:--[0m[91m [0m[91m--:[0m[91m--[0m[91m:[0m[91m-[0m[91m-[0m[91m 17[0m[91m47[0m[91mk[0m[91m
+[0mCollecting pip
+  Downloading pip-8.1.2-py2.py3-none-any.whl (1.2MB)
+Collecting setuptools
+  Downloading setuptools-25.1.6-py2.py3-none-any.whl (442kB)
+Collecting wheel
+  Downloading wheel-0.29.0-py2.py3-none-any.whl (66kB)
+Installing collected packages: pip, setuptools, wheel
+Successfully installed pip-8.1.2 setuptools-25.1.6 wheel-0.29.0
+[91m+ pip install numpy
+[0mCollecting numpy
+  Downloading numpy-1.11.1-cp27-cp27mu-manylinux1_x86_64.whl (15.3MB)
+Installing collected packages: numpy
+Successfully installed numpy-1.11.1
+ ---> 037b5fcf9e2c
+Removing intermediate container a0812f30e720
+Step 4 : RUN cd usr/local/     && git clone -b master --single-branch https://github.com/rdkit/rdkit.git
+ ---> Running in e5088d8262d9
+Cloning into 'rdkit'...
+ ---> e54c0100f8c8
+Removing intermediate container e5088d8262d9
+Step 5 : ENV RDBASE /usr/local/rdkit
+ ---> Running in 859b29af5cbb
+ ---> 230d1c5ff360
+Removing intermediate container 859b29af5cbb
+Step 6 : ENV LD_LIBRARY_PATH /lib:$RDBASE/lib
+ ---> Running in 27ca1b744b7a
+ ---> 5d9fe9a28390
+Removing intermediate container 27ca1b744b7a
+Step 7 : ENV PYTHONPATH $RDBASE
+ ---> Running in 62d59f8d8c22
+ ---> c3df845e5aa6
+Removing intermediate container 62d59f8d8c22
+Step 8 : RUN mkdir $RDBASE/build     && cd $RDBASE/build     && cmake -DRDK_BUILD_INCHI_SUPPORT=ON -DBOOST_ROOT=/usr/lib64 -D PYTHON_EXECUTABLE=/usr/bin/python ..     && make     && make install
+ ---> Running in 37dcbc4cce71
+-- The C compiler identification is GNU 4.8.5
+-- The CXX compiler identification is GNU 4.8.5
+-- Check for working C compiler: /usr/bin/cc
+-- Check for working C compiler: /usr/bin/cc -- works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++
+-- Check for working CXX compiler: /usr/bin/c++ -- works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check if the system is big endian
+-- Searching 16 bit integer
+-- Looking for sys/types.h
+-- Looking for sys/types.h - found
+-- Looking for stdint.h
+-- Looking for stdint.h - found
+-- Looking for stddef.h
+-- Looking for stddef.h - found
+-- Check size of unsigned short
+-- Check size of unsigned short - done
+-- Using unsigned short
+-- Check if the system is big endian - little endian
+-- Could NOT find InChI in system locations (missing:  INCHI_LIBRARY INCHI_INCLUDE_DIR) 
+[91mDownloading http://www.inchi-trust.org/wp/wp-content/uploads/2014/06/INCHI-1-API.zip...
+[0m-- Found PythonInterp: /usr/bin/python (found version "2.7.5") 
+-- Found PythonLibs: /usr/lib64/libpython2.7.so (found version "2.7.5") 
+-- Boost version: 1.53.0
+-- Found the following Boost libraries:
+--   python
+-- Looking for include file pthread.h
+-- Looking for include file pthread.h - found
+-- Looking for pthread_create
+-- Looking for pthread_create - not found
+-- Looking for pthread_create in pthreads
+-- Looking for pthread_create in pthreads - not found
+-- Looking for pthread_create in pthread
+-- Looking for pthread_create in pthread - found
+-- Found Threads: TRUE  
+-- Boost version: 1.53.0
+-- Found the following Boost libraries:
+--   thread
+--   system
+-- Boost version: 1.53.0
+-- Found the following Boost libraries:
+--   serialization
+[91m== Using strict rotor definition
+[0m[91m== Updating Filters.cpp from pains file
+[0m== Done updating pains files
+-- Boost version: 1.53.0
+-- Found the following Boost libraries:
+--   regex
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /usr/local/rdkit/build
+Scanning dependencies of target Inchi
+[  0%] Building C object External/INCHI-API/CMakeFiles/Inchi.dir/src/ichican2.c.o
+[  0%] Building C object External/INCHI-API/CMakeFiles/Inchi.dir/src/ichicano.c.o
+[  0%] Building C object External/INCHI-API/CMakeFiles/Inchi.dir/src/ichicans.c.o
+[  0%] Building C object External/INCHI-API/CMakeFiles/Inchi.dir/src/ichiisot.c.o
+[  0%] Building C object External/INCHI-API/CMakeFiles/Inchi.dir/src/ichilnct.c.o
+[  1%] Building C object External/INCHI-API/CMakeFiles/Inchi.dir/src/ichimak2.c.o
+[  1%] Building C object External/INCHI-API/CMakeFiles/Inchi.dir/src/ichimake.c.o
+[  1%] Building C object External/INCHI-API/CMakeFiles/Inchi.dir/src/ichimap1.c.o
+[  1%] Building C object External/INCHI-API/CMakeFiles/Inchi.dir/src/ichimap2.c.o
+[  1%] Building C object External/INCHI-API/CMakeFiles/Inchi.dir/src/ichimap4.c.o
+[  1%] Building C object External/INCHI-API/CMakeFiles/Inchi.dir/src/ichinorm.c.o
+[  2%] Building C object External/INCHI-API/CMakeFiles/Inchi.dir/src/ichiparm.c.o
+[  2%] Building C object External/INCHI-API/CMakeFiles/Inchi.dir/src/ichiprt1.c.o
+[  2%] Building C object External/INCHI-API/CMakeFiles/Inchi.dir/src/ichiprt2.c.o
+[  2%] Building C object External/INCHI-API/CMakeFiles/Inchi.dir/src/ichiprt3.c.o
+[  2%] Building C object External/INCHI-API/CMakeFiles/Inchi.dir/src/ichiqueu.c.o
+[  2%] Building C object External/INCHI-API/CMakeFiles/Inchi.dir/src/ichiring.c.o
+[  3%] Building C object External/INCHI-API/CMakeFiles/Inchi.dir/src/ichisort.c.o
+[  3%] Building C object External/INCHI-API/CMakeFiles/Inchi.dir/src/ichister.c.o
+[  3%] Building C object External/INCHI-API/CMakeFiles/Inchi.dir/src/ichitaut.c.o
+[  3%] Building C object External/INCHI-API/CMakeFiles/Inchi.dir/src/ichi_bns.c.o
+[  3%] Building C object External/INCHI-API/CMakeFiles/Inchi.dir/src/inchi_dll.c.o
+[  3%] Building C object External/INCHI-API/CMakeFiles/Inchi.dir/src/ichiread.c.o
+[  4%] Building C object External/INCHI-API/CMakeFiles/Inchi.dir/src/ichirvr1.c.o
+[  4%] Building C object External/INCHI-API/CMakeFiles/Inchi.dir/src/ichirvr2.c.o
+[  4%] Building C object External/INCHI-API/CMakeFiles/Inchi.dir/src/ichirvr3.c.o
+[  4%] Building C object External/INCHI-API/CMakeFiles/Inchi.dir/src/ichirvr4.c.o
+[  4%] Building C object External/INCHI-API/CMakeFiles/Inchi.dir/src/ichirvr5.c.o
+[  4%] Building C object External/INCHI-API/CMakeFiles/Inchi.dir/src/ichirvr6.c.o
+[  5%] Building C object External/INCHI-API/CMakeFiles/Inchi.dir/src/ichirvr7.c.o
+[  5%] Building C object External/INCHI-API/CMakeFiles/Inchi.dir/src/inchi_dll_main.c.o
+[  5%] Building C object External/INCHI-API/CMakeFiles/Inchi.dir/src/runichi.c.o
+[  5%] Building C object External/INCHI-API/CMakeFiles/Inchi.dir/src/inchi_dll_a.c.o
+[  5%] Building C object External/INCHI-API/CMakeFiles/Inchi.dir/src/inchi_dll_a2.c.o
+[  5%] Building C object External/INCHI-API/CMakeFiles/Inchi.dir/src/ikey_dll.c.o
+[  5%] Building C object External/INCHI-API/CMakeFiles/Inchi.dir/src/ikey_base26.c.o
+[  6%] Building C object External/INCHI-API/CMakeFiles/Inchi.dir/src/ichi_io.c.o
+[  6%] Building C object External/INCHI-API/CMakeFiles/Inchi.dir/src/sha2.c.o
+[  6%] Building C object External/INCHI-API/CMakeFiles/Inchi.dir/src/strutil.c.o
+[  6%] Building C object External/INCHI-API/CMakeFiles/Inchi.dir/src/util.c.o
+Linking C shared library ../../lib/libInchi.so
+[  6%] Built target Inchi
+Scanning dependencies of target Inchi_static
+[  6%] Building C object External/INCHI-API/CMakeFiles/Inchi_static.dir/src/ichican2.c.o
+[  6%] Building C object External/INCHI-API/CMakeFiles/Inchi_static.dir/src/ichicano.c.o
+[  7%] Building C object External/INCHI-API/CMakeFiles/Inchi_static.dir/src/ichicans.c.o
+[  7%] Building C object External/INCHI-API/CMakeFiles/Inchi_static.dir/src/ichiisot.c.o
+[  7%] Building C object External/INCHI-API/CMakeFiles/Inchi_static.dir/src/ichilnct.c.o
+[  7%] Building C object External/INCHI-API/CMakeFiles/Inchi_static.dir/src/ichimak2.c.o
+[  7%] Building C object External/INCHI-API/CMakeFiles/Inchi_static.dir/src/ichimake.c.o
+[  7%] Building C object External/INCHI-API/CMakeFiles/Inchi_static.dir/src/ichimap1.c.o
+[  8%] Building C object External/INCHI-API/CMakeFiles/Inchi_static.dir/src/ichimap2.c.o
+[  8%] Building C object External/INCHI-API/CMakeFiles/Inchi_static.dir/src/ichimap4.c.o
+[  8%] Building C object External/INCHI-API/CMakeFiles/Inchi_static.dir/src/ichinorm.c.o
+[  8%] Building C object External/INCHI-API/CMakeFiles/Inchi_static.dir/src/ichiparm.c.o
+[  8%] Building C object External/INCHI-API/CMakeFiles/Inchi_static.dir/src/ichiprt1.c.o
+[  8%] Building C object External/INCHI-API/CMakeFiles/Inchi_static.dir/src/ichiprt2.c.o
+[  9%] Building C object External/INCHI-API/CMakeFiles/Inchi_static.dir/src/ichiprt3.c.o
+[  9%] Building C object External/INCHI-API/CMakeFiles/Inchi_static.dir/src/ichiqueu.c.o
+[  9%] Building C object External/INCHI-API/CMakeFiles/Inchi_static.dir/src/ichiring.c.o
+[  9%] Building C object External/INCHI-API/CMakeFiles/Inchi_static.dir/src/ichisort.c.o
+[  9%] Building C object External/INCHI-API/CMakeFiles/Inchi_static.dir/src/ichister.c.o
+[  9%] Building C object External/INCHI-API/CMakeFiles/Inchi_static.dir/src/ichitaut.c.o
+[  9%] Building C object External/INCHI-API/CMakeFiles/Inchi_static.dir/src/ichi_bns.c.o
+[ 10%] Building C object External/INCHI-API/CMakeFiles/Inchi_static.dir/src/inchi_dll.c.o
+[ 10%] Building C object External/INCHI-API/CMakeFiles/Inchi_static.dir/src/ichiread.c.o
+[ 10%] Building C object External/INCHI-API/CMakeFiles/Inchi_static.dir/src/ichirvr1.c.o
+[ 10%] Building C object External/INCHI-API/CMakeFiles/Inchi_static.dir/src/ichirvr2.c.o
+[ 10%] Building C object External/INCHI-API/CMakeFiles/Inchi_static.dir/src/ichirvr3.c.o
+[ 10%] Building C object External/INCHI-API/CMakeFiles/Inchi_static.dir/src/ichirvr4.c.o
+[ 11%] Building C object External/INCHI-API/CMakeFiles/Inchi_static.dir/src/ichirvr5.c.o
+[ 11%] Building C object External/INCHI-API/CMakeFiles/Inchi_static.dir/src/ichirvr6.c.o
+[ 11%] Building C object External/INCHI-API/CMakeFiles/Inchi_static.dir/src/ichirvr7.c.o
+[ 11%] Building C object External/INCHI-API/CMakeFiles/Inchi_static.dir/src/inchi_dll_main.c.o
+[ 11%] Building C object External/INCHI-API/CMakeFiles/Inchi_static.dir/src/runichi.c.o
+[ 11%] Building C object External/INCHI-API/CMakeFiles/Inchi_static.dir/src/inchi_dll_a.c.o
+[ 12%] Building C object External/INCHI-API/CMakeFiles/Inchi_static.dir/src/inchi_dll_a2.c.o
+[ 12%] Building C object External/INCHI-API/CMakeFiles/Inchi_static.dir/src/ikey_dll.c.o
+[ 12%] Building C object External/INCHI-API/CMakeFiles/Inchi_static.dir/src/ikey_base26.c.o
+[ 12%] Building C object External/INCHI-API/CMakeFiles/Inchi_static.dir/src/ichi_io.c.o
+[ 12%] Building C object External/INCHI-API/CMakeFiles/Inchi_static.dir/src/sha2.c.o
+[ 12%] Building C object External/INCHI-API/CMakeFiles/Inchi_static.dir/src/strutil.c.o
+[ 13%] Building C object External/INCHI-API/CMakeFiles/Inchi_static.dir/src/util.c.o
+Linking C static library libInchi_static.a
+[ 13%] Built target Inchi_static
+Scanning dependencies of target RDGeneral
+[ 13%] Building CXX object Code/RDGeneral/CMakeFiles/RDGeneral.dir/Invariant.cpp.o
+[ 13%] Building CXX object Code/RDGeneral/CMakeFiles/RDGeneral.dir/types.cpp.o
+[ 13%] Building CXX object Code/RDGeneral/CMakeFiles/RDGeneral.dir/utils.cpp.o
+[ 13%] Building CXX object Code/RDGeneral/CMakeFiles/RDGeneral.dir/RDLog.cpp.o
+[ 13%] Building CXX object Code/RDGeneral/CMakeFiles/RDGeneral.dir/Dict.cpp.o
+[ 14%] Building CXX object Code/RDGeneral/CMakeFiles/RDGeneral.dir/LocaleSwitcher.cpp.o
+[ 14%] Building CXX object Code/RDGeneral/CMakeFiles/RDGeneral.dir/versions.cpp.o
+Linking CXX shared library ../../lib/libRDGeneral.so
+[ 14%] Built target RDGeneral
+Scanning dependencies of target DataStructs
+[ 15%] Building CXX object Code/DataStructs/CMakeFiles/DataStructs.dir/BitVect.cpp.o
+[ 15%] Building CXX object Code/DataStructs/CMakeFiles/DataStructs.dir/SparseBitVect.cpp.o
+[ 15%] Building CXX object Code/DataStructs/CMakeFiles/DataStructs.dir/ExplicitBitVect.cpp.o
+[ 15%] Building CXX object Code/DataStructs/CMakeFiles/DataStructs.dir/Utils.cpp.o
+[ 15%] Building CXX object Code/DataStructs/CMakeFiles/DataStructs.dir/base64.cpp.o
+[ 15%] Building CXX object Code/DataStructs/CMakeFiles/DataStructs.dir/BitOps.cpp.o
+[ 16%] Building CXX object Code/DataStructs/CMakeFiles/DataStructs.dir/DiscreteDistMat.cpp.o
+[ 16%] Building CXX object Code/DataStructs/CMakeFiles/DataStructs.dir/DiscreteValueVect.cpp.o
+[ 16%] Building CXX object Code/DataStructs/CMakeFiles/DataStructs.dir/FPBReader.cpp.o
+[ 16%] Building CXX object Code/DataStructs/CMakeFiles/DataStructs.dir/MultiFPBReader.cpp.o
+Linking CXX shared library ../../lib/libDataStructs.so
+[ 16%] Built target DataStructs
+Scanning dependencies of target RDGeometryLib
+[ 16%] Building CXX object Code/Geometry/CMakeFiles/RDGeometryLib.dir/point.cpp.o
+[ 16%] Building CXX object Code/Geometry/CMakeFiles/RDGeometryLib.dir/Transform2D.cpp.o
+[ 16%] Building CXX object Code/Geometry/CMakeFiles/RDGeometryLib.dir/Transform3D.cpp.o
+[ 17%] Building CXX object Code/Geometry/CMakeFiles/RDGeometryLib.dir/UniformGrid3D.cpp.o
+[ 17%] Building CXX object Code/Geometry/CMakeFiles/RDGeometryLib.dir/GridUtils.cpp.o
+Linking CXX shared library ../../lib/libRDGeometryLib.so
+[ 17%] Built target RDGeometryLib
+Scanning dependencies of target GraphMol
+[ 17%] Building CXX object Code/GraphMol/CMakeFiles/GraphMol.dir/Atom.cpp.o
+[ 17%] Building CXX object Code/GraphMol/CMakeFiles/GraphMol.dir/QueryAtom.cpp.o
+[ 17%] Building CXX object Code/GraphMol/CMakeFiles/GraphMol.dir/QueryBond.cpp.o
+[ 17%] Building CXX object Code/GraphMol/CMakeFiles/GraphMol.dir/Bond.cpp.o
+[ 17%] Building CXX object Code/GraphMol/CMakeFiles/GraphMol.dir/MolOps.cpp.o
+[ 18%] Building CXX object Code/GraphMol/CMakeFiles/GraphMol.dir/FindRings.cpp.o
+[ 18%] Building CXX object Code/GraphMol/CMakeFiles/GraphMol.dir/ROMol.cpp.o
+[ 18%] Building CXX object Code/GraphMol/CMakeFiles/GraphMol.dir/RWMol.cpp.o
+[ 18%] Building CXX object Code/GraphMol/CMakeFiles/GraphMol.dir/PeriodicTable.cpp.o
+[ 18%] Building CXX object Code/GraphMol/CMakeFiles/GraphMol.dir/atomic_data.cpp.o
+[ 18%] Building CXX object Code/GraphMol/CMakeFiles/GraphMol.dir/QueryOps.cpp.o
+[ 19%] Building CXX object Code/GraphMol/CMakeFiles/GraphMol.dir/MolPickler.cpp.o
+[ 19%] Building CXX object Code/GraphMol/CMakeFiles/GraphMol.dir/Canon.cpp.o
+[ 19%] Building CXX object Code/GraphMol/CMakeFiles/GraphMol.dir/AtomIterators.cpp.o
+[ 19%] Building CXX object Code/GraphMol/CMakeFiles/GraphMol.dir/BondIterators.cpp.o
+[ 19%] Building CXX object Code/GraphMol/CMakeFiles/GraphMol.dir/Aromaticity.cpp.o
+[ 19%] Building CXX object Code/GraphMol/CMakeFiles/GraphMol.dir/Kekulize.cpp.o
+[ 20%] Building CXX object Code/GraphMol/CMakeFiles/GraphMol.dir/MolDiscriminators.cpp.o
+[ 20%] Building CXX object Code/GraphMol/CMakeFiles/GraphMol.dir/ConjugHybrid.cpp.o
+[ 20%] Building CXX object Code/GraphMol/CMakeFiles/GraphMol.dir/AddHs.cpp.o
+[ 20%] Building CXX object Code/GraphMol/CMakeFiles/GraphMol.dir/Matrices.cpp.o
+[ 20%] Building CXX object Code/GraphMol/CMakeFiles/GraphMol.dir/Chirality.cpp.o
+[ 20%] Building CXX object Code/GraphMol/CMakeFiles/GraphMol.dir/RingInfo.cpp.o
+[ 21%] Building CXX object Code/GraphMol/CMakeFiles/GraphMol.dir/Conformer.cpp.o
+[ 21%] Building CXX object Code/GraphMol/CMakeFiles/GraphMol.dir/Renumber.cpp.o
+[ 21%] Building CXX object Code/GraphMol/CMakeFiles/GraphMol.dir/AdjustQuery.cpp.o
+[ 21%] Building CXX object Code/GraphMol/CMakeFiles/GraphMol.dir/Resonance.cpp.o
+[ 21%] Building CXX object Code/GraphMol/CMakeFiles/GraphMol.dir/new_canon.cpp.o
+Linking CXX shared library ../../lib/libGraphMol.so
+[ 21%] Built target GraphMol
+Scanning dependencies of target SubstructMatch
+[ 21%] Building CXX object Code/GraphMol/Substruct/CMakeFiles/SubstructMatch.dir/SubstructMatch.cpp.o
+[ 22%] Building CXX object Code/GraphMol/Substruct/CMakeFiles/SubstructMatch.dir/SubstructUtils.cpp.o
+Linking CXX shared library ../../../lib/libSubstructMatch.so
+[ 22%] Built target SubstructMatch
+Scanning dependencies of target Depictor
+[ 22%] Building CXX object Code/GraphMol/Depictor/CMakeFiles/Depictor.dir/RDDepictor.cpp.o
+[ 22%] Building CXX object Code/GraphMol/Depictor/CMakeFiles/Depictor.dir/EmbeddedFrag.cpp.o
+[ 22%] Building CXX object Code/GraphMol/Depictor/CMakeFiles/Depictor.dir/DepictUtils.cpp.o
+Linking CXX shared library ../../../lib/libDepictor.so
+[ 22%] Built target Depictor
+Scanning dependencies of target SmilesParse
+[ 22%] Building CXX object Code/GraphMol/SmilesParse/CMakeFiles/SmilesParse.dir/SmilesParse.cpp.o
+[ 22%] Building CXX object Code/GraphMol/SmilesParse/CMakeFiles/SmilesParse.dir/SmilesParseOps.cpp.o
+[ 22%] Building CXX object Code/GraphMol/SmilesParse/CMakeFiles/SmilesParse.dir/SmilesWrite.cpp.o
+[ 23%] Building CXX object Code/GraphMol/SmilesParse/CMakeFiles/SmilesParse.dir/SmartsWrite.cpp.o
+[ 23%] Building CXX object Code/GraphMol/SmilesParse/CMakeFiles/SmilesParse.dir/smiles.tab.cpp.o
+[91msmiles.yy:38:1: warning: unused parameter 'input' [-Wunused-parameter]
+smiles.yy:38:1: warning: unused parameter 'branchPoints' [-Wunused-parameter]
+smiles.yy:38:1: warning: unused parameter 'scanner' [-Wunused-parameter]
+[0m[ 23%] Building CXX object Code/GraphMol/SmilesParse/CMakeFiles/SmilesParse.dir/smarts.tab.cpp.o
+[91msmarts.yy:25:1: warning: unused parameter 'input' [-Wunused-parameter]
+[0m[91msmarts.yy:25:1: warning: unused parameter 'ms' [-Wunused-parameter]
+[0m[91msmarts.yy:25:1: warning: unused parameter 'scanner' [-Wunused-parameter]
+[0m[ 23%] Building CXX object Code/GraphMol/SmilesParse/CMakeFiles/SmilesParse.dir/lex.yysmiles.cpp.o
+[91m/Users/landrgr1/RDKit_git/Code/GraphMol/SmilesParse/lex.yysmiles.cpp:2240:13: warning: unused parameter 'yyscanner' [-Wunused-parameter]
+[0m[91m/Users/landrgr1/RDKit_git/Code/GraphMol/SmilesParse/lex.yysmiles.cpp:2572:7: warning: unused parameter 'yyscanner' [-Wunused-parameter]
+[0m[91m/Users/landrgr1/RDKit_git/Code/GraphMol/SmilesParse/lex.yysmiles.cpp:2577:7: warning: unused parameter 'yyscanner' [-Wunused-parameter]
+/Users/landrgr1/RDKit_git/Code/GraphMol/SmilesParse/lex.yysmiles.cpp:2589:6: warning: unused parameter 'yyscanner' [-Wunused-parameter]
+[0m[ 23%] Building CXX object Code/GraphMol/SmilesParse/CMakeFiles/SmilesParse.dir/lex.yysmarts.cpp.o
+Linking CXX shared library ../../../lib/libSmilesParse.so
+[ 23%] Built target SmilesParse
+Scanning dependencies of target RDInchiLib
+[ 24%] Building CXX object External/INCHI-API/CMakeFiles/RDInchiLib.dir/inchi.cpp.o
+Linking CXX shared library ../../lib/libRDInchiLib.so
+[ 24%] Built target RDInchiLib
+Scanning dependencies of target RDInchiLib_static
+[ 24%] Building CXX object External/INCHI-API/CMakeFiles/RDInchiLib_static.dir/inchi.cpp.o
+Linking CXX static library libRDInchiLib_static.a
+[ 24%] Built target RDInchiLib_static
+Scanning dependencies of target inchi_support
+[ 24%] Built target inchi_support
+Scanning dependencies of target PartialCharges
+[ 24%] Building CXX object Code/GraphMol/PartialCharges/CMakeFiles/PartialCharges.dir/GasteigerCharges.cpp.o
+[ 24%] Building CXX object Code/GraphMol/PartialCharges/CMakeFiles/PartialCharges.dir/GasteigerParams.cpp.o
+Linking CXX shared library ../../../lib/libPartialCharges.so
+[ 24%] Built target PartialCharges
+Scanning dependencies of target FileParsers
+[ 24%] Building CXX object Code/GraphMol/FileParsers/CMakeFiles/FileParsers.dir/Mol2FileParser.cpp.o
+[ 24%] Building CXX object Code/GraphMol/FileParsers/CMakeFiles/FileParsers.dir/MolFileParser.cpp.o
+[ 24%] Building CXX object Code/GraphMol/FileParsers/CMakeFiles/FileParsers.dir/MolFileStereochem.cpp.o
+[ 24%] Building CXX object Code/GraphMol/FileParsers/CMakeFiles/FileParsers.dir/MolFileWriter.cpp.o
+[ 25%] Building CXX object Code/GraphMol/FileParsers/CMakeFiles/FileParsers.dir/ForwardSDMolSupplier.cpp.o
+[ 25%] Building CXX object Code/GraphMol/FileParsers/CMakeFiles/FileParsers.dir/SDMolSupplier.cpp.o
+[ 25%] Building CXX object Code/GraphMol/FileParsers/CMakeFiles/FileParsers.dir/SDWriter.cpp.o
+[ 25%] Building CXX object Code/GraphMol/FileParsers/CMakeFiles/FileParsers.dir/SmilesMolSupplier.cpp.o
+[ 25%] Building CXX object Code/GraphMol/FileParsers/CMakeFiles/FileParsers.dir/SmilesWriter.cpp.o
+[ 25%] Building CXX object Code/GraphMol/FileParsers/CMakeFiles/FileParsers.dir/TDTMolSupplier.cpp.o
+[ 26%] Building CXX object Code/GraphMol/FileParsers/CMakeFiles/FileParsers.dir/TDTWriter.cpp.o
+[ 26%] Building CXX object Code/GraphMol/FileParsers/CMakeFiles/FileParsers.dir/TplFileParser.cpp.o
+[ 26%] Building CXX object Code/GraphMol/FileParsers/CMakeFiles/FileParsers.dir/TplFileWriter.cpp.o
+[ 26%] Building CXX object Code/GraphMol/FileParsers/CMakeFiles/FileParsers.dir/PDBParser.cpp.o
+[ 26%] Building CXX object Code/GraphMol/FileParsers/CMakeFiles/FileParsers.dir/PDBWriter.cpp.o
+[ 26%] Building CXX object Code/GraphMol/FileParsers/CMakeFiles/FileParsers.dir/PDBSupplier.cpp.o
+[ 26%] Building CXX object Code/GraphMol/FileParsers/CMakeFiles/FileParsers.dir/ProximityBonds.cpp.o
+[ 27%] Building CXX object Code/GraphMol/FileParsers/CMakeFiles/FileParsers.dir/SequenceParsers.cpp.o
+[ 27%] Building CXX object Code/GraphMol/FileParsers/CMakeFiles/FileParsers.dir/SequenceWriters.cpp.o
+Linking CXX shared library ../../../lib/libFileParsers.so
+[ 27%] Built target FileParsers
+Scanning dependencies of target Subgraphs
+[ 27%] Building CXX object Code/GraphMol/Subgraphs/CMakeFiles/Subgraphs.dir/Subgraphs.cpp.o
+[ 27%] Building CXX object Code/GraphMol/Subgraphs/CMakeFiles/Subgraphs.dir/SubgraphUtils.cpp.o
+Linking CXX shared library ../../../lib/libSubgraphs.so
+[ 27%] Built target Subgraphs
+Scanning dependencies of target Descriptors
+[ 27%] Building CXX object Code/GraphMol/Descriptors/CMakeFiles/Descriptors.dir/Crippen.cpp.o
+[ 27%] Building CXX object Code/GraphMol/Descriptors/CMakeFiles/Descriptors.dir/MolDescriptors.cpp.o
+[ 27%] Building CXX object Code/GraphMol/Descriptors/CMakeFiles/Descriptors.dir/MolSurf.cpp.o
+[ 27%] Building CXX object Code/GraphMol/Descriptors/CMakeFiles/Descriptors.dir/Lipinski.cpp.o
+[ 27%] Building CXX object Code/GraphMol/Descriptors/CMakeFiles/Descriptors.dir/ConnectivityDescriptors.cpp.o
+[ 28%] Building CXX object Code/GraphMol/Descriptors/CMakeFiles/Descriptors.dir/MQN.cpp.o
+[ 28%] Building CXX object Code/GraphMol/Descriptors/CMakeFiles/Descriptors.dir/Property.cpp.o
+Linking CXX shared library ../../../lib/libDescriptors.so
+[ 28%] Built target Descriptors
+Scanning dependencies of target testInchi
+[ 29%] Building CXX object External/INCHI-API/CMakeFiles/testInchi.dir/test.cpp.o
+Linking CXX executable testInchi
+[ 29%] Built target testInchi
+Scanning dependencies of target RDBoost
+[ 29%] Building CXX object Code/RDBoost/CMakeFiles/RDBoost.dir/Wrap.cpp.o
+Linking CXX shared library ../../lib/libRDBoost.so
+[ 29%] Built target RDBoost
+Scanning dependencies of target rdinchi
+[ 29%] Building CXX object External/INCHI-API/Wrap/CMakeFiles/rdinchi.dir/pyInchi.cpp.o
+Linking CXX shared module ../../../rdkit/Chem/rdinchi.so
+[ 29%] Built target rdinchi
+Scanning dependencies of target RDGeneral_static
+[ 29%] Building CXX object Code/RDGeneral/CMakeFiles/RDGeneral_static.dir/Invariant.cpp.o
+[ 29%] Building CXX object Code/RDGeneral/CMakeFiles/RDGeneral_static.dir/types.cpp.o
+[ 29%] Building CXX object Code/RDGeneral/CMakeFiles/RDGeneral_static.dir/utils.cpp.o
+[ 29%] Building CXX object Code/RDGeneral/CMakeFiles/RDGeneral_static.dir/RDLog.cpp.o
+[ 30%] Building CXX object Code/RDGeneral/CMakeFiles/RDGeneral_static.dir/Dict.cpp.o
+[ 30%] Building CXX object Code/RDGeneral/CMakeFiles/RDGeneral_static.dir/LocaleSwitcher.cpp.o
+[ 30%] Building CXX object Code/RDGeneral/CMakeFiles/RDGeneral_static.dir/versions.cpp.o
+Linking CXX static library libRDGeneral_static.a
+[ 30%] Built target RDGeneral_static
+Scanning dependencies of target testDict
+[ 30%] Building CXX object Code/RDGeneral/CMakeFiles/testDict.dir/testDict.cpp.o
+Linking CXX executable testDict
+[ 30%] Built target testDict
+Scanning dependencies of target testRDValue
+[ 30%] Building CXX object Code/RDGeneral/CMakeFiles/testRDValue.dir/testRDValue.cpp.o
+Linking CXX executable testRDValue
+[ 30%] Built target testRDValue
+Scanning dependencies of target RDBoost_static
+[ 31%] Building CXX object Code/RDBoost/CMakeFiles/RDBoost_static.dir/Wrap.cpp.o
+Linking CXX static library libRDBoost_static.a
+[ 31%] Built target RDBoost_static
+Scanning dependencies of target rdBase
+[ 31%] Building CXX object Code/RDBoost/Wrap/CMakeFiles/rdBase.dir/RDBase.cpp.o
+Linking CXX shared module ../../../rdkit/rdBase.so
+[ 31%] Built target rdBase
+Scanning dependencies of target DataStructs_static
+[ 31%] Building CXX object Code/DataStructs/CMakeFiles/DataStructs_static.dir/BitVect.cpp.o
+[ 31%] Building CXX object Code/DataStructs/CMakeFiles/DataStructs_static.dir/SparseBitVect.cpp.o
+[ 32%] Building CXX object Code/DataStructs/CMakeFiles/DataStructs_static.dir/ExplicitBitVect.cpp.o
+[ 32%] Building CXX object Code/DataStructs/CMakeFiles/DataStructs_static.dir/Utils.cpp.o
+[ 32%] Building CXX object Code/DataStructs/CMakeFiles/DataStructs_static.dir/base64.cpp.o
+[ 32%] Building CXX object Code/DataStructs/CMakeFiles/DataStructs_static.dir/BitOps.cpp.o
+[ 32%] Building CXX object Code/DataStructs/CMakeFiles/DataStructs_static.dir/DiscreteDistMat.cpp.o
+[ 32%] Building CXX object Code/DataStructs/CMakeFiles/DataStructs_static.dir/DiscreteValueVect.cpp.o
+[ 33%] Building CXX object Code/DataStructs/CMakeFiles/DataStructs_static.dir/FPBReader.cpp.o
+[ 33%] Building CXX object Code/DataStructs/CMakeFiles/DataStructs_static.dir/MultiFPBReader.cpp.o
+Linking CXX static library libDataStructs_static.a
+[ 33%] Built target DataStructs_static
+Scanning dependencies of target testDataStructs
+[ 34%] Building CXX object Code/DataStructs/CMakeFiles/testDataStructs.dir/testDatastructs.cpp.o
+Linking CXX executable testDataStructs
+[ 34%] Built target testDataStructs
+Scanning dependencies of target testFPB
+[ 34%] Building CXX object Code/DataStructs/CMakeFiles/testFPB.dir/testFPB.cpp.o
+Linking CXX executable testFPB
+[ 34%] Built target testFPB
+Scanning dependencies of target testMultiFPB
+[ 35%] Building CXX object Code/DataStructs/CMakeFiles/testMultiFPB.dir/testMultiFPB.cpp.o
+Linking CXX executable testMultiFPB
+[ 35%] Built target testMultiFPB
+Scanning dependencies of target cDataStructs
+[ 35%] Building CXX object Code/DataStructs/Wrap/CMakeFiles/cDataStructs.dir/DataStructs.cpp.o
+[ 36%] Building CXX object Code/DataStructs/Wrap/CMakeFiles/cDataStructs.dir/DiscreteValueVect.cpp.o
+[ 36%] Building CXX object Code/DataStructs/Wrap/CMakeFiles/cDataStructs.dir/SparseIntVect.cpp.o
+[ 36%] Building CXX object Code/DataStructs/Wrap/CMakeFiles/cDataStructs.dir/wrap_SparseBV.cpp.o
+[ 36%] Building CXX object Code/DataStructs/Wrap/CMakeFiles/cDataStructs.dir/wrap_ExplicitBV.cpp.o
+[ 36%] Building CXX object Code/DataStructs/Wrap/CMakeFiles/cDataStructs.dir/wrap_BitOps.cpp.o
+[ 36%] Building CXX object Code/DataStructs/Wrap/CMakeFiles/cDataStructs.dir/wrap_FPB.cpp.o
+[ 36%] Building CXX object Code/DataStructs/Wrap/CMakeFiles/cDataStructs.dir/wrap_Utils.cpp.o
+Linking CXX shared module ../../../rdkit/DataStructs/cDataStructs.so
+[ 36%] Built target cDataStructs
+Scanning dependencies of target RDGeometryLib_static
+[ 36%] Building CXX object Code/Geometry/CMakeFiles/RDGeometryLib_static.dir/point.cpp.o
+[ 36%] Building CXX object Code/Geometry/CMakeFiles/RDGeometryLib_static.dir/Transform2D.cpp.o
+[ 36%] Building CXX object Code/Geometry/CMakeFiles/RDGeometryLib_static.dir/Transform3D.cpp.o
+[ 36%] Building CXX object Code/Geometry/CMakeFiles/RDGeometryLib_static.dir/UniformGrid3D.cpp.o
+[ 36%] Building CXX object Code/Geometry/CMakeFiles/RDGeometryLib_static.dir/GridUtils.cpp.o
+Linking CXX static library libRDGeometryLib_static.a
+[ 36%] Built target RDGeometryLib_static
+Scanning dependencies of target testGrid
+[ 36%] Building CXX object Code/Geometry/CMakeFiles/testGrid.dir/testGrid.cpp.o
+Linking CXX executable testGrid
+[ 36%] Built target testGrid
+Scanning dependencies of target testTransforms
+[ 36%] Building CXX object Code/Geometry/CMakeFiles/testTransforms.dir/testTransforms.cpp.o
+Linking CXX executable testTransforms
+[ 36%] Built target testTransforms
+Scanning dependencies of target rdGeometry
+[ 36%] Building CXX object Code/Geometry/Wrap/CMakeFiles/rdGeometry.dir/Point.cpp.o
+[ 36%] Building CXX object Code/Geometry/Wrap/CMakeFiles/rdGeometry.dir/UniformGrid3D.cpp.o
+[ 36%] Building CXX object Code/Geometry/Wrap/CMakeFiles/rdGeometry.dir/rdGeometry.cpp.o
+Linking CXX shared module ../../../rdkit/Geometry/rdGeometry.so
+[ 36%] Built target rdGeometry
+Scanning dependencies of target testMatrices
+[ 36%] Building CXX object Code/Numerics/CMakeFiles/testMatrices.dir/testMatrices.cpp.o
+Linking CXX executable testMatrices
+[ 36%] Built target testMatrices
+Scanning dependencies of target Alignment
+[ 36%] Building CXX object Code/Numerics/Alignment/CMakeFiles/Alignment.dir/AlignPoints.cpp.o
+Linking CXX shared library ../../../lib/libAlignment.so
+[ 36%] Built target Alignment
+Scanning dependencies of target Alignment_static
+[ 36%] Building CXX object Code/Numerics/Alignment/CMakeFiles/Alignment_static.dir/AlignPoints.cpp.o
+Linking CXX static library libAlignment_static.a
+[ 36%] Built target Alignment_static
+Scanning dependencies of target testAlignment
+[ 36%] Building CXX object Code/Numerics/Alignment/CMakeFiles/testAlignment.dir/testAlignment.cpp.o
+Linking CXX executable testAlignment
+[ 36%] Built target testAlignment
+Scanning dependencies of target rdAlignment
+[ 37%] Building CXX object Code/Numerics/Alignment/Wrap/CMakeFiles/rdAlignment.dir/rdAlignment.cpp.o
+Linking CXX shared module ../../../../rdkit/Numerics/rdAlignment.so
+[ 37%] Built target rdAlignment
+Scanning dependencies of target EigenSolvers
+[ 37%] Building CXX object Code/Numerics/EigenSolvers/CMakeFiles/EigenSolvers.dir/PowerEigenSolver.cpp.o
+Linking CXX shared library ../../../lib/libEigenSolvers.so
+[ 37%] Built target EigenSolvers
+Scanning dependencies of target EigenSolvers_static
+[ 37%] Building CXX object Code/Numerics/EigenSolvers/CMakeFiles/EigenSolvers_static.dir/PowerEigenSolver.cpp.o
+Linking CXX static library libEigenSolvers_static.a
+[ 37%] Built target EigenSolvers_static
+Scanning dependencies of target Optimizer
+[ 37%] Building CXX object Code/Numerics/Optimizer/CMakeFiles/Optimizer.dir/BFGSOpt.cpp.o
+[ 37%] Building CXX object Code/Numerics/Optimizer/CMakeFiles/Optimizer.dir/LinearSearch.cpp.o
+Linking CXX shared library ../../../lib/libOptimizer.so
+[ 37%] Built target Optimizer
+Scanning dependencies of target Optimizer_static
+[ 37%] Building CXX object Code/Numerics/Optimizer/CMakeFiles/Optimizer_static.dir/BFGSOpt.cpp.o
+[ 38%] Building CXX object Code/Numerics/Optimizer/CMakeFiles/Optimizer_static.dir/LinearSearch.cpp.o
+Linking CXX static library libOptimizer_static.a
+[ 38%] Built target Optimizer_static
+Scanning dependencies of target testOptimizer
+[ 38%] Building CXX object Code/Numerics/Optimizer/CMakeFiles/testOptimizer.dir/testOptimizer.cpp.o
+Linking CXX executable testOptimizer
+[ 38%] Built target testOptimizer
+Scanning dependencies of target ForceField
+[ 38%] Building CXX object Code/ForceField/CMakeFiles/ForceField.dir/ForceField.cpp.o
+[ 38%] Building CXX object Code/ForceField/CMakeFiles/ForceField.dir/UFF/AngleBend.cpp.o
+[ 39%] Building CXX object Code/ForceField/CMakeFiles/ForceField.dir/UFF/BondStretch.cpp.o
+[ 39%] Building CXX object Code/ForceField/CMakeFiles/ForceField.dir/UFF/Nonbonded.cpp.o
+[ 39%] Building CXX object Code/ForceField/CMakeFiles/ForceField.dir/UFF/Inversion.cpp.o
+[ 39%] Building CXX object Code/ForceField/CMakeFiles/ForceField.dir/UFF/TorsionAngle.cpp.o
+[ 39%] Building CXX object Code/ForceField/CMakeFiles/ForceField.dir/UFF/DistanceConstraint.cpp.o
+[ 39%] Building CXX object Code/ForceField/CMakeFiles/ForceField.dir/UFF/AngleConstraint.cpp.o
+[ 40%] Building CXX object Code/ForceField/CMakeFiles/ForceField.dir/UFF/TorsionConstraint.cpp.o
+[ 40%] Building CXX object Code/ForceField/CMakeFiles/ForceField.dir/UFF/PositionConstraint.cpp.o
+[ 40%] Building CXX object Code/ForceField/CMakeFiles/ForceField.dir/UFF/Params.cpp.o
+[ 40%] Building CXX object Code/ForceField/CMakeFiles/ForceField.dir/MMFF/AngleBend.cpp.o
+[ 40%] Building CXX object Code/ForceField/CMakeFiles/ForceField.dir/MMFF/BondStretch.cpp.o
+[ 40%] Building CXX object Code/ForceField/CMakeFiles/ForceField.dir/MMFF/StretchBend.cpp.o
+[ 40%] Building CXX object Code/ForceField/CMakeFiles/ForceField.dir/MMFF/OopBend.cpp.o
+[ 41%] Building CXX object Code/ForceField/CMakeFiles/ForceField.dir/MMFF/TorsionAngle.cpp.o
+[ 41%] Building CXX object Code/ForceField/CMakeFiles/ForceField.dir/MMFF/Nonbonded.cpp.o
+[ 41%] Building CXX object Code/ForceField/CMakeFiles/ForceField.dir/MMFF/DistanceConstraint.cpp.o
+[ 41%] Building CXX object Code/ForceField/CMakeFiles/ForceField.dir/MMFF/AngleConstraint.cpp.o
+[ 41%] Building CXX object Code/ForceField/CMakeFiles/ForceField.dir/MMFF/TorsionConstraint.cpp.o
+[ 41%] Building CXX object Code/ForceField/CMakeFiles/ForceField.dir/MMFF/PositionConstraint.cpp.o
+[ 42%] Building CXX object Code/ForceField/CMakeFiles/ForceField.dir/MMFF/Params.cpp.o
+Linking CXX shared library ../../lib/libForceField.so
+[ 42%] Built target ForceField
+Scanning dependencies of target ForceField_static
+[ 42%] Building CXX object Code/ForceField/CMakeFiles/ForceField_static.dir/ForceField.cpp.o
+[ 42%] Building CXX object Code/ForceField/CMakeFiles/ForceField_static.dir/UFF/AngleBend.cpp.o
+[ 42%] Building CXX object Code/ForceField/CMakeFiles/ForceField_static.dir/UFF/BondStretch.cpp.o
+[ 42%] Building CXX object Code/ForceField/CMakeFiles/ForceField_static.dir/UFF/Nonbonded.cpp.o
+[ 42%] Building CXX object Code/ForceField/CMakeFiles/ForceField_static.dir/UFF/Inversion.cpp.o
+[ 42%] Building CXX object Code/ForceField/CMakeFiles/ForceField_static.dir/UFF/TorsionAngle.cpp.o
+[ 43%] Building CXX object Code/ForceField/CMakeFiles/ForceField_static.dir/UFF/DistanceConstraint.cpp.o
+[ 43%] Building CXX object Code/ForceField/CMakeFiles/ForceField_static.dir/UFF/AngleConstraint.cpp.o
+[ 43%] Building CXX object Code/ForceField/CMakeFiles/ForceField_static.dir/UFF/TorsionConstraint.cpp.o
+[ 43%] Building CXX object Code/ForceField/CMakeFiles/ForceField_static.dir/UFF/PositionConstraint.cpp.o
+[ 43%] Building CXX object Code/ForceField/CMakeFiles/ForceField_static.dir/UFF/Params.cpp.o
+[ 43%] Building CXX object Code/ForceField/CMakeFiles/ForceField_static.dir/MMFF/AngleBend.cpp.o
+[ 44%] Building CXX object Code/ForceField/CMakeFiles/ForceField_static.dir/MMFF/BondStretch.cpp.o
+[ 44%] Building CXX object Code/ForceField/CMakeFiles/ForceField_static.dir/MMFF/StretchBend.cpp.o
+[ 44%] Building CXX object Code/ForceField/CMakeFiles/ForceField_static.dir/MMFF/OopBend.cpp.o
+[ 44%] Building CXX object Code/ForceField/CMakeFiles/ForceField_static.dir/MMFF/TorsionAngle.cpp.o
+[ 44%] Building CXX object Code/ForceField/CMakeFiles/ForceField_static.dir/MMFF/Nonbonded.cpp.o
+[ 44%] Building CXX object Code/ForceField/CMakeFiles/ForceField_static.dir/MMFF/DistanceConstraint.cpp.o
+[ 45%] Building CXX object Code/ForceField/CMakeFiles/ForceField_static.dir/MMFF/AngleConstraint.cpp.o
+[ 45%] Building CXX object Code/ForceField/CMakeFiles/ForceField_static.dir/MMFF/TorsionConstraint.cpp.o
+[ 45%] Building CXX object Code/ForceField/CMakeFiles/ForceField_static.dir/MMFF/PositionConstraint.cpp.o
+[ 45%] Building CXX object Code/ForceField/CMakeFiles/ForceField_static.dir/MMFF/Params.cpp.o
+Linking CXX static library libForceField_static.a
+[ 45%] Built target ForceField_static
+Scanning dependencies of target ForceFieldHelpers
+[ 45%] Building CXX object Code/GraphMol/ForceFieldHelpers/CMakeFiles/ForceFieldHelpers.dir/UFF/AtomTyper.cpp.o
+[ 45%] Building CXX object Code/GraphMol/ForceFieldHelpers/CMakeFiles/ForceFieldHelpers.dir/UFF/Builder.cpp.o
+[ 45%] Building CXX object Code/GraphMol/ForceFieldHelpers/CMakeFiles/ForceFieldHelpers.dir/MMFF/AtomTyper.cpp.o
+[ 45%] Building CXX object Code/GraphMol/ForceFieldHelpers/CMakeFiles/ForceFieldHelpers.dir/MMFF/Builder.cpp.o
+[ 45%] Building CXX object Code/GraphMol/ForceFieldHelpers/CMakeFiles/ForceFieldHelpers.dir/CrystalFF/TorsionAngleM6.cpp.o
+[ 46%] Building CXX object Code/GraphMol/ForceFieldHelpers/CMakeFiles/ForceFieldHelpers.dir/CrystalFF/TorsionPreferences.cpp.o
+Linking CXX shared library ../../../lib/libForceFieldHelpers.so
+[ 46%] Built target ForceFieldHelpers
+Scanning dependencies of target MolTransforms
+[ 46%] Building CXX object Code/GraphMol/MolTransforms/CMakeFiles/MolTransforms.dir/MolTransforms.cpp.o
+Linking CXX shared library ../../../lib/libMolTransforms.so
+[ 46%] Built target MolTransforms
+Scanning dependencies of target testUFFForceField
+[ 46%] Building CXX object Code/ForceField/UFF/CMakeFiles/testUFFForceField.dir/testUFFForceField.cpp.o
+Linking CXX executable testUFFForceField
+[ 46%] Built target testUFFForceField
+Scanning dependencies of target MolAlign
+[ 46%] Building CXX object Code/GraphMol/MolAlign/CMakeFiles/MolAlign.dir/AlignMolecules.cpp.o
+[ 47%] Building CXX object Code/GraphMol/MolAlign/CMakeFiles/MolAlign.dir/O3AAlignMolecules.cpp.o
+Linking CXX shared library ../../../lib/libMolAlign.so
+[ 47%] Built target MolAlign
+Scanning dependencies of target DistGeometry
+[ 47%] Building CXX object Code/DistGeom/CMakeFiles/DistGeometry.dir/DistGeomUtils.cpp.o
+[ 47%] Building CXX object Code/DistGeom/CMakeFiles/DistGeometry.dir/TriangleSmooth.cpp.o
+[ 47%] Building CXX object Code/DistGeom/CMakeFiles/DistGeometry.dir/DistViolationContrib.cpp.o
+[ 47%] Building CXX object Code/DistGeom/CMakeFiles/DistGeometry.dir/ChiralViolationContrib.cpp.o
+Linking CXX shared library ../../lib/libDistGeometry.so
+[ 47%] Built target DistGeometry
+Scanning dependencies of target DistGeomHelpers
+[ 47%] Building CXX object Code/GraphMol/DistGeomHelpers/CMakeFiles/DistGeomHelpers.dir/BoundsMatrixBuilder.cpp.o
+[ 47%] Building CXX object Code/GraphMol/DistGeomHelpers/CMakeFiles/DistGeomHelpers.dir/Embedder.cpp.o
+Linking CXX shared library ../../../lib/libDistGeomHelpers.so
+[ 47%] Built target DistGeomHelpers
+Scanning dependencies of target testMMFFForceField
+[ 47%] Building CXX object Code/ForceField/MMFF/CMakeFiles/testMMFFForceField.dir/testMMFFForceField.cpp.o
+Linking CXX executable testMMFFForceField
+[ 47%] Built target testMMFFForceField
+Scanning dependencies of target rdForceField
+[ 47%] Building CXX object Code/ForceField/Wrap/CMakeFiles/rdForceField.dir/ForceField.cpp.o
+Linking CXX shared module ../../../rdkit/ForceField/rdForceField.so
+[ 47%] Built target rdForceField
+Scanning dependencies of target DistGeometry_static
+[ 47%] Building CXX object Code/DistGeom/CMakeFiles/DistGeometry_static.dir/DistGeomUtils.cpp.o
+[ 48%] Building CXX object Code/DistGeom/CMakeFiles/DistGeometry_static.dir/TriangleSmooth.cpp.o
+[ 48%] Building CXX object Code/DistGeom/CMakeFiles/DistGeometry_static.dir/DistViolationContrib.cpp.o
+[ 48%] Building CXX object Code/DistGeom/CMakeFiles/DistGeometry_static.dir/ChiralViolationContrib.cpp.o
+Linking CXX static library libDistGeometry_static.a
+[ 48%] Built target DistGeometry_static
+Scanning dependencies of target testDistGeom
+[ 48%] Building CXX object Code/DistGeom/CMakeFiles/testDistGeom.dir/testDistGeom.cpp.o
+Linking CXX executable testDistGeom
+[ 48%] Built target testDistGeom
+Scanning dependencies of target DistGeom
+[ 48%] Building CXX object Code/DistGeom/Wrap/CMakeFiles/DistGeom.dir/DistGeom.cpp.o
+Linking CXX shared module ../../../rdkit/DistanceGeometry/DistGeom.so
+[ 48%] Built target DistGeom
+Scanning dependencies of target Catalogs
+[ 48%] Building CXX object Code/Catalogs/CMakeFiles/Catalogs.dir/Catalog.cpp.o
+[ 48%] Building CXX object Code/Catalogs/CMakeFiles/Catalogs.dir/CatalogParams.cpp.o
+[ 48%] Building CXX object Code/Catalogs/CMakeFiles/Catalogs.dir/CatalogEntry.cpp.o
+Linking CXX shared library ../../lib/libCatalogs.so
+[ 48%] Built target Catalogs
+Scanning dependencies of target Catalogs_static
+[ 48%] Building CXX object Code/Catalogs/CMakeFiles/Catalogs_static.dir/Catalog.cpp.o
+[ 49%] Building CXX object Code/Catalogs/CMakeFiles/Catalogs_static.dir/CatalogParams.cpp.o
+[ 49%] Building CXX object Code/Catalogs/CMakeFiles/Catalogs_static.dir/CatalogEntry.cpp.o
+Linking CXX static library libCatalogs_static.a
+[ 49%] Built target Catalogs_static
+Scanning dependencies of target GraphMol_static
+[ 49%] Building CXX object Code/GraphMol/CMakeFiles/GraphMol_static.dir/Atom.cpp.o
+[ 49%] Building CXX object Code/GraphMol/CMakeFiles/GraphMol_static.dir/QueryAtom.cpp.o
+[ 50%] Building CXX object Code/GraphMol/CMakeFiles/GraphMol_static.dir/QueryBond.cpp.o
+[ 50%] Building CXX object Code/GraphMol/CMakeFiles/GraphMol_static.dir/Bond.cpp.o
+[ 50%] Building CXX object Code/GraphMol/CMakeFiles/GraphMol_static.dir/MolOps.cpp.o
+[ 50%] Building CXX object Code/GraphMol/CMakeFiles/GraphMol_static.dir/FindRings.cpp.o
+[ 50%] Building CXX object Code/GraphMol/CMakeFiles/GraphMol_static.dir/ROMol.cpp.o
+[ 50%] Building CXX object Code/GraphMol/CMakeFiles/GraphMol_static.dir/RWMol.cpp.o
+[ 51%] Building CXX object Code/GraphMol/CMakeFiles/GraphMol_static.dir/PeriodicTable.cpp.o
+[ 51%] Building CXX object Code/GraphMol/CMakeFiles/GraphMol_static.dir/atomic_data.cpp.o
+[ 51%] Building CXX object Code/GraphMol/CMakeFiles/GraphMol_static.dir/QueryOps.cpp.o
+[ 51%] Building CXX object Code/GraphMol/CMakeFiles/GraphMol_static.dir/MolPickler.cpp.o
+[ 51%] Building CXX object Code/GraphMol/CMakeFiles/GraphMol_static.dir/Canon.cpp.o
+[ 51%] Building CXX object Code/GraphMol/CMakeFiles/GraphMol_static.dir/AtomIterators.cpp.o
+[ 52%] Building CXX object Code/GraphMol/CMakeFiles/GraphMol_static.dir/BondIterators.cpp.o
+[ 52%] Building CXX object Code/GraphMol/CMakeFiles/GraphMol_static.dir/Aromaticity.cpp.o
+[ 52%] Building CXX object Code/GraphMol/CMakeFiles/GraphMol_static.dir/Kekulize.cpp.o
+[ 52%] Building CXX object Code/GraphMol/CMakeFiles/GraphMol_static.dir/MolDiscriminators.cpp.o
+[ 52%] Building CXX object Code/GraphMol/CMakeFiles/GraphMol_static.dir/ConjugHybrid.cpp.o
+[ 52%] Building CXX object Code/GraphMol/CMakeFiles/GraphMol_static.dir/AddHs.cpp.o
+[ 53%] Building CXX object Code/GraphMol/CMakeFiles/GraphMol_static.dir/Matrices.cpp.o
+[ 53%] Building CXX object Code/GraphMol/CMakeFiles/GraphMol_static.dir/Chirality.cpp.o
+[ 53%] Building CXX object Code/GraphMol/CMakeFiles/GraphMol_static.dir/RingInfo.cpp.o
+[ 53%] Building CXX object Code/GraphMol/CMakeFiles/GraphMol_static.dir/Conformer.cpp.o
+[ 53%] Building CXX object Code/GraphMol/CMakeFiles/GraphMol_static.dir/Renumber.cpp.o
+[ 53%] Building CXX object Code/GraphMol/CMakeFiles/GraphMol_static.dir/AdjustQuery.cpp.o
+[ 54%] Building CXX object Code/GraphMol/CMakeFiles/GraphMol_static.dir/Resonance.cpp.o
+[ 54%] Building CXX object Code/GraphMol/CMakeFiles/GraphMol_static.dir/new_canon.cpp.o
+Linking CXX static library libGraphMol_static.a
+[ 54%] Built target GraphMol_static
+Scanning dependencies of target graphmolIterTest
+[ 54%] Building CXX object Code/GraphMol/CMakeFiles/graphmolIterTest.dir/itertest.cpp.o
+Linking CXX executable graphmolIterTest
+[ 54%] Built target graphmolIterTest
+Scanning dependencies of target graphmolMemTest1
+[ 54%] Building CXX object Code/GraphMol/CMakeFiles/graphmolMemTest1.dir/memtest1.cpp.o
+Linking CXX executable graphmolMemTest1
+[ 54%] Built target graphmolMemTest1
+Scanning dependencies of target graphmolMolOpsTest
+[ 54%] Building CXX object Code/GraphMol/CMakeFiles/graphmolMolOpsTest.dir/molopstest.cpp.o
+Linking CXX executable graphmolMolOpsTest
+[ 54%] Built target graphmolMolOpsTest
+Scanning dependencies of target graphmolTest1
+[ 55%] Building CXX object Code/GraphMol/CMakeFiles/graphmolTest1.dir/test1.cpp.o
+Linking CXX executable graphmolTest1
+[ 55%] Built target graphmolTest1
+Scanning dependencies of target graphmolcpTest
+[ 55%] Building CXX object Code/GraphMol/CMakeFiles/graphmolcpTest.dir/cptest.cpp.o
+Linking CXX executable graphmolcpTest
+[ 55%] Built target graphmolcpTest
+Scanning dependencies of target graphmolqueryTest
+[ 55%] Building CXX object Code/GraphMol/CMakeFiles/graphmolqueryTest.dir/querytest.cpp.o
+Linking CXX executable graphmolqueryTest
+[ 55%] Built target graphmolqueryTest
+Scanning dependencies of target graphmoltestCanon
+[ 55%] Building CXX object Code/GraphMol/CMakeFiles/graphmoltestCanon.dir/testCanon.cpp.o
+Linking CXX executable graphmoltestCanon
+[ 55%] Built target graphmoltestCanon
+Scanning dependencies of target graphmoltestChirality
+[ 55%] Building CXX object Code/GraphMol/CMakeFiles/graphmoltestChirality.dir/testChirality.cpp.o
+Linking CXX executable graphmoltestChirality
+[ 55%] Built target graphmoltestChirality
+Scanning dependencies of target graphmoltestPickler
+[ 55%] Building CXX object Code/GraphMol/CMakeFiles/graphmoltestPickler.dir/testPickler.cpp.o
+Linking CXX executable graphmoltestPickler
+[ 55%] Built target graphmoltestPickler
+Scanning dependencies of target hanoiTest
+[ 56%] Building CXX object Code/GraphMol/CMakeFiles/hanoiTest.dir/hanoitest.cpp.o
+Linking CXX executable hanoiTest
+[ 56%] Built target hanoiTest
+Scanning dependencies of target resMolSupplierTest
+[ 56%] Building CXX object Code/GraphMol/CMakeFiles/resMolSupplierTest.dir/resMolSupplierTest.cpp.o
+Linking CXX executable resMolSupplierTest
+[ 56%] Built target resMolSupplierTest
+Scanning dependencies of target Depictor_static
+[ 56%] Building CXX object Code/GraphMol/Depictor/CMakeFiles/Depictor_static.dir/RDDepictor.cpp.o
+[ 56%] Building CXX object Code/GraphMol/Depictor/CMakeFiles/Depictor_static.dir/EmbeddedFrag.cpp.o
+[ 57%] Building CXX object Code/GraphMol/Depictor/CMakeFiles/Depictor_static.dir/DepictUtils.cpp.o
+Linking CXX static library libDepictor_static.a
+[ 57%] Built target Depictor_static
+Scanning dependencies of target ChemTransforms
+[ 57%] Building CXX object Code/GraphMol/ChemTransforms/CMakeFiles/ChemTransforms.dir/ChemTransforms.cpp.o
+[ 58%] Building CXX object Code/GraphMol/ChemTransforms/CMakeFiles/ChemTransforms.dir/MolFragmenter.cpp.o
+Linking CXX shared library ../../../lib/libChemTransforms.so
+[ 58%] Built target ChemTransforms
+Scanning dependencies of target testDepictor
+[ 58%] Building CXX object Code/GraphMol/Depictor/CMakeFiles/testDepictor.dir/testDepictor.cpp.o
+Linking CXX executable testDepictor
+[ 58%] Built target testDepictor
+Scanning dependencies of target rdDepictor
+[ 58%] Building CXX object Code/GraphMol/Depictor/Wrap/CMakeFiles/rdDepictor.dir/rdDepictor.cpp.o
+Linking CXX shared module ../../../../rdkit/Chem/rdDepictor.so
+[ 58%] Built target rdDepictor
+Scanning dependencies of target SmilesParse_static
+[ 58%] Building CXX object Code/GraphMol/SmilesParse/CMakeFiles/SmilesParse_static.dir/SmilesParse.cpp.o
+[ 59%] Building CXX object Code/GraphMol/SmilesParse/CMakeFiles/SmilesParse_static.dir/SmilesParseOps.cpp.o
+[ 59%] Building CXX object Code/GraphMol/SmilesParse/CMakeFiles/SmilesParse_static.dir/SmilesWrite.cpp.o
+[ 59%] Building CXX object Code/GraphMol/SmilesParse/CMakeFiles/SmilesParse_static.dir/SmartsWrite.cpp.o
+[ 59%] Building CXX object Code/GraphMol/SmilesParse/CMakeFiles/SmilesParse_static.dir/smiles.tab.cpp.o
+[91msmiles.yy:38:1: warning: unused parameter 'input' [-Wunused-parameter]
+smiles.yy:38:1: warning: unused parameter 'branchPoints' [-Wunused-parameter]
+smiles.yy:38:1: warning: unused parameter 'scanner' [-Wunused-parameter]
+[0m[ 59%] Building CXX object Code/GraphMol/SmilesParse/CMakeFiles/SmilesParse_static.dir/smarts.tab.cpp.o
+[91msmarts.yy:25:1: warning: unused parameter 'input' [-Wunused-parameter]
+[0m[91msmarts.yy:25:1: warning: unused parameter 'ms' [-Wunused-parameter]
+[0m[91msmarts.yy:25:1: warning: unused parameter 'scanner' [-Wunused-parameter]
+[0m[ 59%] Building CXX object Code/GraphMol/SmilesParse/CMakeFiles/SmilesParse_static.dir/lex.yysmiles.cpp.o
+[91m/Users/landrgr1/RDKit_git/Code/GraphMol/SmilesParse/lex.yysmiles.cpp:2240:13: warning: unused parameter 'yyscanner' [-Wunused-parameter]
+[0m[91m/Users/landrgr1/RDKit_git/Code/GraphMol/SmilesParse/lex.yysmiles.cpp:2572:7: warning: unused parameter 'yyscanner' [-Wunused-parameter]
+[0m[91m/Users/landrgr1/RDKit_git/Code/GraphMol/SmilesParse/lex.yysmiles.cpp:2577:7: warning: unused parameter 'yyscanner' [-Wunused-parameter]
+[0m[91m/Users/landrgr1/RDKit_git/Code/GraphMol/SmilesParse/lex.yysmiles.cpp:2589:6: warning: unused parameter 'yyscanner' [-Wunused-parameter]
+[0m[ 60%] Building CXX object Code/GraphMol/SmilesParse/CMakeFiles/SmilesParse_static.dir/lex.yysmarts.cpp.o
+Linking CXX static library libSmilesParse_static.a
+[ 60%] Built target SmilesParse_static
+Scanning dependencies of target smaTest1
+[ 61%] Building CXX object Code/GraphMol/SmilesParse/CMakeFiles/smaTest1.dir/smatest.cpp.o
+Linking CXX executable smaTest1
+[ 61%] Built target smaTest1
+Scanning dependencies of target smiTest1
+[ 61%] Building CXX object Code/GraphMol/SmilesParse/CMakeFiles/smiTest1.dir/test.cpp.o
+Linking CXX executable smiTest1
+[ 61%] Built target smiTest1
+Scanning dependencies of target FileParsers_static
+[ 61%] Building CXX object Code/GraphMol/FileParsers/CMakeFiles/FileParsers_static.dir/Mol2FileParser.cpp.o
+[ 61%] Building CXX object Code/GraphMol/FileParsers/CMakeFiles/FileParsers_static.dir/MolFileParser.cpp.o
+[ 61%] Building CXX object Code/GraphMol/FileParsers/CMakeFiles/FileParsers_static.dir/MolFileStereochem.cpp.o
+[ 61%] Building CXX object Code/GraphMol/FileParsers/CMakeFiles/FileParsers_static.dir/MolFileWriter.cpp.o
+[ 62%] Building CXX object Code/GraphMol/FileParsers/CMakeFiles/FileParsers_static.dir/ForwardSDMolSupplier.cpp.o
+[ 62%] Building CXX object Code/GraphMol/FileParsers/CMakeFiles/FileParsers_static.dir/SDMolSupplier.cpp.o
+[ 62%] Building CXX object Code/GraphMol/FileParsers/CMakeFiles/FileParsers_static.dir/SDWriter.cpp.o
+[ 62%] Building CXX object Code/GraphMol/FileParsers/CMakeFiles/FileParsers_static.dir/SmilesMolSupplier.cpp.o
+[ 62%] Building CXX object Code/GraphMol/FileParsers/CMakeFiles/FileParsers_static.dir/SmilesWriter.cpp.o
+[ 62%] Building CXX object Code/GraphMol/FileParsers/CMakeFiles/FileParsers_static.dir/TDTMolSupplier.cpp.o
+[ 63%] Building CXX object Code/GraphMol/FileParsers/CMakeFiles/FileParsers_static.dir/TDTWriter.cpp.o
+[ 63%] Building CXX object Code/GraphMol/FileParsers/CMakeFiles/FileParsers_static.dir/TplFileParser.cpp.o
+[ 63%] Building CXX object Code/GraphMol/FileParsers/CMakeFiles/FileParsers_static.dir/TplFileWriter.cpp.o
+[ 63%] Building CXX object Code/GraphMol/FileParsers/CMakeFiles/FileParsers_static.dir/PDBParser.cpp.o
+[ 63%] Building CXX object Code/GraphMol/FileParsers/CMakeFiles/FileParsers_static.dir/PDBWriter.cpp.o
+[ 63%] Building CXX object Code/GraphMol/FileParsers/CMakeFiles/FileParsers_static.dir/PDBSupplier.cpp.o
+[ 64%] Building CXX object Code/GraphMol/FileParsers/CMakeFiles/FileParsers_static.dir/ProximityBonds.cpp.o
+[ 64%] Building CXX object Code/GraphMol/FileParsers/CMakeFiles/FileParsers_static.dir/SequenceParsers.cpp.o
+[ 64%] Building CXX object Code/GraphMol/FileParsers/CMakeFiles/FileParsers_static.dir/SequenceWriters.cpp.o
+Linking CXX static library libFileParsers_static.a
+[ 64%] Built target FileParsers_static
+Scanning dependencies of target fileParsersTest1
+[ 64%] Building CXX object Code/GraphMol/FileParsers/CMakeFiles/fileParsersTest1.dir/test1.cpp.o
+Linking CXX executable fileParsersTest1
+[ 64%] Built target fileParsersTest1
+Scanning dependencies of target testMol2ToMol
+[ 64%] Building CXX object Code/GraphMol/FileParsers/CMakeFiles/testMol2ToMol.dir/testMol2ToMol.cpp.o
+Linking CXX executable testMol2ToMol
+[ 64%] Built target testMol2ToMol
+Scanning dependencies of target testMolSupplier
+[ 64%] Building CXX object Code/GraphMol/FileParsers/CMakeFiles/testMolSupplier.dir/testMolSupplier.cpp.o
+Linking CXX executable testMolSupplier
+[ 64%] Built target testMolSupplier
+Scanning dependencies of target testMolWriter
+[ 64%] Building CXX object Code/GraphMol/FileParsers/CMakeFiles/testMolWriter.dir/testMolWriter.cpp.o
+Linking CXX executable testMolWriter
+[ 64%] Built target testMolWriter
+Scanning dependencies of target testSequence
+[ 64%] Building CXX object Code/GraphMol/FileParsers/CMakeFiles/testSequence.dir/testSequence.cpp.o
+Linking CXX executable testSequence
+[ 64%] Built target testSequence
+Scanning dependencies of target testTplParser
+[ 64%] Building CXX object Code/GraphMol/FileParsers/CMakeFiles/testTplParser.dir/testTpls.cpp.o
+Linking CXX executable testTplParser
+[ 64%] Built target testTplParser
+Scanning dependencies of target SubstructMatch_static
+[ 64%] Building CXX object Code/GraphMol/Substruct/CMakeFiles/SubstructMatch_static.dir/SubstructMatch.cpp.o
+[ 64%] Building CXX object Code/GraphMol/Substruct/CMakeFiles/SubstructMatch_static.dir/SubstructUtils.cpp.o
+Linking CXX static library libSubstructMatch_static.a
+[ 64%] Built target SubstructMatch_static
+Scanning dependencies of target testSubstructMatch
+[ 64%] Building CXX object Code/GraphMol/Substruct/CMakeFiles/testSubstructMatch.dir/test1.cpp.o
+Linking CXX executable testSubstructMatch
+[ 64%] Built target testSubstructMatch
+Scanning dependencies of target FilterCatalog
+[ 64%] Building CXX object Code/GraphMol/FilterCatalog/CMakeFiles/FilterCatalog.dir/Filters.cpp.o
+[ 64%] Building CXX object Code/GraphMol/FilterCatalog/CMakeFiles/FilterCatalog.dir/FilterCatalog.cpp.o
+[ 64%] Building CXX object Code/GraphMol/FilterCatalog/CMakeFiles/FilterCatalog.dir/FilterCatalogEntry.cpp.o
+[ 64%] Building CXX object Code/GraphMol/FilterCatalog/CMakeFiles/FilterCatalog.dir/FilterMatchers.cpp.o
+[ 65%] Building CXX object Code/GraphMol/FilterCatalog/CMakeFiles/FilterCatalog.dir/FunctionalGroupHierarchy.cpp.o
+Linking CXX shared library ../../../lib/libFilterCatalog.so
+[ 65%] Built target FilterCatalog
+Scanning dependencies of target Fingerprints
+[ 66%] Building CXX object Code/GraphMol/Fingerprints/CMakeFiles/Fingerprints.dir/Fingerprints.cpp.o
+[ 66%] Building CXX object Code/GraphMol/Fingerprints/CMakeFiles/Fingerprints.dir/PatternFingerprints.cpp.o
+[ 66%] Building CXX object Code/GraphMol/Fingerprints/CMakeFiles/Fingerprints.dir/MorganFingerprints.cpp.o
+[ 66%] Building CXX object Code/GraphMol/Fingerprints/CMakeFiles/Fingerprints.dir/AtomPairs.cpp.o
+[ 66%] Building CXX object Code/GraphMol/Fingerprints/CMakeFiles/Fingerprints.dir/MACCS.cpp.o
+Linking CXX shared library ../../../lib/libFingerprints.so
+[ 66%] Built target Fingerprints
+Scanning dependencies of target ChemReactions
+[ 66%] Building CXX object Code/GraphMol/ChemReactions/CMakeFiles/ChemReactions.dir/Reaction.cpp.o
+[ 66%] Building CXX object Code/GraphMol/ChemReactions/CMakeFiles/ChemReactions.dir/MDLParser.cpp.o
+[ 66%] Building CXX object Code/GraphMol/ChemReactions/CMakeFiles/ChemReactions.dir/DaylightParser.cpp.o
+[ 66%] Building CXX object Code/GraphMol/ChemReactions/CMakeFiles/ChemReactions.dir/ReactionPickler.cpp.o
+[ 67%] Building CXX object Code/GraphMol/ChemReactions/CMakeFiles/ChemReactions.dir/ReactionWriter.cpp.o
+[ 67%] Building CXX object Code/GraphMol/ChemReactions/CMakeFiles/ChemReactions.dir/ReactionDepict.cpp.o
+[ 67%] Building CXX object Code/GraphMol/ChemReactions/CMakeFiles/ChemReactions.dir/ReactionFingerprints.cpp.o
+[ 67%] Building CXX object Code/GraphMol/ChemReactions/CMakeFiles/ChemReactions.dir/ReactionUtils.cpp.o
+[ 67%] Building CXX object Code/GraphMol/ChemReactions/CMakeFiles/ChemReactions.dir/MoleculeParser.cpp.o
+[ 67%] Building CXX object Code/GraphMol/ChemReactions/CMakeFiles/ChemReactions.dir/ReactionRunner.cpp.o
+[ 68%] Building CXX object Code/GraphMol/ChemReactions/CMakeFiles/ChemReactions.dir/PreprocessRxn.cpp.o
+Linking CXX shared library ../../../lib/libChemReactions.so
+[ 68%] Built target ChemReactions
+Scanning dependencies of target ChemReactions_static
+[ 68%] Building CXX object Code/GraphMol/ChemReactions/CMakeFiles/ChemReactions_static.dir/Reaction.cpp.o
+[ 68%] Building CXX object Code/GraphMol/ChemReactions/CMakeFiles/ChemReactions_static.dir/MDLParser.cpp.o
+[ 68%] Building CXX object Code/GraphMol/ChemReactions/CMakeFiles/ChemReactions_static.dir/DaylightParser.cpp.o
+[ 68%] Building CXX object Code/GraphMol/ChemReactions/CMakeFiles/ChemReactions_static.dir/ReactionPickler.cpp.o
+[ 68%] Building CXX object Code/GraphMol/ChemReactions/CMakeFiles/ChemReactions_static.dir/ReactionWriter.cpp.o
+[ 69%] Building CXX object Code/GraphMol/ChemReactions/CMakeFiles/ChemReactions_static.dir/ReactionDepict.cpp.o
+[ 69%] Building CXX object Code/GraphMol/ChemReactions/CMakeFiles/ChemReactions_static.dir/ReactionFingerprints.cpp.o
+[ 69%] Building CXX object Code/GraphMol/ChemReactions/CMakeFiles/ChemReactions_static.dir/ReactionUtils.cpp.o
+[ 69%] Building CXX object Code/GraphMol/ChemReactions/CMakeFiles/ChemReactions_static.dir/MoleculeParser.cpp.o
+[ 69%] Building CXX object Code/GraphMol/ChemReactions/CMakeFiles/ChemReactions_static.dir/ReactionRunner.cpp.o
+[ 69%] Building CXX object Code/GraphMol/ChemReactions/CMakeFiles/ChemReactions_static.dir/PreprocessRxn.cpp.o
+Linking CXX static library libChemReactions_static.a
+[ 69%] Built target ChemReactions_static
+Scanning dependencies of target testReaction
+[ 69%] Building CXX object Code/GraphMol/ChemReactions/CMakeFiles/testReaction.dir/testReaction.cpp.o
+Linking CXX executable testReaction
+[ 69%] Built target testReaction
+Scanning dependencies of target testReactionFingerprints
+[ 70%] Building CXX object Code/GraphMol/ChemReactions/CMakeFiles/testReactionFingerprints.dir/testReactionFingerprints.cpp.o
+Linking CXX executable testReactionFingerprints
+[ 70%] Built target testReactionFingerprints
+Scanning dependencies of target rdChemReactions
+[ 70%] Building CXX object Code/GraphMol/ChemReactions/Wrap/CMakeFiles/rdChemReactions.dir/rdChemReactions.cpp.o
+Linking CXX shared module ../../../../rdkit/Chem/rdChemReactions.so
+[ 70%] Built target rdChemReactions
+Scanning dependencies of target ChemTransforms_static
+[ 70%] Building CXX object Code/GraphMol/ChemTransforms/CMakeFiles/ChemTransforms_static.dir/ChemTransforms.cpp.o
+[ 70%] Building CXX object Code/GraphMol/ChemTransforms/CMakeFiles/ChemTransforms_static.dir/MolFragmenter.cpp.o
+Linking CXX static library libChemTransforms_static.a
+[ 70%] Built target ChemTransforms_static
+Scanning dependencies of target testChemTransforms
+[ 70%] Building CXX object Code/GraphMol/ChemTransforms/CMakeFiles/testChemTransforms.dir/testChemTransforms.cpp.o
+Linking CXX executable testChemTransforms
+[ 70%] Built target testChemTransforms
+Scanning dependencies of target Subgraphs_static
+[ 70%] Building CXX object Code/GraphMol/Subgraphs/CMakeFiles/Subgraphs_static.dir/Subgraphs.cpp.o
+[ 70%] Building CXX object Code/GraphMol/Subgraphs/CMakeFiles/Subgraphs_static.dir/SubgraphUtils.cpp.o
+Linking CXX static library libSubgraphs_static.a
+[ 70%] Built target Subgraphs_static
+Scanning dependencies of target testSubgraphs1
+[ 70%] Building CXX object Code/GraphMol/Subgraphs/CMakeFiles/testSubgraphs1.dir/test1.cpp.o
+Linking CXX executable testSubgraphs1
+[ 70%] Built target testSubgraphs1
+Scanning dependencies of target testSubgraphs2
+[ 71%] Building CXX object Code/GraphMol/Subgraphs/CMakeFiles/testSubgraphs2.dir/test2.cpp.o
+Linking CXX executable testSubgraphs2
+[ 71%] Built target testSubgraphs2
+Scanning dependencies of target FilterCatalog_static
+[ 71%] Building CXX object Code/GraphMol/FilterCatalog/CMakeFiles/FilterCatalog_static.dir/Filters.cpp.o
+[ 71%] Building CXX object Code/GraphMol/FilterCatalog/CMakeFiles/FilterCatalog_static.dir/FilterCatalog.cpp.o
+[ 71%] Building CXX object Code/GraphMol/FilterCatalog/CMakeFiles/FilterCatalog_static.dir/FilterCatalogEntry.cpp.o
+[ 71%] Building CXX object Code/GraphMol/FilterCatalog/CMakeFiles/FilterCatalog_static.dir/FilterMatchers.cpp.o
+[ 71%] Building CXX object Code/GraphMol/FilterCatalog/CMakeFiles/FilterCatalog_static.dir/FunctionalGroupHierarchy.cpp.o
+Linking CXX static library libFilterCatalog_static.a
+[ 71%] Built target FilterCatalog_static
+Scanning dependencies of target filterCatalogTest
+[ 71%] Building CXX object Code/GraphMol/FilterCatalog/CMakeFiles/filterCatalogTest.dir/filtercatalogtest.cpp.o
+Linking CXX executable filterCatalogTest
+[ 71%] Built target filterCatalogTest
+Scanning dependencies of target rdfiltercatalog
+[ 71%] Building CXX object Code/GraphMol/FilterCatalog/Wrap/CMakeFiles/rdfiltercatalog.dir/rdfiltercatalog.cpp.o
+[ 71%] Building CXX object Code/GraphMol/FilterCatalog/Wrap/CMakeFiles/rdfiltercatalog.dir/FilterCatalog.cpp.o
+Linking CXX shared module ../../../../rdkit/Chem/rdfiltercatalog.so
+[ 71%] Built target rdfiltercatalog
+Scanning dependencies of target FragCatalog
+[ 71%] Building CXX object Code/GraphMol/FragCatalog/CMakeFiles/FragCatalog.dir/FragCatalogUtils.cpp.o
+[ 71%] Building CXX object Code/GraphMol/FragCatalog/CMakeFiles/FragCatalog.dir/FragCatGenerator.cpp.o
+[ 72%] Building CXX object Code/GraphMol/FragCatalog/CMakeFiles/FragCatalog.dir/FragCatalogEntry.cpp.o
+[ 72%] Building CXX object Code/GraphMol/FragCatalog/CMakeFiles/FragCatalog.dir/FragCatParams.cpp.o
+[ 72%] Building CXX object Code/GraphMol/FragCatalog/CMakeFiles/FragCatalog.dir/FragFPGenerator.cpp.o
+Linking CXX shared library ../../../lib/libFragCatalog.so
+[ 72%] Built target FragCatalog
+Scanning dependencies of target FragCatalog_static
+[ 72%] Building CXX object Code/GraphMol/FragCatalog/CMakeFiles/FragCatalog_static.dir/FragCatalogUtils.cpp.o
+[ 72%] Building CXX object Code/GraphMol/FragCatalog/CMakeFiles/FragCatalog_static.dir/FragCatGenerator.cpp.o
+[ 72%] Building CXX object Code/GraphMol/FragCatalog/CMakeFiles/FragCatalog_static.dir/FragCatalogEntry.cpp.o
+[ 73%] Building CXX object Code/GraphMol/FragCatalog/CMakeFiles/FragCatalog_static.dir/FragCatParams.cpp.o
+[ 73%] Building CXX object Code/GraphMol/FragCatalog/CMakeFiles/FragCatalog_static.dir/FragFPGenerator.cpp.o
+Linking CXX static library libFragCatalog_static.a
+[ 73%] Built target FragCatalog_static
+Scanning dependencies of target testFragCatalog
+[ 73%] Building CXX object Code/GraphMol/FragCatalog/CMakeFiles/testFragCatalog.dir/test1.cpp.o
+Linking CXX executable testFragCatalog
+[ 73%] Built target testFragCatalog
+Scanning dependencies of target rdfragcatalog
+[ 73%] Building CXX object Code/GraphMol/FragCatalog/Wrap/CMakeFiles/rdfragcatalog.dir/rdfragcatalog.cpp.o
+[ 73%] Building CXX object Code/GraphMol/FragCatalog/Wrap/CMakeFiles/rdfragcatalog.dir/FragCatalog.cpp.o
+[ 73%] Building CXX object Code/GraphMol/FragCatalog/Wrap/CMakeFiles/rdfragcatalog.dir/FragCatParams.cpp.o
+[ 74%] Building CXX object Code/GraphMol/FragCatalog/Wrap/CMakeFiles/rdfragcatalog.dir/FragCatGenerator.cpp.o
+[ 74%] Building CXX object Code/GraphMol/FragCatalog/Wrap/CMakeFiles/rdfragcatalog.dir/FragFPGenerator.cpp.o
+Linking CXX shared module ../../../../rdkit/Chem/rdfragcatalog.so
+[ 74%] Built target rdfragcatalog
+Scanning dependencies of target Descriptors_static
+[ 74%] Building CXX object Code/GraphMol/Descriptors/CMakeFiles/Descriptors_static.dir/Crippen.cpp.o
+[ 74%] Building CXX object Code/GraphMol/Descriptors/CMakeFiles/Descriptors_static.dir/MolDescriptors.cpp.o
+[ 74%] Building CXX object Code/GraphMol/Descriptors/CMakeFiles/Descriptors_static.dir/MolSurf.cpp.o
+[ 74%] Building CXX object Code/GraphMol/Descriptors/CMakeFiles/Descriptors_static.dir/Lipinski.cpp.o
+[ 75%] Building CXX object Code/GraphMol/Descriptors/CMakeFiles/Descriptors_static.dir/ConnectivityDescriptors.cpp.o
+[ 75%] Building CXX object Code/GraphMol/Descriptors/CMakeFiles/Descriptors_static.dir/MQN.cpp.o
+[ 75%] Building CXX object Code/GraphMol/Descriptors/CMakeFiles/Descriptors_static.dir/Property.cpp.o
+Linking CXX static library libDescriptors_static.a
+[ 75%] Built target Descriptors_static
+Scanning dependencies of target testDescriptors
+[ 75%] Building CXX object Code/GraphMol/Descriptors/CMakeFiles/testDescriptors.dir/test.cpp.o
+Linking CXX executable testDescriptors
+[ 75%] Built target testDescriptors
+Scanning dependencies of target rdMolDescriptors
+[ 75%] Building CXX object Code/GraphMol/Descriptors/Wrap/CMakeFiles/rdMolDescriptors.dir/rdMolDescriptors.cpp.o
+Linking CXX shared module ../../../../rdkit/Chem/rdMolDescriptors.so
+[ 75%] Built target rdMolDescriptors
+Scanning dependencies of target Fingerprints_static
+[ 75%] Building CXX object Code/GraphMol/Fingerprints/CMakeFiles/Fingerprints_static.dir/Fingerprints.cpp.o
+[ 76%] Building CXX object Code/GraphMol/Fingerprints/CMakeFiles/Fingerprints_static.dir/PatternFingerprints.cpp.o
+[ 76%] Building CXX object Code/GraphMol/Fingerprints/CMakeFiles/Fingerprints_static.dir/MorganFingerprints.cpp.o
+[ 76%] Building CXX object Code/GraphMol/Fingerprints/CMakeFiles/Fingerprints_static.dir/AtomPairs.cpp.o
+[ 76%] Building CXX object Code/GraphMol/Fingerprints/CMakeFiles/Fingerprints_static.dir/MACCS.cpp.o
+Linking CXX static library libFingerprints_static.a
+[ 76%] Built target Fingerprints_static
+Scanning dependencies of target testFingerprints
+[ 76%] Building CXX object Code/GraphMol/Fingerprints/CMakeFiles/testFingerprints.dir/test1.cpp.o
+Linking CXX executable testFingerprints
+[ 76%] Built target testFingerprints
+Scanning dependencies of target PartialCharges_static
+[ 76%] Building CXX object Code/GraphMol/PartialCharges/CMakeFiles/PartialCharges_static.dir/GasteigerCharges.cpp.o
+[ 76%] Building CXX object Code/GraphMol/PartialCharges/CMakeFiles/PartialCharges_static.dir/GasteigerParams.cpp.o
+Linking CXX static library libPartialCharges_static.a
+[ 76%] Built target PartialCharges_static
+Scanning dependencies of target testPartialCharges
+[ 76%] Building CXX object Code/GraphMol/PartialCharges/CMakeFiles/testPartialCharges.dir/test1.cpp.o
+Linking CXX executable testPartialCharges
+[ 76%] Built target testPartialCharges
+Scanning dependencies of target rdPartialCharges
+[ 76%] Building CXX object Code/GraphMol/PartialCharges/Wrap/CMakeFiles/rdPartialCharges.dir/rdPartialCharges.cpp.o
+Linking CXX shared module ../../../../rdkit/Chem/rdPartialCharges.so
+[ 76%] Built target rdPartialCharges
+Scanning dependencies of target MolTransforms_static
+[ 76%] Building CXX object Code/GraphMol/MolTransforms/CMakeFiles/MolTransforms_static.dir/MolTransforms.cpp.o
+Linking CXX static library libMolTransforms_static.a
+[ 76%] Built target MolTransforms_static
+Scanning dependencies of target testMolTransforms
+[ 76%] Building CXX object Code/GraphMol/MolTransforms/CMakeFiles/testMolTransforms.dir/test1.cpp.o
+Linking CXX executable testMolTransforms
+[ 76%] Built target testMolTransforms
+Scanning dependencies of target rdMolTransforms
+[ 76%] Building CXX object Code/GraphMol/MolTransforms/Wrap/CMakeFiles/rdMolTransforms.dir/rdMolTransforms.cpp.o
+Linking CXX shared module ../../../../rdkit/Chem/rdMolTransforms.so
+[ 76%] Built target rdMolTransforms
+Scanning dependencies of target ForceFieldHelpers_static
+[ 76%] Building CXX object Code/GraphMol/ForceFieldHelpers/CMakeFiles/ForceFieldHelpers_static.dir/UFF/AtomTyper.cpp.o
+[ 76%] Building CXX object Code/GraphMol/ForceFieldHelpers/CMakeFiles/ForceFieldHelpers_static.dir/UFF/Builder.cpp.o
+[ 76%] Building CXX object Code/GraphMol/ForceFieldHelpers/CMakeFiles/ForceFieldHelpers_static.dir/MMFF/AtomTyper.cpp.o
+[ 76%] Building CXX object Code/GraphMol/ForceFieldHelpers/CMakeFiles/ForceFieldHelpers_static.dir/MMFF/Builder.cpp.o
+[ 76%] Building CXX object Code/GraphMol/ForceFieldHelpers/CMakeFiles/ForceFieldHelpers_static.dir/CrystalFF/TorsionAngleM6.cpp.o
+[ 77%] Building CXX object Code/GraphMol/ForceFieldHelpers/CMakeFiles/ForceFieldHelpers_static.dir/CrystalFF/TorsionPreferences.cpp.o
+Linking CXX static library libForceFieldHelpers_static.a
+[ 77%] Built target ForceFieldHelpers_static
+Scanning dependencies of target testMMFFForceFieldHelpers
+[ 77%] Building CXX object Code/GraphMol/ForceFieldHelpers/MMFF/CMakeFiles/testMMFFForceFieldHelpers.dir/testMMFFHelpers.cpp.o
+Linking CXX executable testMMFFForceFieldHelpers
+[ 77%] Built target testMMFFForceFieldHelpers
+Scanning dependencies of target testUFFForceFieldHelpers
+[ 77%] Building CXX object Code/GraphMol/ForceFieldHelpers/UFF/CMakeFiles/testUFFForceFieldHelpers.dir/testUFFHelpers.cpp.o
+Linking CXX executable testUFFForceFieldHelpers
+[ 77%] Built target testUFFForceFieldHelpers
+Scanning dependencies of target testCrystalForceField
+[ 77%] Building CXX object Code/GraphMol/ForceFieldHelpers/CrystalFF/CMakeFiles/testCrystalForceField.dir/testCrystalFF.cpp.o
+Linking CXX executable testCrystalForceField
+[ 77%] Built target testCrystalForceField
+Scanning dependencies of target rdForceFieldHelpers
+[ 77%] Building CXX object Code/GraphMol/ForceFieldHelpers/Wrap/CMakeFiles/rdForceFieldHelpers.dir/rdForceFields.cpp.o
+Linking CXX shared module ../../../../rdkit/Chem/rdForceFieldHelpers.so
+[ 77%] Built target rdForceFieldHelpers
+Scanning dependencies of target DistGeomHelpers_static
+[ 78%] Building CXX object Code/GraphMol/DistGeomHelpers/CMakeFiles/DistGeomHelpers_static.dir/BoundsMatrixBuilder.cpp.o
+[ 78%] Building CXX object Code/GraphMol/DistGeomHelpers/CMakeFiles/DistGeomHelpers_static.dir/Embedder.cpp.o
+Linking CXX static library libDistGeomHelpers_static.a
+[ 78%] Built target DistGeomHelpers_static
+Scanning dependencies of target testDistGeomHelpers
+[ 78%] Building CXX object Code/GraphMol/DistGeomHelpers/CMakeFiles/testDistGeomHelpers.dir/testDgeomHelpers.cpp.o
+Linking CXX executable testDistGeomHelpers
+[ 78%] Built target testDistGeomHelpers
+Scanning dependencies of target rdDistGeom
+[ 78%] Building CXX object Code/GraphMol/DistGeomHelpers/Wrap/CMakeFiles/rdDistGeom.dir/rdDistGeom.cpp.o
+Linking CXX shared module ../../../../rdkit/Chem/rdDistGeom.so
+[ 78%] Built target rdDistGeom
+Scanning dependencies of target MolAlign_static
+[ 78%] Building CXX object Code/GraphMol/MolAlign/CMakeFiles/MolAlign_static.dir/AlignMolecules.cpp.o
+[ 78%] Building CXX object Code/GraphMol/MolAlign/CMakeFiles/MolAlign_static.dir/O3AAlignMolecules.cpp.o
+Linking CXX static library libMolAlign_static.a
+[ 78%] Built target MolAlign_static
+Scanning dependencies of target testMolAlign
+[ 79%] Building CXX object Code/GraphMol/MolAlign/CMakeFiles/testMolAlign.dir/testMolAlign.cpp.o
+Linking CXX executable testMolAlign
+[ 79%] Built target testMolAlign
+Scanning dependencies of target rdMolAlign
+[ 79%] Building CXX object Code/GraphMol/MolAlign/Wrap/CMakeFiles/rdMolAlign.dir/rdMolAlign.cpp.o
+Linking CXX shared module ../../../../rdkit/Chem/rdMolAlign.so
+[ 79%] Built target rdMolAlign
+Scanning dependencies of target MolChemicalFeatures
+[ 80%] Building CXX object Code/GraphMol/MolChemicalFeatures/CMakeFiles/MolChemicalFeatures.dir/MolChemicalFeature.cpp.o
+[ 80%] Building CXX object Code/GraphMol/MolChemicalFeatures/CMakeFiles/MolChemicalFeatures.dir/MolChemicalFeatureDef.cpp.o
+[ 80%] Building CXX object Code/GraphMol/MolChemicalFeatures/CMakeFiles/MolChemicalFeatures.dir/MolChemicalFeatureFactory.cpp.o
+[ 80%] Building CXX object Code/GraphMol/MolChemicalFeatures/CMakeFiles/MolChemicalFeatures.dir/FeatureParser.cpp.o
+Linking CXX shared library ../../../lib/libMolChemicalFeatures.so
+[ 80%] Built target MolChemicalFeatures
+Scanning dependencies of target MolChemicalFeatures_static
+[ 80%] Building CXX object Code/GraphMol/MolChemicalFeatures/CMakeFiles/MolChemicalFeatures_static.dir/MolChemicalFeature.cpp.o
+[ 80%] Building CXX object Code/GraphMol/MolChemicalFeatures/CMakeFiles/MolChemicalFeatures_static.dir/MolChemicalFeatureDef.cpp.o
+[ 81%] Building CXX object Code/GraphMol/MolChemicalFeatures/CMakeFiles/MolChemicalFeatures_static.dir/MolChemicalFeatureFactory.cpp.o
+[ 81%] Building CXX object Code/GraphMol/MolChemicalFeatures/CMakeFiles/MolChemicalFeatures_static.dir/FeatureParser.cpp.o
+Linking CXX static library libMolChemicalFeatures_static.a
+[ 81%] Built target MolChemicalFeatures_static
+Scanning dependencies of target testFeatures
+[ 81%] Building CXX object Code/GraphMol/MolChemicalFeatures/CMakeFiles/testFeatures.dir/testFeatures.cpp.o
+Linking CXX executable testFeatures
+[ 81%] Built target testFeatures
+Scanning dependencies of target rdMolChemicalFeatures
+[ 81%] Building CXX object Code/GraphMol/MolChemicalFeatures/Wrap/CMakeFiles/rdMolChemicalFeatures.dir/rdMolChemicalFeatures.cpp.o
+[ 81%] Building CXX object Code/GraphMol/MolChemicalFeatures/Wrap/CMakeFiles/rdMolChemicalFeatures.dir/MolChemicalFeature.cpp.o
+[ 81%] Building CXX object Code/GraphMol/MolChemicalFeatures/Wrap/CMakeFiles/rdMolChemicalFeatures.dir/MolChemicalFeatureFactory.cpp.o
+[ 81%] Building CXX object Code/GraphMol/MolChemicalFeatures/Wrap/CMakeFiles/rdMolChemicalFeatures.dir/ChemicalFeatureUtils.cpp.o
+Linking CXX shared module ../../../../rdkit/Chem/rdMolChemicalFeatures.so
+[ 81%] Built target rdMolChemicalFeatures
+Scanning dependencies of target ShapeHelpers
+[ 82%] Building CXX object Code/GraphMol/ShapeHelpers/CMakeFiles/ShapeHelpers.dir/ShapeEncoder.cpp.o
+[ 82%] Building CXX object Code/GraphMol/ShapeHelpers/CMakeFiles/ShapeHelpers.dir/ShapeUtils.cpp.o
+Linking CXX shared library ../../../lib/libShapeHelpers.so
+[ 82%] Built target ShapeHelpers
+Scanning dependencies of target ShapeHelpers_static
+[ 82%] Building CXX object Code/GraphMol/ShapeHelpers/CMakeFiles/ShapeHelpers_static.dir/ShapeEncoder.cpp.o
+[ 82%] Building CXX object Code/GraphMol/ShapeHelpers/CMakeFiles/ShapeHelpers_static.dir/ShapeUtils.cpp.o
+Linking CXX static library libShapeHelpers_static.a
+[ 82%] Built target ShapeHelpers_static
+Scanning dependencies of target testShapeHelpers
+[ 82%] Building CXX object Code/GraphMol/ShapeHelpers/CMakeFiles/testShapeHelpers.dir/testShapeHelpers.cpp.o
+Linking CXX executable testShapeHelpers
+[ 82%] Built target testShapeHelpers
+Scanning dependencies of target rdShapeHelpers
+[ 83%] Building CXX object Code/GraphMol/ShapeHelpers/Wrap/CMakeFiles/rdShapeHelpers.dir/rdShapeHelpers.cpp.o
+Linking CXX shared module ../../../../rdkit/Chem/rdShapeHelpers.so
+[ 83%] Built target rdShapeHelpers
+Scanning dependencies of target MolCatalog
+[ 83%] Building CXX object Code/GraphMol/MolCatalog/CMakeFiles/MolCatalog.dir/MolCatalogEntry.cpp.o
+[ 83%] Building CXX object Code/GraphMol/MolCatalog/CMakeFiles/MolCatalog.dir/MolCatalogParams.cpp.o
+Linking CXX shared library ../../../lib/libMolCatalog.so
+[ 83%] Built target MolCatalog
+Scanning dependencies of target MolCatalog_static
+[ 83%] Building CXX object Code/GraphMol/MolCatalog/CMakeFiles/MolCatalog_static.dir/MolCatalogEntry.cpp.o
+[ 83%] Building CXX object Code/GraphMol/MolCatalog/CMakeFiles/MolCatalog_static.dir/MolCatalogParams.cpp.o
+Linking CXX static library libMolCatalog_static.a
+[ 83%] Built target MolCatalog_static
+Scanning dependencies of target testMolCatalog
+[ 83%] Building CXX object Code/GraphMol/MolCatalog/CMakeFiles/testMolCatalog.dir/test1.cpp.o
+Linking CXX executable testMolCatalog
+[ 83%] Built target testMolCatalog
+Scanning dependencies of target rdMolCatalog
+[ 84%] Building CXX object Code/GraphMol/MolCatalog/Wrap/CMakeFiles/rdMolCatalog.dir/rdMolCatalog.cpp.o
+Linking CXX shared module ../../../../rdkit/Chem/rdMolCatalog.so
+[ 84%] Built target rdMolCatalog
+Scanning dependencies of target MolDraw2D
+[ 84%] Building CXX object Code/GraphMol/MolDraw2D/CMakeFiles/MolDraw2D.dir/MolDraw2D.cpp.o
+[ 84%] Building CXX object Code/GraphMol/MolDraw2D/CMakeFiles/MolDraw2D.dir/MolDraw2DSVG.cpp.o
+[ 84%] Building CXX object Code/GraphMol/MolDraw2D/CMakeFiles/MolDraw2D.dir/MolDraw2DDetails.cpp.o
+[ 84%] Building CXX object Code/GraphMol/MolDraw2D/CMakeFiles/MolDraw2D.dir/MolDraw2DUtils.cpp.o
+Linking CXX shared library ../../../lib/libMolDraw2D.so
+[ 84%] Built target MolDraw2D
+Scanning dependencies of target MolDraw2D_static
+[ 85%] Building CXX object Code/GraphMol/MolDraw2D/CMakeFiles/MolDraw2D_static.dir/MolDraw2D.cpp.o
+[ 85%] Building CXX object Code/GraphMol/MolDraw2D/CMakeFiles/MolDraw2D_static.dir/MolDraw2DSVG.cpp.o
+[ 85%] Building CXX object Code/GraphMol/MolDraw2D/CMakeFiles/MolDraw2D_static.dir/MolDraw2DDetails.cpp.o
+[ 85%] Building CXX object Code/GraphMol/MolDraw2D/CMakeFiles/MolDraw2D_static.dir/MolDraw2DUtils.cpp.o
+Linking CXX static library libMolDraw2D_static.a
+[ 85%] Built target MolDraw2D_static
+Scanning dependencies of target moldraw2DTest1
+[ 85%] Building CXX object Code/GraphMol/MolDraw2D/CMakeFiles/moldraw2DTest1.dir/test1.cpp.o
+Linking CXX executable moldraw2DTest1
+[ 85%] Built target moldraw2DTest1
+Scanning dependencies of target rdMolDraw2D
+[ 86%] Building CXX object Code/GraphMol/MolDraw2D/Wrap/CMakeFiles/rdMolDraw2D.dir/rdMolDraw2D.cpp.o
+Linking CXX shared module ../../../../rdkit/Chem/Draw/rdMolDraw2D.so
+[ 86%] Built target rdMolDraw2D
+Scanning dependencies of target FMCS
+[ 86%] Building CXX object Code/GraphMol/FMCS/CMakeFiles/FMCS.dir/FMCS.cpp.o
+[ 87%] Building CXX object Code/GraphMol/FMCS/CMakeFiles/FMCS.dir/Seed.cpp.o
+[ 87%] Building CXX object Code/GraphMol/FMCS/CMakeFiles/FMCS.dir/MaximumCommonSubgraph.cpp.o
+[ 87%] Building CXX object Code/GraphMol/FMCS/CMakeFiles/FMCS.dir/SubstructMatchCustom.cpp.o
+Linking CXX shared library ../../../lib/libFMCS.so
+[ 87%] Built target FMCS
+Scanning dependencies of target FMCS_static
+[ 87%] Building CXX object Code/GraphMol/FMCS/CMakeFiles/FMCS_static.dir/FMCS.cpp.o
+[ 87%] Building CXX object Code/GraphMol/FMCS/CMakeFiles/FMCS_static.dir/Seed.cpp.o
+[ 87%] Building CXX object Code/GraphMol/FMCS/CMakeFiles/FMCS_static.dir/MaximumCommonSubgraph.cpp.o
+[ 88%] Building CXX object Code/GraphMol/FMCS/CMakeFiles/FMCS_static.dir/SubstructMatchCustom.cpp.o
+Linking CXX static library libFMCS_static.a
+[ 88%] Built target FMCS_static
+Scanning dependencies of target testFMCS
+[ 89%] Building CXX object Code/GraphMol/FMCS/CMakeFiles/testFMCS.dir/testFMCS_Unit.cpp.o
+Linking CXX executable testFMCS
+[ 89%] Built target testFMCS
+Scanning dependencies of target rdFMCS
+[ 90%] Building CXX object Code/GraphMol/FMCS/Wrap/CMakeFiles/rdFMCS.dir/rdFMCS.cpp.o
+Linking CXX shared module ../../../../rdkit/Chem/rdFMCS.so
+[ 90%] Built target rdFMCS
+Scanning dependencies of target FMCStest
+[ 90%] Building CXX object Code/GraphMol/FMCS/Test/CMakeFiles/FMCStest.dir/testFMCS.cpp.o
+Linking CXX executable FMCStest
+[ 90%] Built target FMCStest
+Scanning dependencies of target MolHash
+[ 90%] Building CXX object Code/GraphMol/MolHash/CMakeFiles/MolHash.dir/MolHash.cpp.o
+[ 90%] Building CXX object Code/GraphMol/MolHash/CMakeFiles/MolHash.dir/HashToString.cpp.o
+Linking CXX shared library ../../../lib/libMolHash.so
+[ 90%] Built target MolHash
+Scanning dependencies of target MolHash_static
+[ 91%] Building CXX object Code/GraphMol/MolHash/CMakeFiles/MolHash_static.dir/MolHash.cpp.o
+[ 91%] Building CXX object Code/GraphMol/MolHash/CMakeFiles/MolHash_static.dir/HashToString.cpp.o
+Linking CXX static library libMolHash_static.a
+[ 91%] Built target MolHash_static
+Scanning dependencies of target testMolHash
+[ 91%] Building CXX object Code/GraphMol/MolHash/CMakeFiles/testMolHash.dir/testMolHash.cpp.o
+Linking CXX executable testMolHash
+[ 91%] Built target testMolHash
+Scanning dependencies of target rdMolHash
+[ 91%] Building CXX object Code/GraphMol/MolHash/Wrap/CMakeFiles/rdMolHash.dir/rdMolHash.cpp.o
+Linking CXX shared module ../../../../rdkit/Chem/rdMolHash.so
+[ 91%] Built target rdMolHash
+Scanning dependencies of target MMPA
+[ 91%] Building CXX object Code/GraphMol/MMPA/CMakeFiles/MMPA.dir/MMPA.cpp.o
+Linking CXX shared library ../../../lib/libMMPA.so
+[ 91%] Built target MMPA
+Scanning dependencies of target MMPA_static
+[ 91%] Building CXX object Code/GraphMol/MMPA/CMakeFiles/MMPA_static.dir/MMPA.cpp.o
+Linking CXX static library libMMPA_static.a
+[ 91%] Built target MMPA_static
+Scanning dependencies of target testMMPA
+[ 91%] Building CXX object Code/GraphMol/MMPA/CMakeFiles/testMMPA.dir/MMPA_UnitTest.cpp.o
+Linking CXX executable testMMPA
+[ 91%] Built target testMMPA
+Scanning dependencies of target rdMMPA
+[ 91%] Building CXX object Code/GraphMol/MMPA/Wrap/CMakeFiles/rdMMPA.dir/rdMMPA.cpp.o
+Linking CXX shared module ../../../../rdkit/Chem/rdMMPA.so
+[ 91%] Built target rdMMPA
+Scanning dependencies of target ReducedGraphs
+[ 91%] Building CXX object Code/GraphMol/ReducedGraphs/CMakeFiles/ReducedGraphs.dir/ReducedGraphs.cpp.o
+Linking CXX shared library ../../../lib/libReducedGraphs.so
+[ 91%] Built target ReducedGraphs
+Scanning dependencies of target ReducedGraphs_static
+[ 91%] Building CXX object Code/GraphMol/ReducedGraphs/CMakeFiles/ReducedGraphs_static.dir/ReducedGraphs.cpp.o
+Linking CXX static library libReducedGraphs_static.a
+[ 91%] Built target ReducedGraphs_static
+Scanning dependencies of target testReducedGraphs
+[ 91%] Building CXX object Code/GraphMol/ReducedGraphs/CMakeFiles/testReducedGraphs.dir/test1.cpp.o
+Linking CXX executable testReducedGraphs
+[ 91%] Built target testReducedGraphs
+Scanning dependencies of target rdReducedGraphs
+[ 91%] Building CXX object Code/GraphMol/ReducedGraphs/Wrap/CMakeFiles/rdReducedGraphs.dir/rdReducedGraphs.cpp.o
+Linking CXX shared module ../../../../rdkit/Chem/rdReducedGraphs.so
+[ 91%] Built target rdReducedGraphs
+Scanning dependencies of target Trajectory
+[ 91%] Building CXX object Code/GraphMol/Trajectory/CMakeFiles/Trajectory.dir/Trajectory.cpp.o
+Linking CXX shared library ../../../lib/libTrajectory.so
+[ 91%] Built target Trajectory
+Scanning dependencies of target Trajectory_static
+[ 91%] Building CXX object Code/GraphMol/Trajectory/CMakeFiles/Trajectory_static.dir/Trajectory.cpp.o
+Linking CXX static library libTrajectory_static.a
+[ 91%] Built target Trajectory_static
+Scanning dependencies of target trajectoryTest
+[ 92%] Building CXX object Code/GraphMol/Trajectory/CMakeFiles/trajectoryTest.dir/trajectoryTest.cpp.o
+Linking CXX executable trajectoryTest
+[ 92%] Built target trajectoryTest
+Scanning dependencies of target SLNParse
+[ 92%] Building CXX object Code/GraphMol/SLNParse/CMakeFiles/SLNParse.dir/SLNParse.cpp.o
+[ 92%] Building CXX object Code/GraphMol/SLNParse/CMakeFiles/SLNParse.dir/SLNAttribs.cpp.o
+[ 93%] Building CXX object Code/GraphMol/SLNParse/CMakeFiles/SLNParse.dir/sln.tab.cpp.o
+[91msln.yy:59:1: warning: unused parameter 'ms' [-Wunused-parameter]
+[0m[91msln.yy:59:1: warning: unused parameter 'doQ' [-Wunused-parameter]
+[0m[91msln.yy:59:1: warning: unused parameter 'scanner' [-Wunused-parameter]
+[0m[ 93%] Building CXX object Code/GraphMol/SLNParse/CMakeFiles/SLNParse.dir/lex.yysln.cpp.o
+[91m/Users/landrgr1/RDKit_git/Code/GraphMol/SLNParse/lex.yysln.cpp:2585:13: warning: unused parameter 'yyscanner' [-Wunused-parameter]
+[0m[91m/Users/landrgr1/RDKit_git/Code/GraphMol/SLNParse/lex.yysln.cpp:2917:7: warning: unused parameter 'yyscanner' [-Wunused-parameter]
+[0m[91m/Users/landrgr1/RDKit_git/Code/GraphMol/SLNParse/lex.yysln.cpp:2922:7: warning: unused parameter 'yyscanner' [-Wunused-parameter]
+[0m[91m/Users/landrgr1/RDKit_git/Code/GraphMol/SLNParse/lex.yysln.cpp:2934:6: warning: unused parameter 'yyscanner' [-Wunused-parameter]
+[0mLinking CXX shared library ../../../lib/libSLNParse.so
+[ 93%] Built target SLNParse
+Scanning dependencies of target SLNParse_static
+[ 93%] Building CXX object Code/GraphMol/SLNParse/CMakeFiles/SLNParse_static.dir/SLNParse.cpp.o
+[ 93%] Building CXX object Code/GraphMol/SLNParse/CMakeFiles/SLNParse_static.dir/SLNAttribs.cpp.o
+[ 93%] Building CXX object Code/GraphMol/SLNParse/CMakeFiles/SLNParse_static.dir/sln.tab.cpp.o
+[91msln.yy:59:1: warning: unused parameter 'ms' [-Wunused-parameter]
+sln.yy:59:1: warning: unused parameter 'doQ' [-Wunused-parameter]
+sln.yy:59:1: warning: unused parameter 'scanner' [-Wunused-parameter]
+[0m[ 93%] Building CXX object Code/GraphMol/SLNParse/CMakeFiles/SLNParse_static.dir/lex.yysln.cpp.o
+[91m/Users/landrgr1/RDKit_git/Code/GraphMol/SLNParse/lex.yysln.cpp:2585:13: warning: unused parameter 'yyscanner' [-Wunused-parameter]
+[0m[91m/Users/landrgr1/RDKit_git/Code/GraphMol/SLNParse/lex.yysln.cpp:2917:7: warning: unused parameter 'yyscanner' [-Wunused-parameter]
+[0m[91m/Users/landrgr1/RDKit_git/Code/GraphMol/SLNParse/lex.yysln.cpp:2922:7: warning: unused parameter 'yyscanner' [-Wunused-parameter]
+[0m[91m/Users/landrgr1/RDKit_git/Code/GraphMol/SLNParse/lex.yysln.cpp:2934:6: warning: unused parameter 'yyscanner' [-Wunused-parameter]
+[0mLinking CXX static library libSLNParse_static.a
+[ 93%] Built target SLNParse_static
+Scanning dependencies of target testSLNParse
+[ 93%] Building CXX object Code/GraphMol/SLNParse/CMakeFiles/testSLNParse.dir/test.cpp.o
+Linking CXX executable testSLNParse
+[ 93%] Built target testSLNParse
+Scanning dependencies of target rdSLNParse
+[ 93%] Building CXX object Code/GraphMol/SLNParse/Wrap/CMakeFiles/rdSLNParse.dir/rdSLNParse.cpp.o
+Linking CXX shared module ../../../../rdkit/Chem/rdSLNParse.so
+[ 93%] Built target rdSLNParse
+Scanning dependencies of target rdchem
+[ 93%] Building CXX object Code/GraphMol/Wrap/CMakeFiles/rdchem.dir/rdchem.cpp.o
+[ 93%] Building CXX object Code/GraphMol/Wrap/CMakeFiles/rdchem.dir/Table.cpp.o
+[ 93%] Building CXX object Code/GraphMol/Wrap/CMakeFiles/rdchem.dir/Atom.cpp.o
+[ 94%] Building CXX object Code/GraphMol/Wrap/CMakeFiles/rdchem.dir/Bond.cpp.o
+[ 94%] Building CXX object Code/GraphMol/Wrap/CMakeFiles/rdchem.dir/Mol.cpp.o
+[ 94%] Building CXX object Code/GraphMol/Wrap/CMakeFiles/rdchem.dir/Conformer.cpp.o
+[ 94%] Building CXX object Code/GraphMol/Wrap/CMakeFiles/rdchem.dir/RingInfo.cpp.o
+[ 94%] Building CXX object Code/GraphMol/Wrap/CMakeFiles/rdchem.dir/EditableMol.cpp.o
+[ 94%] Building CXX object Code/GraphMol/Wrap/CMakeFiles/rdchem.dir/MonomerInfo.cpp.o
+[ 95%] Building CXX object Code/GraphMol/Wrap/CMakeFiles/rdchem.dir/ResonanceMolSupplier.cpp.o
+Linking CXX shared module ../../../rdkit/Chem/rdchem.so
+[ 95%] Built target rdchem
+Scanning dependencies of target rdmolfiles
+[ 95%] Building CXX object Code/GraphMol/Wrap/CMakeFiles/rdmolfiles.dir/rdmolfiles.cpp.o
+[ 95%] Building CXX object Code/GraphMol/Wrap/CMakeFiles/rdmolfiles.dir/ForwardSDMolSupplier.cpp.o
+[ 95%] Building CXX object Code/GraphMol/Wrap/CMakeFiles/rdmolfiles.dir/SDMolSupplier.cpp.o
+[ 96%] Building CXX object Code/GraphMol/Wrap/CMakeFiles/rdmolfiles.dir/TDTMolSupplier.cpp.o
+[ 96%] Building CXX object Code/GraphMol/Wrap/CMakeFiles/rdmolfiles.dir/SmilesMolSupplier.cpp.o
+[ 96%] Building CXX object Code/GraphMol/Wrap/CMakeFiles/rdmolfiles.dir/SmilesWriter.cpp.o
+[ 96%] Building CXX object Code/GraphMol/Wrap/CMakeFiles/rdmolfiles.dir/SDWriter.cpp.o
+[ 96%] Building CXX object Code/GraphMol/Wrap/CMakeFiles/rdmolfiles.dir/TDTWriter.cpp.o
+[ 96%] Building CXX object Code/GraphMol/Wrap/CMakeFiles/rdmolfiles.dir/PDBWriter.cpp.o
+Linking CXX shared module ../../../rdkit/Chem/rdmolfiles.so
+[ 96%] Built target rdmolfiles
+Scanning dependencies of target rdmolops
+[ 96%] Building CXX object Code/GraphMol/Wrap/CMakeFiles/rdmolops.dir/rdmolops.cpp.o
+[ 97%] Building CXX object Code/GraphMol/Wrap/CMakeFiles/rdmolops.dir/MolOps.cpp.o
+Linking CXX shared module ../../../rdkit/Chem/rdmolops.so
+[ 97%] Built target rdmolops
+Scanning dependencies of target rdqueries
+[ 97%] Building CXX object Code/GraphMol/Wrap/CMakeFiles/rdqueries.dir/rdqueries.cpp.o
+[ 97%] Building CXX object Code/GraphMol/Wrap/CMakeFiles/rdqueries.dir/Queries.cpp.o
+Linking CXX shared module ../../../rdkit/Chem/rdqueries.so
+[ 97%] Built target rdqueries
+Scanning dependencies of target rdtrajectory
+[ 97%] Building CXX object Code/GraphMol/Wrap/CMakeFiles/rdtrajectory.dir/Trajectory.cpp.o
+[ 97%] Building CXX object Code/GraphMol/Wrap/CMakeFiles/rdtrajectory.dir/rdTrajectory.cpp.o
+Linking CXX shared module ../../../rdkit/Chem/rdtrajectory.so
+[ 97%] Built target rdtrajectory
+Scanning dependencies of target testQuery
+[ 97%] Building CXX object Code/Query/CMakeFiles/testQuery.dir/test.cpp.o
+Linking CXX executable testQuery
+[ 97%] Built target testQuery
+Scanning dependencies of target testMatCalc
+[ 97%] Building CXX object Code/DataManip/MetricMatrixCalc/CMakeFiles/testMatCalc.dir/testMatCalc.cpp.o
+Linking CXX executable testMatCalc
+[ 97%] Built target testMatCalc
+Scanning dependencies of target rdMetricMatrixCalc
+[ 97%] Building CXX object Code/DataManip/MetricMatrixCalc/Wrap/CMakeFiles/rdMetricMatrixCalc.dir/rdMetricMatrixCalc.cpp.o
+Linking CXX shared module ../../../../rdkit/DataManip/Metric/rdMetricMatrixCalc.so
+[ 97%] Built target rdMetricMatrixCalc
+Scanning dependencies of target hc
+[ 97%] Building C object Code/ML/Cluster/Murtagh/CMakeFiles/hc.dir/hc.c.o
+[ 97%] Building C object Code/ML/Cluster/Murtagh/CMakeFiles/hc.dir/hcdriver.c.o
+Linking C shared library ../../../../lib/libhc.so
+[ 97%] Built target hc
+Scanning dependencies of target SimDivPickers
+[ 97%] Building CXX object Code/SimDivPickers/CMakeFiles/SimDivPickers.dir/DistPicker.cpp.o
+[ 97%] Building CXX object Code/SimDivPickers/CMakeFiles/SimDivPickers.dir/MaxMinPicker.cpp.o
+[ 98%] Building CXX object Code/SimDivPickers/CMakeFiles/SimDivPickers.dir/HierarchicalClusterPicker.cpp.o
+Linking CXX shared library ../../lib/libSimDivPickers.so
+[ 98%] Built target SimDivPickers
+Scanning dependencies of target SimDivPickers_static
+[ 98%] Building CXX object Code/SimDivPickers/CMakeFiles/SimDivPickers_static.dir/DistPicker.cpp.o
+[ 98%] Building CXX object Code/SimDivPickers/CMakeFiles/SimDivPickers_static.dir/MaxMinPicker.cpp.o
+[ 98%] Building CXX object Code/SimDivPickers/CMakeFiles/SimDivPickers_static.dir/HierarchicalClusterPicker.cpp.o
+Linking CXX static library libSimDivPickers_static.a
+[ 98%] Built target SimDivPickers_static
+Scanning dependencies of target rdSimDivPickers
+[ 98%] Building CXX object Code/SimDivPickers/Wrap/CMakeFiles/rdSimDivPickers.dir/MaxMinPicker.cpp.o
+[ 98%] Building CXX object Code/SimDivPickers/Wrap/CMakeFiles/rdSimDivPickers.dir/HierarchicalClusterPicker.cpp.o
+[ 98%] Building CXX object Code/SimDivPickers/Wrap/CMakeFiles/rdSimDivPickers.dir/rdSimDivPickers.cpp.o
+Linking CXX shared module ../../../rdkit/SimDivFilters/rdSimDivPickers.so
+[ 98%] Built target rdSimDivPickers
+Scanning dependencies of target Clustering
+[ 98%] Building CXX object Code/ML/Cluster/Murtagh/CMakeFiles/Clustering.dir/Clustering.cpp.o
+Linking CXX shared module ../../../../rdkit/ML/Cluster/Clustering.so
+[ 98%] Built target Clustering
+Scanning dependencies of target hc_static
+[ 98%] Building C object Code/ML/Cluster/Murtagh/CMakeFiles/hc_static.dir/hc.c.o
+[ 98%] Building C object Code/ML/Cluster/Murtagh/CMakeFiles/hc_static.dir/hcdriver.c.o
+Linking C static library libhc_static.a
+[ 98%] Built target hc_static
+Scanning dependencies of target InfoTheory
+[ 98%] Building CXX object Code/ML/InfoTheory/CMakeFiles/InfoTheory.dir/InfoBitRanker.cpp.o
+Linking CXX shared library ../../../lib/libInfoTheory.so
+[ 98%] Built target InfoTheory
+Scanning dependencies of target InfoTheory_static
+[ 98%] Building CXX object Code/ML/InfoTheory/CMakeFiles/InfoTheory_static.dir/InfoBitRanker.cpp.o
+Linking CXX static library libInfoTheory_static.a
+[ 98%] Built target InfoTheory_static
+Scanning dependencies of target rdInfoTheory
+[ 99%] Building CXX object Code/ML/InfoTheory/Wrap/CMakeFiles/rdInfoTheory.dir/InfoBitRanker.cpp.o
+[ 99%] Building CXX object Code/ML/InfoTheory/Wrap/CMakeFiles/rdInfoTheory.dir/BitCorrMatGenerator.cpp.o
+[ 99%] Building CXX object Code/ML/InfoTheory/Wrap/CMakeFiles/rdInfoTheory.dir/rdInfoTheory.cpp.o
+Linking CXX shared module ../../../../rdkit/ML/InfoTheory/rdInfoTheory.so
+[ 99%] Built target rdInfoTheory
+Scanning dependencies of target cQuantize
+[100%] Building CXX object Code/ML/Data/CMakeFiles/cQuantize.dir/cQuantize.cpp.o
+Linking CXX shared module ../../../rdkit/ML/Data/cQuantize.so
+[100%] Built target cQuantize
+Scanning dependencies of target ChemicalFeatures
+[100%] Building CXX object Code/ChemicalFeatures/CMakeFiles/ChemicalFeatures.dir/FreeChemicalFeature.cpp.o
+Linking CXX shared library ../../lib/libChemicalFeatures.so
+[100%] Built target ChemicalFeatures
+Scanning dependencies of target ChemicalFeatures_static
+[100%] Building CXX object Code/ChemicalFeatures/CMakeFiles/ChemicalFeatures_static.dir/FreeChemicalFeature.cpp.o
+Linking CXX static library libChemicalFeatures_static.a
+[100%] Built target ChemicalFeatures_static
+Scanning dependencies of target testChemicalFeatures
+[100%] Building CXX object Code/ChemicalFeatures/CMakeFiles/testChemicalFeatures.dir/testChemicalFeatures.cpp.o
+Linking CXX executable testChemicalFeatures
+[100%] Built target testChemicalFeatures
+Scanning dependencies of target rdChemicalFeatures
+[100%] Building CXX object Code/ChemicalFeatures/Wrap/CMakeFiles/rdChemicalFeatures.dir/rdChemicalFeatures.cpp.o
+[100%] Building CXX object Code/ChemicalFeatures/Wrap/CMakeFiles/rdChemicalFeatures.dir/FreeChemicalFeature.cpp.o
+Linking CXX shared module ../../../rdkit/Chem/rdChemicalFeatures.so
+[100%] Built target rdChemicalFeatures
+[  6%] Built target Inchi
+[ 13%] Built target Inchi_static
+[ 14%] Built target RDGeneral
+[ 16%] Built target DataStructs
+[ 17%] Built target RDGeometryLib
+[ 21%] Built target GraphMol
+[ 22%] Built target SubstructMatch
+[ 22%] Built target Depictor
+[ 23%] Built target SmilesParse
+[ 24%] Built target RDInchiLib
+[ 24%] Built target RDInchiLib_static
+[ 24%] Built target inchi_support
+[ 24%] Built target PartialCharges
+[ 27%] Built target FileParsers
+[ 27%] Built target Subgraphs
+[ 28%] Built target Descriptors
+[ 29%] Built target testInchi
+[ 29%] Built target RDBoost
+[ 29%] Built target rdinchi
+[ 30%] Built target RDGeneral_static
+[ 30%] Built target testDict
+[ 30%] Built target testRDValue
+[ 31%] Built target RDBoost_static
+[ 31%] Built target rdBase
+[ 33%] Built target DataStructs_static
+[ 34%] Built target testDataStructs
+[ 34%] Built target testFPB
+[ 35%] Built target testMultiFPB
+[ 36%] Built target cDataStructs
+[ 36%] Built target RDGeometryLib_static
+[ 36%] Built target testGrid
+[ 36%] Built target testTransforms
+[ 36%] Built target rdGeometry
+[ 36%] Built target testMatrices
+[ 36%] Built target Alignment
+[ 36%] Built target Alignment_static
+[ 36%] Built target testAlignment
+[ 37%] Built target rdAlignment
+[ 37%] Built target EigenSolvers
+[ 37%] Built target EigenSolvers_static
+[ 37%] Built target Optimizer
+[ 38%] Built target Optimizer_static
+[ 38%] Built target testOptimizer
+[ 42%] Built target ForceField
+[ 45%] Built target ForceField_static
+[ 46%] Built target ForceFieldHelpers
+[ 46%] Built target MolTransforms
+[ 46%] Built target testUFFForceField
+[ 47%] Built target MolAlign
+[ 47%] Built target DistGeometry
+[ 47%] Built target DistGeomHelpers
+[ 47%] Built target testMMFFForceField
+[ 47%] Built target rdForceField
+[ 48%] Built target DistGeometry_static
+[ 48%] Built target testDistGeom
+[ 48%] Built target DistGeom
+[ 48%] Built target Catalogs
+[ 49%] Built target Catalogs_static
+[ 54%] Built target GraphMol_static
+[ 54%] Built target graphmolIterTest
+[ 54%] Built target graphmolMemTest1
+[ 54%] Built target graphmolMolOpsTest
+[ 55%] Built target graphmolTest1
+[ 55%] Built target graphmolcpTest
+[ 55%] Built target graphmolqueryTest
+[ 55%] Built target graphmoltestCanon
+[ 55%] Built target graphmoltestChirality
+[ 55%] Built target graphmoltestPickler
+[ 56%] Built target hanoiTest
+[ 56%] Built target resMolSupplierTest
+[ 57%] Built target Depictor_static
+[ 58%] Built target ChemTransforms
+[ 58%] Built target testDepictor
+[ 58%] Built target rdDepictor
+[ 60%] Built target SmilesParse_static
+[ 61%] Built target smaTest1
+[ 61%] Built target smiTest1
+[ 64%] Built target FileParsers_static
+[ 64%] Built target fileParsersTest1
+[ 64%] Built target testMol2ToMol
+[ 64%] Built target testMolSupplier
+[ 64%] Built target testMolWriter
+[ 64%] Built target testSequence
+[ 64%] Built target testTplParser
+[ 64%] Built target SubstructMatch_static
+[ 64%] Built target testSubstructMatch
+[ 65%] Built target FilterCatalog
+[ 66%] Built target Fingerprints
+[ 68%] Built target ChemReactions
+[ 69%] Built target ChemReactions_static
+[ 69%] Built target testReaction
+[ 70%] Built target testReactionFingerprints
+[ 70%] Built target rdChemReactions
+[ 70%] Built target ChemTransforms_static
+[ 70%] Built target testChemTransforms
+[ 70%] Built target Subgraphs_static
+[ 70%] Built target testSubgraphs1
+[ 71%] Built target testSubgraphs2
+[ 71%] Built target FilterCatalog_static
+[ 71%] Built target filterCatalogTest
+[ 71%] Built target rdfiltercatalog
+[ 72%] Built target FragCatalog
+[ 73%] Built target FragCatalog_static
+[ 73%] Built target testFragCatalog
+[ 74%] Built target rdfragcatalog
+[ 75%] Built target Descriptors_static
+[ 75%] Built target testDescriptors
+[ 75%] Built target rdMolDescriptors
+[ 76%] Built target Fingerprints_static
+[ 76%] Built target testFingerprints
+[ 76%] Built target PartialCharges_static
+[ 76%] Built target testPartialCharges
+[ 76%] Built target rdPartialCharges
+[ 76%] Built target MolTransforms_static
+[ 76%] Built target testMolTransforms
+[ 76%] Built target rdMolTransforms
+[ 77%] Built target ForceFieldHelpers_static
+[ 77%] Built target testMMFFForceFieldHelpers
+[ 77%] Built target testUFFForceFieldHelpers
+[ 77%] Built target testCrystalForceField
+[ 77%] Built target rdForceFieldHelpers
+[ 78%] Built target DistGeomHelpers_static
+[ 78%] Built target testDistGeomHelpers
+[ 78%] Built target rdDistGeom
+[ 78%] Built target MolAlign_static
+[ 79%] Built target testMolAlign
+[ 79%] Built target rdMolAlign
+[ 80%] Built target MolChemicalFeatures
+[ 81%] Built target MolChemicalFeatures_static
+[ 81%] Built target testFeatures
+[ 81%] Built target rdMolChemicalFeatures
+[ 82%] Built target ShapeHelpers
+[ 82%] Built target ShapeHelpers_static
+[ 82%] Built target testShapeHelpers
+[ 83%] Built target rdShapeHelpers
+[ 83%] Built target MolCatalog
+[ 83%] Built target MolCatalog_static
+[ 83%] Built target testMolCatalog
+[ 84%] Built target rdMolCatalog
+[ 84%] Built target MolDraw2D
+[ 85%] Built target MolDraw2D_static
+[ 85%] Built target moldraw2DTest1
+[ 86%] Built target rdMolDraw2D
+[ 87%] Built target FMCS
+[ 88%] Built target FMCS_static
+[ 89%] Built target testFMCS
+[ 90%] Built target rdFMCS
+[ 90%] Built target FMCStest
+[ 90%] Built target MolHash
+[ 91%] Built target MolHash_static
+[ 91%] Built target testMolHash
+[ 91%] Built target rdMolHash
+[ 91%] Built target MMPA
+[ 91%] Built target MMPA_static
+[ 91%] Built target testMMPA
+[ 91%] Built target rdMMPA
+[ 91%] Built target ReducedGraphs
+[ 91%] Built target ReducedGraphs_static
+[ 91%] Built target testReducedGraphs
+[ 91%] Built target rdReducedGraphs
+[ 91%] Built target Trajectory
+[ 91%] Built target Trajectory_static
+[ 92%] Built target trajectoryTest
+[ 93%] Built target SLNParse
+[ 93%] Built target SLNParse_static
+[ 93%] Built target testSLNParse
+[ 93%] Built target rdSLNParse
+[ 95%] Built target rdchem
+[ 96%] Built target rdmolfiles
+[ 97%] Built target rdmolops
+[ 97%] Built target rdqueries
+[ 97%] Built target rdtrajectory
+[ 97%] Built target testQuery
+[ 97%] Built target testMatCalc
+[ 97%] Built target rdMetricMatrixCalc
+[ 97%] Built target hc
+[ 98%] Built target SimDivPickers
+[ 98%] Built target SimDivPickers_static
+[ 98%] Built target rdSimDivPickers
+[ 98%] Built target Clustering
+[ 98%] Built target hc_static
+[ 98%] Built target InfoTheory
+[ 98%] Built target InfoTheory_static
+[ 99%] Built target rdInfoTheory
+[100%] Built target cQuantize
+[100%] Built target ChemicalFeatures
+[100%] Built target ChemicalFeatures_static
+[100%] Built target testChemicalFeatures
+[100%] Built target rdChemicalFeatures
+Install the project...
+-- Install configuration: "Release"
+-- Installing: /usr/local/rdkit/lib/rdkit-targets.cmake
+-- Installing: /usr/local/rdkit/lib/rdkit-targets-release.cmake
+-- Installing: /usr/local/rdkit/lib/rdkit-config.cmake
+-- Installing: /usr/local/rdkit/lib/rdkit-config-version.cmake
+-- Installing: /usr/local/rdkit/lib/libInchi.so.1.2016.09.1.dev1
+-- Installing: /usr/local/rdkit/lib/libInchi.so.1
+-- Installing: /usr/local/rdkit/lib/libInchi.so
+-- Installing: /usr/local/rdkit/lib/libInchi_static.a
+-- Up-to-date: /usr/local/rdkit/lib/libInchi.so.1.2016.09.1.dev1
+-- Up-to-date: /usr/local/rdkit/lib/libInchi.so.1
+-- Up-to-date: /usr/local/rdkit/lib/libInchi.so
+-- Installing: /usr/local/rdkit/lib/libRDInchiLib.so.1.2016.09.1.dev1
+-- Installing: /usr/local/rdkit/lib/libRDInchiLib.so.1
+-- Installing: /usr/local/rdkit/lib/libRDInchiLib.so
+-- Removed runtime path from "/usr/local/rdkit/lib/libRDInchiLib.so.1.2016.09.1.dev1"
+-- Installing: /usr/local/rdkit/lib/libRDInchiLib_static.a
+-- Installing: /usr/local/rdkit/rdkit/Chem/rdinchi.so
+-- Removed runtime path from "/usr/local/rdkit/rdkit/Chem/rdinchi.so"
+-- Installing: /usr/local/rdkit/lib/libRDGeneral.so.1.2016.09.1.dev1
+-- Installing: /usr/local/rdkit/lib/libRDGeneral.so.1
+-- Installing: /usr/local/rdkit/lib/libRDGeneral.so
+-- Installing: /usr/local/rdkit/lib/libRDGeneral_static.a
+-- Installing: /usr/local/rdkit/lib/libRDBoost.so.1.2016.09.1.dev1
+-- Installing: /usr/local/rdkit/lib/libRDBoost.so.1
+-- Installing: /usr/local/rdkit/lib/libRDBoost.so
+-- Removed runtime path from "/usr/local/rdkit/lib/libRDBoost.so.1.2016.09.1.dev1"
+-- Installing: /usr/local/rdkit/lib/libRDBoost_static.a
+-- Installing: /usr/local/rdkit/rdkit/rdBase.so
+-- Removed runtime path from "/usr/local/rdkit/rdkit/rdBase.so"
+-- Installing: /usr/local/rdkit/lib/libDataStructs.so.1.2016.09.1.dev1
+-- Installing: /usr/local/rdkit/lib/libDataStructs.so.1
+-- Installing: /usr/local/rdkit/lib/libDataStructs.so
+-- Removed runtime path from "/usr/local/rdkit/lib/libDataStructs.so.1.2016.09.1.dev1"
+-- Installing: /usr/local/rdkit/lib/libDataStructs_static.a
+-- Installing: /usr/local/rdkit/rdkit/DataStructs/cDataStructs.so
+-- Removed runtime path from "/usr/local/rdkit/rdkit/DataStructs/cDataStructs.so"
+-- Installing: /usr/local/rdkit/lib/libRDGeometryLib.so.1.2016.09.1.dev1
+-- Installing: /usr/local/rdkit/lib/libRDGeometryLib.so.1
+-- Installing: /usr/local/rdkit/lib/libRDGeometryLib.so
+-- Removed runtime path from "/usr/local/rdkit/lib/libRDGeometryLib.so.1.2016.09.1.dev1"
+-- Installing: /usr/local/rdkit/lib/libRDGeometryLib_static.a
+-- Installing: /usr/local/rdkit/rdkit/Geometry/rdGeometry.so
+-- Removed runtime path from "/usr/local/rdkit/rdkit/Geometry/rdGeometry.so"
+-- Installing: /usr/local/rdkit/lib/libAlignment.so.1.2016.09.1.dev1
+-- Installing: /usr/local/rdkit/lib/libAlignment.so.1
+-- Installing: /usr/local/rdkit/lib/libAlignment.so
+-- Removed runtime path from "/usr/local/rdkit/lib/libAlignment.so.1.2016.09.1.dev1"
+-- Installing: /usr/local/rdkit/lib/libAlignment_static.a
+-- Installing: /usr/local/rdkit/rdkit/Numerics/rdAlignment.so
+-- Removed runtime path from "/usr/local/rdkit/rdkit/Numerics/rdAlignment.so"
+-- Installing: /usr/local/rdkit/lib/libEigenSolvers.so.1.2016.09.1.dev1
+-- Installing: /usr/local/rdkit/lib/libEigenSolvers.so.1
+-- Installing: /usr/local/rdkit/lib/libEigenSolvers.so
+-- Removed runtime path from "/usr/local/rdkit/lib/libEigenSolvers.so.1.2016.09.1.dev1"
+-- Installing: /usr/local/rdkit/lib/libEigenSolvers_static.a
+-- Installing: /usr/local/rdkit/lib/libOptimizer.so.1.2016.09.1.dev1
+-- Installing: /usr/local/rdkit/lib/libOptimizer.so.1
+-- Installing: /usr/local/rdkit/lib/libOptimizer.so
+-- Removed runtime path from "/usr/local/rdkit/lib/libOptimizer.so.1.2016.09.1.dev1"
+-- Installing: /usr/local/rdkit/lib/libOptimizer_static.a
+-- Installing: /usr/local/rdkit/lib/libForceField.so.1.2016.09.1.dev1
+-- Installing: /usr/local/rdkit/lib/libForceField.so.1
+-- Installing: /usr/local/rdkit/lib/libForceField.so
+-- Removed runtime path from "/usr/local/rdkit/lib/libForceField.so.1.2016.09.1.dev1"
+-- Installing: /usr/local/rdkit/lib/libForceField_static.a
+-- Installing: /usr/local/rdkit/rdkit/ForceField/rdForceField.so
+-- Removed runtime path from "/usr/local/rdkit/rdkit/ForceField/rdForceField.so"
+-- Installing: /usr/local/rdkit/lib/libDistGeometry.so.1.2016.09.1.dev1
+-- Installing: /usr/local/rdkit/lib/libDistGeometry.so.1
+-- Installing: /usr/local/rdkit/lib/libDistGeometry.so
+-- Removed runtime path from "/usr/local/rdkit/lib/libDistGeometry.so.1.2016.09.1.dev1"
+-- Installing: /usr/local/rdkit/lib/libDistGeometry_static.a
+-- Installing: /usr/local/rdkit/rdkit/DistanceGeometry/DistGeom.so
+-- Removed runtime path from "/usr/local/rdkit/rdkit/DistanceGeometry/DistGeom.so"
+-- Installing: /usr/local/rdkit/lib/libCatalogs.so.1.2016.09.1.dev1
+-- Installing: /usr/local/rdkit/lib/libCatalogs.so.1
+-- Installing: /usr/local/rdkit/lib/libCatalogs.so
+-- Removed runtime path from "/usr/local/rdkit/lib/libCatalogs.so.1.2016.09.1.dev1"
+-- Installing: /usr/local/rdkit/lib/libCatalogs_static.a
+-- Installing: /usr/local/rdkit/lib/libGraphMol.so.1.2016.09.1.dev1
+-- Installing: /usr/local/rdkit/lib/libGraphMol.so.1
+-- Installing: /usr/local/rdkit/lib/libGraphMol.so
+-- Removed runtime path from "/usr/local/rdkit/lib/libGraphMol.so.1.2016.09.1.dev1"
+-- Installing: /usr/local/rdkit/lib/libGraphMol_static.a
+-- Installing: /usr/local/rdkit/lib/libDepictor.so.1.2016.09.1.dev1
+-- Installing: /usr/local/rdkit/lib/libDepictor.so.1
+-- Installing: /usr/local/rdkit/lib/libDepictor.so
+-- Removed runtime path from "/usr/local/rdkit/lib/libDepictor.so.1.2016.09.1.dev1"
+-- Installing: /usr/local/rdkit/lib/libDepictor_static.a
+-- Installing: /usr/local/rdkit/rdkit/Chem/rdDepictor.so
+-- Removed runtime path from "/usr/local/rdkit/rdkit/Chem/rdDepictor.so"
+-- Installing: /usr/local/rdkit/lib/libSmilesParse.so.1.2016.09.1.dev1
+-- Installing: /usr/local/rdkit/lib/libSmilesParse.so.1
+-- Installing: /usr/local/rdkit/lib/libSmilesParse.so
+-- Removed runtime path from "/usr/local/rdkit/lib/libSmilesParse.so.1.2016.09.1.dev1"
+-- Installing: /usr/local/rdkit/lib/libSmilesParse_static.a
+-- Installing: /usr/local/rdkit/lib/libFileParsers.so.1.2016.09.1.dev1
+-- Installing: /usr/local/rdkit/lib/libFileParsers.so.1
+-- Installing: /usr/local/rdkit/lib/libFileParsers.so
+-- Removed runtime path from "/usr/local/rdkit/lib/libFileParsers.so.1.2016.09.1.dev1"
+-- Installing: /usr/local/rdkit/lib/libFileParsers_static.a
+-- Installing: /usr/local/rdkit/lib/libSubstructMatch.so.1.2016.09.1.dev1
+-- Installing: /usr/local/rdkit/lib/libSubstructMatch.so.1
+-- Installing: /usr/local/rdkit/lib/libSubstructMatch.so
+-- Removed runtime path from "/usr/local/rdkit/lib/libSubstructMatch.so.1.2016.09.1.dev1"
+-- Installing: /usr/local/rdkit/lib/libSubstructMatch_static.a
+-- Installing: /usr/local/rdkit/lib/libChemReactions.so.1.2016.09.1.dev1
+-- Installing: /usr/local/rdkit/lib/libChemReactions.so.1
+-- Installing: /usr/local/rdkit/lib/libChemReactions.so
+-- Removed runtime path from "/usr/local/rdkit/lib/libChemReactions.so.1.2016.09.1.dev1"
+-- Installing: /usr/local/rdkit/lib/libChemReactions_static.a
+-- Installing: /usr/local/rdkit/rdkit/Chem/rdChemReactions.so
+-- Removed runtime path from "/usr/local/rdkit/rdkit/Chem/rdChemReactions.so"
+-- Installing: /usr/local/rdkit/lib/libChemTransforms.so.1.2016.09.1.dev1
+-- Installing: /usr/local/rdkit/lib/libChemTransforms.so.1
+-- Installing: /usr/local/rdkit/lib/libChemTransforms.so
+-- Removed runtime path from "/usr/local/rdkit/lib/libChemTransforms.so.1.2016.09.1.dev1"
+-- Installing: /usr/local/rdkit/lib/libChemTransforms_static.a
+-- Installing: /usr/local/rdkit/lib/libSubgraphs.so.1.2016.09.1.dev1
+-- Installing: /usr/local/rdkit/lib/libSubgraphs.so.1
+-- Installing: /usr/local/rdkit/lib/libSubgraphs.so
+-- Removed runtime path from "/usr/local/rdkit/lib/libSubgraphs.so.1.2016.09.1.dev1"
+-- Installing: /usr/local/rdkit/lib/libSubgraphs_static.a
+-- Installing: /usr/local/rdkit/lib/libFilterCatalog.so.1.2016.09.1.dev1
+-- Installing: /usr/local/rdkit/lib/libFilterCatalog.so.1
+-- Installing: /usr/local/rdkit/lib/libFilterCatalog.so
+-- Removed runtime path from "/usr/local/rdkit/lib/libFilterCatalog.so.1.2016.09.1.dev1"
+-- Installing: /usr/local/rdkit/lib/libFilterCatalog_static.a
+-- Installing: /usr/local/rdkit/rdkit/Chem/rdfiltercatalog.so
+-- Removed runtime path from "/usr/local/rdkit/rdkit/Chem/rdfiltercatalog.so"
+-- Installing: /usr/local/rdkit/lib/libFragCatalog.so.1.2016.09.1.dev1
+-- Installing: /usr/local/rdkit/lib/libFragCatalog.so.1
+-- Installing: /usr/local/rdkit/lib/libFragCatalog.so
+-- Removed runtime path from "/usr/local/rdkit/lib/libFragCatalog.so.1.2016.09.1.dev1"
+-- Installing: /usr/local/rdkit/lib/libFragCatalog_static.a
+-- Installing: /usr/local/rdkit/rdkit/Chem/rdfragcatalog.so
+-- Removed runtime path from "/usr/local/rdkit/rdkit/Chem/rdfragcatalog.so"
+-- Installing: /usr/local/rdkit/lib/libDescriptors.so.1.2016.09.1.dev1
+-- Installing: /usr/local/rdkit/lib/libDescriptors.so.1
+-- Installing: /usr/local/rdkit/lib/libDescriptors.so
+-- Removed runtime path from "/usr/local/rdkit/lib/libDescriptors.so.1.2016.09.1.dev1"
+-- Installing: /usr/local/rdkit/lib/libDescriptors_static.a
+-- Installing: /usr/local/rdkit/rdkit/Chem/rdMolDescriptors.so
+-- Removed runtime path from "/usr/local/rdkit/rdkit/Chem/rdMolDescriptors.so"
+-- Installing: /usr/local/rdkit/lib/libFingerprints.so.1.2016.09.1.dev1
+-- Installing: /usr/local/rdkit/lib/libFingerprints.so.1
+-- Installing: /usr/local/rdkit/lib/libFingerprints.so
+-- Removed runtime path from "/usr/local/rdkit/lib/libFingerprints.so.1.2016.09.1.dev1"
+-- Installing: /usr/local/rdkit/lib/libFingerprints_static.a
+-- Installing: /usr/local/rdkit/lib/libPartialCharges.so.1.2016.09.1.dev1
+-- Installing: /usr/local/rdkit/lib/libPartialCharges.so.1
+-- Installing: /usr/local/rdkit/lib/libPartialCharges.so
+-- Removed runtime path from "/usr/local/rdkit/lib/libPartialCharges.so.1.2016.09.1.dev1"
+-- Installing: /usr/local/rdkit/lib/libPartialCharges_static.a
+-- Installing: /usr/local/rdkit/rdkit/Chem/rdPartialCharges.so
+-- Removed runtime path from "/usr/local/rdkit/rdkit/Chem/rdPartialCharges.so"
+-- Installing: /usr/local/rdkit/lib/libMolTransforms.so.1.2016.09.1.dev1
+-- Installing: /usr/local/rdkit/lib/libMolTransforms.so.1
+-- Installing: /usr/local/rdkit/lib/libMolTransforms.so
+-- Removed runtime path from "/usr/local/rdkit/lib/libMolTransforms.so.1.2016.09.1.dev1"
+-- Installing: /usr/local/rdkit/lib/libMolTransforms_static.a
+-- Installing: /usr/local/rdkit/rdkit/Chem/rdMolTransforms.so
+-- Removed runtime path from "/usr/local/rdkit/rdkit/Chem/rdMolTransforms.so"
+-- Installing: /usr/local/rdkit/lib/libForceFieldHelpers.so.1.2016.09.1.dev1
+-- Installing: /usr/local/rdkit/lib/libForceFieldHelpers.so.1
+-- Installing: /usr/local/rdkit/lib/libForceFieldHelpers.so
+-- Removed runtime path from "/usr/local/rdkit/lib/libForceFieldHelpers.so.1.2016.09.1.dev1"
+-- Installing: /usr/local/rdkit/lib/libForceFieldHelpers_static.a
+-- Installing: /usr/local/rdkit/rdkit/Chem/rdForceFieldHelpers.so
+-- Removed runtime path from "/usr/local/rdkit/rdkit/Chem/rdForceFieldHelpers.so"
+-- Installing: /usr/local/rdkit/lib/libDistGeomHelpers.so.1.2016.09.1.dev1
+-- Installing: /usr/local/rdkit/lib/libDistGeomHelpers.so.1
+-- Installing: /usr/local/rdkit/lib/libDistGeomHelpers.so
+-- Removed runtime path from "/usr/local/rdkit/lib/libDistGeomHelpers.so.1.2016.09.1.dev1"
+-- Installing: /usr/local/rdkit/lib/libDistGeomHelpers_static.a
+-- Installing: /usr/local/rdkit/rdkit/Chem/rdDistGeom.so
+-- Removed runtime path from "/usr/local/rdkit/rdkit/Chem/rdDistGeom.so"
+-- Installing: /usr/local/rdkit/lib/libMolAlign.so.1.2016.09.1.dev1
+-- Installing: /usr/local/rdkit/lib/libMolAlign.so.1
+-- Installing: /usr/local/rdkit/lib/libMolAlign.so
+-- Removed runtime path from "/usr/local/rdkit/lib/libMolAlign.so.1.2016.09.1.dev1"
+-- Installing: /usr/local/rdkit/lib/libMolAlign_static.a
+-- Installing: /usr/local/rdkit/rdkit/Chem/rdMolAlign.so
+-- Removed runtime path from "/usr/local/rdkit/rdkit/Chem/rdMolAlign.so"
+-- Installing: /usr/local/rdkit/lib/libMolChemicalFeatures.so.1.2016.09.1.dev1
+-- Installing: /usr/local/rdkit/lib/libMolChemicalFeatures.so.1
+-- Installing: /usr/local/rdkit/lib/libMolChemicalFeatures.so
+-- Removed runtime path from "/usr/local/rdkit/lib/libMolChemicalFeatures.so.1.2016.09.1.dev1"
+-- Installing: /usr/local/rdkit/lib/libMolChemicalFeatures_static.a
+-- Installing: /usr/local/rdkit/rdkit/Chem/rdMolChemicalFeatures.so
+-- Removed runtime path from "/usr/local/rdkit/rdkit/Chem/rdMolChemicalFeatures.so"
+-- Installing: /usr/local/rdkit/lib/libShapeHelpers.so.1.2016.09.1.dev1
+-- Installing: /usr/local/rdkit/lib/libShapeHelpers.so.1
+-- Installing: /usr/local/rdkit/lib/libShapeHelpers.so
+-- Removed runtime path from "/usr/local/rdkit/lib/libShapeHelpers.so.1.2016.09.1.dev1"
+-- Installing: /usr/local/rdkit/lib/libShapeHelpers_static.a
+-- Installing: /usr/local/rdkit/rdkit/Chem/rdShapeHelpers.so
+-- Removed runtime path from "/usr/local/rdkit/rdkit/Chem/rdShapeHelpers.so"
+-- Installing: /usr/local/rdkit/lib/libMolCatalog.so.1.2016.09.1.dev1
+-- Installing: /usr/local/rdkit/lib/libMolCatalog.so.1
+-- Installing: /usr/local/rdkit/lib/libMolCatalog.so
+-- Removed runtime path from "/usr/local/rdkit/lib/libMolCatalog.so.1.2016.09.1.dev1"
+-- Installing: /usr/local/rdkit/lib/libMolCatalog_static.a
+-- Installing: /usr/local/rdkit/rdkit/Chem/rdMolCatalog.so
+-- Removed runtime path from "/usr/local/rdkit/rdkit/Chem/rdMolCatalog.so"
+-- Installing: /usr/local/rdkit/lib/libMolDraw2D.so.1.2016.09.1.dev1
+-- Installing: /usr/local/rdkit/lib/libMolDraw2D.so.1
+-- Installing: /usr/local/rdkit/lib/libMolDraw2D.so
+-- Removed runtime path from "/usr/local/rdkit/lib/libMolDraw2D.so.1.2016.09.1.dev1"
+-- Installing: /usr/local/rdkit/lib/libMolDraw2D_static.a
+-- Installing: /usr/local/rdkit/rdkit/Chem/Draw/rdMolDraw2D.so
+-- Removed runtime path from "/usr/local/rdkit/rdkit/Chem/Draw/rdMolDraw2D.so"
+-- Installing: /usr/local/rdkit/lib/libFMCS.so.1.2016.09.1.dev1
+-- Installing: /usr/local/rdkit/lib/libFMCS.so.1
+-- Installing: /usr/local/rdkit/lib/libFMCS.so
+-- Removed runtime path from "/usr/local/rdkit/lib/libFMCS.so.1.2016.09.1.dev1"
+-- Installing: /usr/local/rdkit/lib/libFMCS_static.a
+-- Installing: /usr/local/rdkit/rdkit/Chem/rdFMCS.so
+-- Removed runtime path from "/usr/local/rdkit/rdkit/Chem/rdFMCS.so"
+-- Installing: /usr/local/rdkit/lib/libMolHash.so.1.2016.09.1.dev1
+-- Installing: /usr/local/rdkit/lib/libMolHash.so.1
+-- Installing: /usr/local/rdkit/lib/libMolHash.so
+-- Removed runtime path from "/usr/local/rdkit/lib/libMolHash.so.1.2016.09.1.dev1"
+-- Installing: /usr/local/rdkit/lib/libMolHash_static.a
+-- Installing: /usr/local/rdkit/rdkit/Chem/rdMolHash.so
+-- Removed runtime path from "/usr/local/rdkit/rdkit/Chem/rdMolHash.so"
+-- Installing: /usr/local/rdkit/lib/libMMPA.so.1.2016.09.1.dev1
+-- Installing: /usr/local/rdkit/lib/libMMPA.so.1
+-- Installing: /usr/local/rdkit/lib/libMMPA.so
+-- Removed runtime path from "/usr/local/rdkit/lib/libMMPA.so.1.2016.09.1.dev1"
+-- Installing: /usr/local/rdkit/lib/libMMPA_static.a
+-- Installing: /usr/local/rdkit/rdkit/Chem/rdMMPA.so
+-- Removed runtime path from "/usr/local/rdkit/rdkit/Chem/rdMMPA.so"
+-- Installing: /usr/local/rdkit/lib/libReducedGraphs.so.1.2016.09.1.dev1
+-- Installing: /usr/local/rdkit/lib/libReducedGraphs.so.1
+-- Installing: /usr/local/rdkit/lib/libReducedGraphs.so
+-- Removed runtime path from "/usr/local/rdkit/lib/libReducedGraphs.so.1.2016.09.1.dev1"
+-- Installing: /usr/local/rdkit/lib/libReducedGraphs_static.a
+-- Installing: /usr/local/rdkit/rdkit/Chem/rdReducedGraphs.so
+-- Removed runtime path from "/usr/local/rdkit/rdkit/Chem/rdReducedGraphs.so"
+-- Installing: /usr/local/rdkit/lib/libTrajectory.so.1.2016.09.1.dev1
+-- Installing: /usr/local/rdkit/lib/libTrajectory.so.1
+-- Installing: /usr/local/rdkit/lib/libTrajectory.so
+-- Removed runtime path from "/usr/local/rdkit/lib/libTrajectory.so.1.2016.09.1.dev1"
+-- Installing: /usr/local/rdkit/lib/libTrajectory_static.a
+-- Installing: /usr/local/rdkit/lib/libSLNParse.so.1.2016.09.1.dev1
+-- Installing: /usr/local/rdkit/lib/libSLNParse.so.1
+-- Installing: /usr/local/rdkit/lib/libSLNParse.so
+-- Removed runtime path from "/usr/local/rdkit/lib/libSLNParse.so.1.2016.09.1.dev1"
+-- Installing: /usr/local/rdkit/lib/libSLNParse_static.a
+-- Installing: /usr/local/rdkit/rdkit/Chem/rdSLNParse.so
+-- Removed runtime path from "/usr/local/rdkit/rdkit/Chem/rdSLNParse.so"
+-- Installing: /usr/local/rdkit/rdkit/Chem/rdchem.so
+-- Removed runtime path from "/usr/local/rdkit/rdkit/Chem/rdchem.so"
+-- Installing: /usr/local/rdkit/rdkit/Chem/rdmolops.so
+-- Removed runtime path from "/usr/local/rdkit/rdkit/Chem/rdmolops.so"
+-- Installing: /usr/local/rdkit/rdkit/Chem/rdqueries.so
+-- Removed runtime path from "/usr/local/rdkit/rdkit/Chem/rdqueries.so"
+-- Installing: /usr/local/rdkit/rdkit/Chem/rdmolfiles.so
+-- Removed runtime path from "/usr/local/rdkit/rdkit/Chem/rdmolfiles.so"
+-- Installing: /usr/local/rdkit/rdkit/Chem/rdtrajectory.so
+-- Removed runtime path from "/usr/local/rdkit/rdkit/Chem/rdtrajectory.so"
+-- Installing: /usr/local/rdkit/rdkit/DataManip/Metric/rdMetricMatrixCalc.so
+-- Removed runtime path from "/usr/local/rdkit/rdkit/DataManip/Metric/rdMetricMatrixCalc.so"
+-- Installing: /usr/local/rdkit/lib/libSimDivPickers.so.1.2016.09.1.dev1
+-- Installing: /usr/local/rdkit/lib/libSimDivPickers.so.1
+-- Installing: /usr/local/rdkit/lib/libSimDivPickers.so
+-- Removed runtime path from "/usr/local/rdkit/lib/libSimDivPickers.so.1.2016.09.1.dev1"
+-- Installing: /usr/local/rdkit/lib/libSimDivPickers_static.a
+-- Installing: /usr/local/rdkit/rdkit/SimDivFilters/rdSimDivPickers.so
+-- Removed runtime path from "/usr/local/rdkit/rdkit/SimDivFilters/rdSimDivPickers.so"
+-- Installing: /usr/local/rdkit/lib/libhc.so.1.2016.09.1.dev1
+-- Installing: /usr/local/rdkit/lib/libhc.so.1
+-- Installing: /usr/local/rdkit/lib/libhc.so
+-- Installing: /usr/local/rdkit/lib/libhc_static.a
+-- Installing: /usr/local/rdkit/rdkit/ML/Cluster/Clustering.so
+-- Removed runtime path from "/usr/local/rdkit/rdkit/ML/Cluster/Clustering.so"
+-- Installing: /usr/local/rdkit/lib/libInfoTheory.so.1.2016.09.1.dev1
+-- Installing: /usr/local/rdkit/lib/libInfoTheory.so.1
+-- Installing: /usr/local/rdkit/lib/libInfoTheory.so
+-- Removed runtime path from "/usr/local/rdkit/lib/libInfoTheory.so.1.2016.09.1.dev1"
+-- Installing: /usr/local/rdkit/lib/libInfoTheory_static.a
+-- Installing: /usr/local/rdkit/rdkit/ML/InfoTheory/rdInfoTheory.so
+-- Removed runtime path from "/usr/local/rdkit/rdkit/ML/InfoTheory/rdInfoTheory.so"
+-- Installing: /usr/local/rdkit/rdkit/ML/Data/cQuantize.so
+-- Removed runtime path from "/usr/local/rdkit/rdkit/ML/Data/cQuantize.so"
+-- Installing: /usr/local/rdkit/lib/libChemicalFeatures.so.1.2016.09.1.dev1
+-- Installing: /usr/local/rdkit/lib/libChemicalFeatures.so.1
+-- Installing: /usr/local/rdkit/lib/libChemicalFeatures.so
+-- Installing: /usr/local/rdkit/lib/libChemicalFeatures_static.a
+-- Installing: /usr/local/rdkit/rdkit/Chem/rdChemicalFeatures.so
+-- Removed runtime path from "/usr/local/rdkit/rdkit/Chem/rdChemicalFeatures.so"
+-- Installing: /usr/local/rdkit/rdkit/RDPaths.py
+ ---> 0de8c55119d2
+Removing intermediate container 37dcbc4cce71
+Successfully built 0de8c55119d2
